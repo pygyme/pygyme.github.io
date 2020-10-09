@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>风很轻、天很蓝、脚步很匆忙</title>
+  
+  
+  <link href="https://lukasma.com/atom.xml" rel="self"/>
+  
+  <link href="https://lukasma.com/"/>
+  <updated>2020-10-09T15:13:59.292Z</updated>
+  <id>https://lukasma.com/</id>
+  
+  <author>
+    <name>Lukas Ma</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTPS OCSP 踩坑</title>
+    <link href="https://lukasma.com/2020/05/12/Pitfalls-Https-OCSP/"/>
+    <id>https://lukasma.com/2020/05/12/Pitfalls-Https-OCSP/</id>
+    <published>2020-05-12T03:46:00.000Z</published>
+    <updated>2020-10-09T15:13:59.292Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="HTTPS-OCSP-踩坑"><a href="#HTTPS-OCSP-踩坑" class="headerlink" title="HTTPS OCSP 踩坑"></a>HTTPS OCSP 踩坑</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;HTTPS-OCSP-踩坑&quot;&gt;&lt;a href=&quot;#HTTPS-OCSP-踩坑&quot; class=&quot;headerlink&quot; title=&quot;HTTPS OCSP 踩坑&quot;&gt;&lt;/a&gt;HTTPS OCSP 踩坑&lt;/h2&gt;</summary>
+      
+    
+    
+    
+    <category term="Pitfalls" scheme="https://lukasma.com/categories/Pitfalls/"/>
+    
+    
+    <category term="OCSP" scheme="https://lukasma.com/tags/OCSP/"/>
+    
+    <category term="HTTPS" scheme="https://lukasma.com/tags/HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Murmur哈希</title>
+    <link href="https://lukasma.com/2020/05/02/murmurhash/"/>
+    <id>https://lukasma.com/2020/05/02/murmurhash/</id>
+    <published>2020-05-02T14:37:00.000Z</published>
+    <updated>2020-10-09T15:13:59.292Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MurmurHash算法"><a href="#MurmurHash算法" class="headerlink" title="MurmurHash算法"></a>MurmurHash算法</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AsyncLogging::append</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* logline, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="function">muduo::MutexLockGuard <span class="title">lock</span><span class="params">(mutex_)</span></span>;</span><br><span class="line">  <span class="keyword">if</span> (currentBuffer_-&gt;avail() &gt; len)</span><br><span class="line">  &#123;</span><br><span class="line">    currentBuffer_-&gt;append(logline, len);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    buffers_.push_back(<span class="built_in">std</span>::move(currentBuffer_));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nextBuffer_)</span><br><span class="line">    &#123;</span><br><span class="line">      currentBuffer_ = <span class="built_in">std</span>::move(nextBuffer_);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      currentBuffer_.reset(<span class="keyword">new</span> Buffer); <span class="comment">// Rarely happens</span></span><br><span class="line">    &#125;</span><br><span class="line">    currentBuffer_-&gt;append(logline, len);</span><br><span class="line">    cond_.notify();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;MurmurHash算法&quot;&gt;&lt;a href=&quot;#MurmurHash算法&quot; class=&quot;headerlink&quot; title=&quot;MurmurHash算法&quot;&gt;&lt;/a&gt;MurmurHash算法&lt;/h2&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;ta</summary>
+      
+    
+    
+    
+    <category term="Hash" scheme="https://lukasma.com/categories/Hash/"/>
+    
+    
+    <category term="Distributed System Algorithm" scheme="https://lukasma.com/tags/Distributed-System-Algorithm/"/>
+    
+    <category term="MurmurHash" scheme="https://lukasma.com/tags/MurmurHash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>术语: Fail Saft 和 Poka-yoke</title>
+    <link href="https://lukasma.com/2020/04/03/Glossary/Glossary.Fail-safe.Poka-yoke/"/>
+    <id>https://lukasma.com/2020/04/03/Glossary/Glossary.Fail-safe.Poka-yoke/</id>
+    <published>2020-04-03T02:23:00.000Z</published>
+    <updated>2020-10-09T15:13:59.292Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="术语-Fail-Saft-和-Poka-yoke"><a href="#术语-Fail-Saft-和-Poka-yoke" class="headerlink" title="术语: Fail Saft 和 Poka-yoke"></a>术语: Fail Saft 和 Poka-yoke</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;术语-Fail-Saft-和-Poka-yoke&quot;&gt;&lt;a href=&quot;#术语-Fail-Saft-和-Poka-yoke&quot; class=&quot;headerlink&quot; title=&quot;术语: Fail Saft 和 Poka-yoke&quot;&gt;&lt;/a&gt;术语: Fail Saft</summary>
+      
+    
+    
+    
+    <category term="Glossary" scheme="https://lukasma.com/categories/Glossary/"/>
+    
+    
+    <category term="Design Smell" scheme="https://lukasma.com/tags/Design-Smell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Design Smell: 执着于基本类型</title>
+    <link href="https://lukasma.com/2020/04/02/DesignSmell/DesignSmell-Primitive-Obsession/"/>
+    <id>https://lukasma.com/2020/04/02/DesignSmell/DesignSmell-Primitive-Obsession/</id>
+    <published>2020-04-02T11:52:00.000Z</published>
+    <updated>2020-10-09T15:13:59.291Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li>从基本类型转换领域模型（值对象）</li></ul><h2 id="代码片段1"><a href="#代码片段1" class="headerlink" title="代码片段1"></a>代码片段1</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AsyncLogging::append</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* logline, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="function">muduo::MutexLockGuard <span class="title">lock</span><span class="params">(mutex_)</span></span>;</span><br><span class="line">  <span class="keyword">if</span> (currentBuffer_-&gt;avail() &gt; len)</span><br><span class="line">  &#123;</span><br><span class="line">    currentBuffer_-&gt;append(logline, len);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    buffers_.push_back(<span class="built_in">std</span>::move(currentBuffer_));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nextBuffer_)</span><br><span class="line">    &#123;</span><br><span class="line">      currentBuffer_ = <span class="built_in">std</span>::move(nextBuffer_);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      currentBuffer_.reset(<span class="keyword">new</span> Buffer); <span class="comment">// Rarely happens</span></span><br><span class="line">    &#125;</span><br><span class="line">    currentBuffer_-&gt;append(logline, len);</span><br><span class="line">    cond_.notify();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="代码片段1-1"><a href="#代码片段1-1" class="headerlink" title="代码片段1"></a>代码片段1</h2><p>从基本类型转换领域模型（值对象）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;从基本类型转换领域模型（值对象）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;代码片段1&quot;&gt;&lt;a href=&quot;#代码片段1&quot; class=&quot;heade</summary>
+      
+    
+    
+    
+    <category term="Software Design" scheme="https://lukasma.com/categories/Software-Design/"/>
+    
+    
+    <category term="Design Smell" scheme="https://lukasma.com/tags/Design-Smell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Design Smell: 时空耦合</title>
+    <link href="https://lukasma.com/2020/04/01/DesignSmell/DesignSmell-Temporal-Coupling/"/>
+    <id>https://lukasma.com/2020/04/01/DesignSmell/DesignSmell-Temporal-Coupling/</id>
+    <published>2020-04-01T12:33:00.000Z</published>
+    <updated>2020-10-09T15:13:59.291Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Design-Smell-时空耦合"><a href="#Design-Smell-时空耦合" class="headerlink" title="Design Smell: 时空耦合"></a>Design Smell: 时空耦合</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AsyncLogging::append</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* logline, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="function">muduo::MutexLockGuard <span class="title">lock</span><span class="params">(mutex_)</span></span>;</span><br><span class="line">  <span class="keyword">if</span> (currentBuffer_-&gt;avail() &gt; len)</span><br><span class="line">  &#123;</span><br><span class="line">    currentBuffer_-&gt;append(logline, len);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    buffers_.push_back(<span class="built_in">std</span>::move(currentBuffer_));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nextBuffer_)</span><br><span class="line">    &#123;</span><br><span class="line">      currentBuffer_ = <span class="built_in">std</span>::move(nextBuffer_);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      currentBuffer_.reset(<span class="keyword">new</span> Buffer); <span class="comment">// Rarely happens</span></span><br><span class="line">    &#125;</span><br><span class="line">    currentBuffer_-&gt;append(logline, len);</span><br><span class="line">    cond_.notify();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Design-Smell-时空耦合&quot;&gt;&lt;a href=&quot;#Design-Smell-时空耦合&quot; class=&quot;headerlink&quot; title=&quot;Design Smell: 时空耦合&quot;&gt;&lt;/a&gt;Design Smell: 时空耦合&lt;/h2&gt;&lt;figure cla</summary>
+      
+    
+    
+    
+    <category term="Software Design" scheme="https://lukasma.com/categories/Software-Design/"/>
+    
+    
+    <category term="Design Smell" scheme="https://lukasma.com/tags/Design-Smell/"/>
+    
+  </entry>
+  
+</feed>
