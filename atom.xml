@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>PYGYME的技术博客</title>
+  
+  
+  <link href="https://pygyme.com/atom.xml" rel="self"/>
+  
+  <link href="https://pygyme.com/"/>
+  <updated>2024-03-24T03:16:46.576Z</updated>
+  <id>https://pygyme.com/</id>
+  
+  <author>
+    <name>PYGYME</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>包管理器vcpkg</title>
+    <link href="https://pygyme.com/C/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8vcpkg/"/>
+    <id>https://pygyme.com/C/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8vcpkg/</id>
+    <published>2024-01-24T12:03:00.000Z</published>
+    <updated>2024-03-24T03:16:46.576Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="包管理器vcpkg"><a href="#包管理器vcpkg" class="headerlink" title="包管理器vcpkg"></a>包管理器vcpkg</h1><p>学习 Versioning 特性，并且使用 vcpkg 来管理 Cmake 项目的依赖。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul><li><a href="https://www.cnblogs.com/vcpkg/p/15019907.html">VCPKG 特性 - Versioning</a></li><li><a href="https://www.cnblogs.com/vcpkg/p/16791033.html">Manifest使用示例2 - 依赖多个vcpkg的历史版本库</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;包管理器vcpkg&quot;&gt;&lt;a href=&quot;#包管理器vcpkg&quot; class=&quot;headerlink&quot; title=&quot;包管理器vcpkg&quot;&gt;&lt;/a&gt;包管理器vcpkg&lt;/h1&gt;&lt;p&gt;学习 Versioning 特性，并且使用 vcpkg 来管理 Cmake 项目的依</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="https://pygyme.com/categories/C/"/>
+    
+    
+    <category term="vcpkg" scheme="https://pygyme.com/tags/vcpkg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下scp命令</title>
+    <link href="https://pygyme.com/Linux/linux%E4%B8%8Bscp%E5%91%BD%E4%BB%A4/"/>
+    <id>https://pygyme.com/Linux/linux%E4%B8%8Bscp%E5%91%BD%E4%BB%A4/</id>
+    <published>2024-01-24T11:05:00.000Z</published>
+    <updated>2024-03-25T04:06:42.891Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux下scp命令"><a href="#Linux下scp命令" class="headerlink" title="Linux下scp命令"></a>Linux下scp命令</h1><p>scp可以进行简单的远程复制文件的功能。它是一个在各个主机之间进行复制或文件传输的一个命令工具。它使用一种同ssh一样的安全机制来进行文件的传输。</p><h2 id="scp常规的使用方式"><a href="#scp常规的使用方式" class="headerlink" title="scp常规的使用方式"></a>scp常规的使用方式</h2><p>注意：下面定义的远程计算机的主机域名是 <code>192.168.1.104</code>， 上传文件的路径是 <code>/usr/local/nginx/html/webs</code> 下面的文件；且 服务器的账号是  <code>root</code> ， 那么密码需要自己输入自己的密码即可。</p><p>从本地上传文件到远程计算机或服务器的命令如下：</p><p>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp my_local_file.zip root@192.168.1.104:/usr/local/nginx/html/webs<br></code></pre></td></tr></table></figure><p>从远程主机复制文件到本地主机(下载)的命令如下：（假如远程文件是about.zip）<br>  先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp root@192.168.1.104:/usr/local/nginx/html/webs/about.zip .<br></code></pre></td></tr></table></figure><h2 id="多文件传输"><a href="#多文件传输" class="headerlink" title="多文件传输"></a>多文件传输</h2><p>从本地文件复制多个文件到远程主机（多个文件使用空格分隔开）<br>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp index.css json.js root@192.168.1.104:/usr/local/nginx/html/webs<br></code></pre></td></tr></table></figure><p>从远程主机复制多个文件到当前目录<br>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp root@192.168.1.104:/usr/local/nginx/html/webs/\&#123;index.css,json.js\&#125; .<br></code></pre></td></tr></table></figure><h2 id="复制整个文件夹-使用r-switch-并且指定目录"><a href="#复制整个文件夹-使用r-switch-并且指定目录" class="headerlink" title="复制整个文件夹(使用r switch 并且指定目录)"></a>复制整个文件夹(使用r switch 并且指定目录)</h2><p>从本地文件复制整个文件夹到远程主机上（文件夹假如是diff）<br>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp -v -r diff root@192.168.1.104:/usr/local/nginx/html/webs<br></code></pre></td></tr></table></figure><p>从远程主机复制整个文件夹到本地目录下（文件夹假如是diff）<br>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp -r root@192.168.1.104:/usr/local/nginx/html/webs/diff .<br></code></pre></td></tr></table></figure><h2 id="在两个远程主机之间复制文件"><a href="#在两个远程主机之间复制文件" class="headerlink" title="在两个远程主机之间复制文件"></a>在两个远程主机之间复制文件</h2><p>scp也可以把文件从一个远程主机复制到另一个远程主机上。<br>如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp root@192.168.1.104:/usr/local/nginx/html/webs/xx.txt root@192.168.1.105:/usr/local/nginx/html/webs/<br></code></pre></td></tr></table></figure><h2 id="使用压缩来加快传输"><a href="#使用压缩来加快传输" class="headerlink" title="使用压缩来加快传输"></a>使用压缩来加快传输</h2><p>在文件传输的过程中，我们可以使用压缩文件来加快文件传输，我们可以使用 C选项来启用压缩功能，该文件在传输过程中被压缩，<br>在目的主机上被解压缩。</p><p>如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp -vrC diff root@192.168.1.104:/usr/local/nginx/html/webs<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Linux下scp命令&quot;&gt;&lt;a href=&quot;#Linux下scp命令&quot; class=&quot;headerlink&quot; title=&quot;Linux下scp命令&quot;&gt;&lt;/a&gt;Linux下scp命令&lt;/h1&gt;&lt;p&gt;scp可以进行简单的远程复制文件的功能。它是一个在各个主机之间进行复</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下内存占用分析</title>
+    <link href="https://pygyme.com/Linux/linux%E4%B8%8B%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
+    <id>https://pygyme.com/Linux/linux%E4%B8%8B%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/</id>
+    <published>2024-01-24T11:04:00.000Z</published>
+    <updated>2024-03-25T04:02:40.588Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux下内存占用分析"><a href="#Linux下内存占用分析" class="headerlink" title="Linux下内存占用分析"></a>Linux下内存占用分析</h1><h2 id="使用-free-命令进行分析"><a href="#使用-free-命令进行分析" class="headerlink" title="使用 free 命令进行分析"></a>使用 free 命令进行分析</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@k8s-control-plane-02 ~]# free -lwh<br>              total        used        free      shared     buffers       cache   available<br>Mem:          7.5Gi       4.7Gi       1.4Gi        72Mi          0B       1.4Gi       2.4Gi<br>Low:          7.5Gi       6.1Gi       1.4Gi<br>High:            0B          0B          0B<br>Swap:            0B          0B          0B<br>[root@k8s-control-plane-02 ~]#<br></code></pre></td></tr></table></figure><ul><li>Total(7.5Gi) =  Low used(6.1Gi)   + free(1.4Gi)</li><li>Low used(6.1Gi) = Mem used(4.7Gi) + cache(1.4Gi)</li></ul><h3 id="1-cache-字段说明"><a href="#1-cache-字段说明" class="headerlink" title="1. cache 字段说明"></a>1. cache 字段说明</h3><ul><li>cache: IO读缓存， 这个IO不只是文件IO，也可以是网络IO</li></ul><p>cache 就是缓存的意思。当系统读文件的时候，都是把数据从硬盘读到内存里，因为硬盘比内存慢很多，所以这个过程会很耗时。</p><p>为了提高效率，linux 会把读进来的文件在内存中缓存下来（因为读取相近部分的内容是程序很常见的情况），即使程序结束，cache 也不会被自动释放。</p><p>所以呢，如果有程序进行大量的读文件操作，你会发现内存使用率就上去了。</p><p>如果其他程序使用要使用内存的时候，linux 也会把这些没人使用的 cache 释放掉，给其他运行的程序使用。</p><p>手动去释放掉这部分内存：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo 1 &gt; /proc/sys/vm/drop_caches<br></code></pre></td></tr></table></figure><h3 id="2-buffer-字段说明"><a href="#2-buffer-字段说明" class="headerlink" title="2. buffer 字段说明"></a>2. buffer 字段说明</h3><ul><li>buffer: IO写缓存， 这个IO不只是文件IO，也可以是网络IO</li></ul><p>buffer 的意思和 cache 相近，不过稍有区别。</p><p>考虑内存写文件到硬盘的过程，因为硬盘太慢了，如果内存要等待数据写完之后才继续后面的操作，实在是效率很低的事情，也会影响程序的运行速度。</p><p>所以就有了 buffer，写到硬盘的数据会放到 buffer 里面，内存很快把数据写到 buffer，可以继续其他的工作，而硬盘可以在后台慢慢读出 buffer 中的数据，保存起来。这样就提高了读写的效率！</p><p>讲一个大家会经常遇到的例子，当我们把电脑里中的文件拷贝到 U 盘的时候，如果文件特别大，大家会遇到这种情况：明明看到文件已经拷贝完了，但系统还是会提示 U 盘正在使用中。这就是 buffer 的原因，拷贝程序把东西放到 buffer 之后，但是 U 盘还没有写完。</p><p>同样的，可以手动来 flush buffer 的内容，使用的命令是 sync。</p><h3 id="3-free-字段说明"><a href="#3-free-字段说明" class="headerlink" title="3. free 字段说明"></a>3. free 字段说明</h3><p>free 是真正尚未被使用的物理内存数量。</p><h3 id="4-available-字段说明"><a href="#4-available-字段说明" class="headerlink" title="4. available 字段说明"></a>4. available 字段说明</h3><p>available 是从应用程序的角度看到的可用内存数量。</p><p>Linux 内核为了提升磁盘操作的性能，会消耗一部分内存去缓存磁盘数据，就是我们介绍的 buffer 和 cache。所以对于内核来说，buffer 和 cache 都属于已经被使用的内存。</p><p>当应用程序需要内存时，如果没有足够的 free 内存可以用，内核就会从 buffer 和 cache 中回收内存来满足应用程序的请求。</p><p>所以从应用程序的角度来说，available  = free + buffer + cache。请注意，这只是一个很理想的计算方式，实际中的数据往往有较大的误差。</p><h3 id="5-shared-字段说明"><a href="#5-shared-字段说明" class="headerlink" title="5. shared 字段说明"></a>5. shared 字段说明</h3><p>shared 被共享使用的物理内存大小，是进程间通信的一种方式。</p><h3 id="6-swap-字段说明"><a href="#6-swap-字段说明" class="headerlink" title="6. swap 字段说明"></a>6. swap 字段说明</h3><p>swap 是实现虚拟内存的重要概念。如果系统的负载太大，内存被用完，可能会出现严重的问题。</p><p>swap 就是把硬盘上一部分空间当做内存使用，正在运行程序会使用物理内存，把没有正在使用的内存放到硬盘，这叫做 swap out；而把硬盘 swap 部分的内存重新放到物理内存中，叫做 swap in。</p><p>swap 可以再逻辑上扩大内存空间，但是会造成系统变慢，因为硬盘读写速度很慢。linux 系统比较智能，会把那些不怎么频繁使用的内存放到 swap。</p><h3 id="7-proc-meminfo-文件"><a href="#7-proc-meminfo-文件" class="headerlink" title="7. /proc/meminfo 文件"></a>7. /proc/meminfo 文件</h3><p>其实 free 命令中的信息都来自于 /proc/meminfo 文件。/proc/meminfo 文件包含了更多更原始的信息，只是看起来不太直观：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">cat <span class="hljs-regexp">/proc/m</span>eminfo<br></code></pre></td></tr></table></figure><h2 id="查看内存占用较高的进程"><a href="#查看内存占用较高的进程" class="headerlink" title="查看内存占用较高的进程"></a>查看内存占用较高的进程</h2><h3 id="使用-top-命令"><a href="#使用-top-命令" class="headerlink" title="使用 top 命令"></a>使用 top 命令</h3><p>执行 top 命令之后， </p><ul><li>输入 大写P 是按 cpu利用率排序</li><li>输入 大写M 是按 内存占用率排序</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Linux下内存占用分析&quot;&gt;&lt;a href=&quot;#Linux下内存占用分析&quot; class=&quot;headerlink&quot; title=&quot;Linux下内存占用分析&quot;&gt;&lt;/a&gt;Linux下内存占用分析&lt;/h1&gt;&lt;h2 id=&quot;使用-free-命令进行分析&quot;&gt;&lt;a href=&quot;</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>XFS文件系统异常断电修复</title>
+    <link href="https://pygyme.com/Linux/xfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%BC%82%E5%B8%B8%E6%96%AD%E7%94%B5%E4%BF%AE%E5%A4%8D/"/>
+    <id>https://pygyme.com/Linux/xfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%BC%82%E5%B8%B8%E6%96%AD%E7%94%B5%E4%BF%AE%E5%A4%8D/</id>
+    <published>2024-01-24T11:03:00.000Z</published>
+    <updated>2024-03-25T04:07:28.985Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="XFS文件系统异常断电修复"><a href="#XFS文件系统异常断电修复" class="headerlink" title="XFS文件系统异常断电修复"></a>XFS文件系统异常断电修复</h1><h2 id="异常断电导致xfs文件系统出错"><a href="#异常断电导致xfs文件系统出错" class="headerlink" title="异常断电导致xfs文件系统出错"></a>异常断电导致xfs文件系统出错</h2><p>问题描述，因为异常断电，xfs文件系统异常，无法正常开机启动系统。</p><p>因为文件系统是基于lvm创建的， 开机启动时，提示  /dev/pve/root 无法挂载到 / ， 需要修复。</p><h3 id="如何修复？"><a href="#如何修复？" class="headerlink" title="如何修复？"></a>如何修复？</h3><p>因为磁盘是使用lvm创建的，所有需要先激活卷组和逻辑卷。</p><ol><li><p>扫描卷组</p><p> 使用 vgscan 扫描，可以发现一个叫 pve 的卷组</p></li><li><p>激活卷组</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vgchange -ay  pve<br></code></pre></td></tr></table></figure><p> 注意： 激活卷组，只是激活而已，并没有挂载到系统</p></li></ol><ol start="3"><li><p>现在可以使用 lvscan 查看逻辑卷</p></li><li><p>修复之前，先尝试看能不能正常挂载</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir /asdf<br>mount /dev/pve/root /asdf<br></code></pre></td></tr></table></figure><p> 执行 mount 命令发现，无法挂载</p></li><li><p>使用 xfs_repair 进行修复</p><p> 先使用 xfs_repair 进行修复。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xfs_repair /dev/pve/root<br></code></pre></td></tr></table></figure><p> 如果不行，再使用 -L 选项强制修复， 此选项会清除文件系统的log日志。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xfs_repair -L /dev/pve/root<br></code></pre></td></tr></table></figure></li><li><p>修复之后，尝试重新挂载</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir /asdf<br>mount /dev/pve/root /asdf<br></code></pre></td></tr></table></figure><p> 执行 mount 命令后发现，现在可以正常挂载， 问题已修复。 可以重启。</p></li></ol><h2 id="lvm相关命令"><a href="#lvm相关命令" class="headerlink" title="lvm相关命令"></a>lvm相关命令</h2><p>dm是device mapper的意思，dm-0, dm-1的实体可以通过下面几个命令看出，lvm会把每个lv连接到一个/dev/dm-x的设备档，这个设备档并不是一个真正的磁盘，所以不会有分区表存在，不能把dm设备分区。</p><ol><li><code>iostat -d 1</code> ,可以查看device的实时I/O</li></ol><ol start="2"><li><p><code>dmsetup ls</code></p><p> <code>dmsetup info</code> 可以来查看dm设备（lvm）映射情况，可以看到主设备号，次设备号，看不到物理硬盘信息（sda/sdb）</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;XFS文件系统异常断电修复&quot;&gt;&lt;a href=&quot;#XFS文件系统异常断电修复&quot; class=&quot;headerlink&quot; title=&quot;XFS文件系统异常断电修复&quot;&gt;&lt;/a&gt;XFS文件系统异常断电修复&lt;/h1&gt;&lt;h2 id=&quot;异常断电导致xfs文件系统出错&quot;&gt;&lt;a h</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/tags/Linux/"/>
+    
+    <category term="LVM" scheme="https://pygyme.com/tags/LVM/"/>
+    
+    <category term="XFS" scheme="https://pygyme.com/tags/XFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu挂载Windows共享文件夹</title>
+    <link href="https://pygyme.com/Linux/ubuntu%E6%8C%82%E8%BD%BDwindows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
+    <id>https://pygyme.com/Linux/ubuntu%E6%8C%82%E8%BD%BDwindows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</id>
+    <published>2024-01-24T11:02:00.000Z</published>
+    <updated>2024-03-25T04:05:52.027Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ubuntu挂载Windows共享文件夹"><a href="#Ubuntu挂载Windows共享文件夹" class="headerlink" title="Ubuntu挂载Windows共享文件夹"></a>Ubuntu挂载Windows共享文件夹</h1><p>参考官方文档的配置： <a href="https://wiki.ubuntu.com/MountWindowsSharesPermanently">点击跳转</a></p><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install cifs-utils<br></code></pre></td></tr></table></figure><h2 id="Windows配置"><a href="#Windows配置" class="headerlink" title="Windows配置"></a>Windows配置</h2><p>不要设置每个人都可以读写文件夹，选择一个用户，只允许这个用户可以读写共享文件夹。</p><h2 id="Ubuntu配置"><a href="#Ubuntu配置" class="headerlink" title="Ubuntu配置"></a>Ubuntu配置</h2><h3 id="etc-fstab-文件配置"><a href="#etc-fstab-文件配置" class="headerlink" title="/etc/fstab 文件配置"></a>/etc/fstab 文件配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">lukas@ubuntu-vm:~$ cat /etc/fstab <br><span class="hljs-meta">#</span><span class="bash"> /etc/fstab: static file system information.</span><br><span class="hljs-meta">#</span><br><span class="hljs-meta">#</span><span class="bash"> Use <span class="hljs-string">&#x27;blkid&#x27;</span> to <span class="hljs-built_in">print</span> the universally unique identifier <span class="hljs-keyword">for</span> a</span><br><span class="hljs-meta">#</span><span class="bash"> device; this may be used with UUID= as a more robust way to name devices</span><br><span class="hljs-meta">#</span><span class="bash"> that works even <span class="hljs-keyword">if</span> disks are added and removed. See fstab(5).</span><br><span class="hljs-meta">#</span><br><span class="hljs-meta">#</span><span class="bash"> &lt;file system&gt; &lt;mount point&gt;   &lt;<span class="hljs-built_in">type</span>&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span><br>/dev/mapper/vgubuntu-root /               ext4    errors=remount-ro 0       1<br><span class="hljs-meta">#</span><span class="bash"> /boot/efi was on /dev/sda2 during installation</span><br>UUID=FB79-6FAD  /boot/efi       vfat    umask=0077      0       1<br>/dev/mapper/vgubuntu-swap_1 none            swap    sw              0       0<br><br>//172.17.0.1/diskd  /mnt/d  cifs   uid=lukas,username=lukas,password=linux,iocharset=utf8   0<br>//172.17.0.1/diske  /mnt/e  cifs   uid=lukas,username=lukas,password=linux,iocharset=utf8   0<br><br>lukas@ubuntu-vm:~$<br></code></pre></td></tr></table></figure><h3 id="配置选项说明"><a href="#配置选项说明" class="headerlink" title="配置选项说明"></a>配置选项说明</h3><ul><li>uid=lukas  这里是指定ubuntu用户，不指定的话，你会没有访问权限的。</li><li>username=lukas,password=linux   这里是windows用户名和密码， (设置windows共享的时候你指定的用户)</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Ubuntu挂载Windows共享文件夹&quot;&gt;&lt;a href=&quot;#Ubuntu挂载Windows共享文件夹&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu挂载Windows共享文件夹&quot;&gt;&lt;/a&gt;Ubuntu挂载Windows共享文件夹&lt;/h1&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/tags/Linux/"/>
+    
+    <category term="Ubuntu" scheme="https://pygyme.com/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统网络配置</title>
+    <link href="https://pygyme.com/Linux/linux%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    <id>https://pygyme.com/Linux/linux%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</id>
+    <published>2024-01-24T11:01:00.000Z</published>
+    <updated>2024-03-25T04:05:09.628Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux系统网络配置"><a href="#Linux系统网络配置" class="headerlink" title="Linux系统网络配置"></a>Linux系统网络配置</h1><p>下文说到需要配置网络的Linux系统，都是使用最小化安装，没有安装任何图形界面。</p><h2 id="RHEL-Rocky-Almalinux-Fedora-网络配置"><a href="#RHEL-Rocky-Almalinux-Fedora-网络配置" class="headerlink" title="RHEL/Rocky/Almalinux/Fedora 网络配置"></a>RHEL/Rocky/Almalinux/Fedora 网络配置</h2><h3 id="设置静态IP地址"><a href="#设置静态IP地址" class="headerlink" title="设置静态IP地址"></a>设置静态IP地址</h3><p>基于<code>nmcli</code>命令，一条命令即可完成静态IP配置，重启系统后生效。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmcli connection modify \<br>    <span class="hljs-string">&quot;<span class="hljs-subst">$(nmcli -t -f NAME c show --active | awk &#x27;! /^lo/ &#123; printf <span class="hljs-string">&quot;%s\n&quot;</span>, $0 &#125;&#x27;)</span>&quot;</span> \<br>    connection.autoconnect yes \<br>    ipv4.method manual \<br>    ipv4.addresses <span class="hljs-string">&quot;172.17.1.116/16&quot;</span> \<br>    ipv4.gateway 172.17.0.2 \<br>    ipv4.dns 8.8.8.8,8.8.4.4 \<br>    ipv6.method disabled<br></code></pre></td></tr></table></figure><h2 id="Ubuntu-网络配置"><a href="#Ubuntu-网络配置" class="headerlink" title="Ubuntu 网络配置"></a>Ubuntu 网络配置</h2><p>Ubuntu使用netplan来管理网络，默认使用dhcp，设置静态IP地址需要手写配置文件。</p><p>参考官方文档的配置： <a href="https://ubuntu.com/server/docs/network-configuration">点击跳转</a></p><h3 id="设置DHCP"><a href="#设置DHCP" class="headerlink" title="设置DHCP"></a>设置DHCP</h3><p>Ubuntu 的 systemd-networkd 默认使用 /etc/machine-id 来识别机器，当虚拟机克隆的时候，他们都有一样的 /etc/machine-id 和 DHCP server，因此返回的都是同一个 ip 了。</p><p>手写配置文件，完整配置文件<code>00-installer-config.yaml</code>，内容如下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">network:</span><br>  <span class="hljs-attr">ethernets:</span><br>    <span class="hljs-attr">ens33:</span><br>      <span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-comment"># 加上这一行，可以避免克隆的虚拟机获取到相同的IP地址</span><br>      <span class="hljs-attr">dhcp-identifier:</span> <span class="hljs-string">mac</span><br>  <span class="hljs-attr">version:</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure><h3 id="设置静态IP地址-1"><a href="#设置静态IP地址-1" class="headerlink" title="设置静态IP地址"></a>设置静态IP地址</h3><p>手写配置文件，完整配置文件<code>00-installer-config.yaml</code>，内容如下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">network:</span><br>  <span class="hljs-attr">ethernets:</span><br>    <span class="hljs-attr">ens18:</span><br>      <span class="hljs-attr">link-local:</span> [ <span class="hljs-string">ipv4</span> ]  <br>      <span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">no</span><br>      <span class="hljs-attr">addresses:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-number">172.17</span><span class="hljs-number">.1</span><span class="hljs-number">.121</span><span class="hljs-string">/16</span><br>      <span class="hljs-attr">gateway4:</span> <span class="hljs-number">172.17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>      <span class="hljs-attr">nameservers:</span><br>          <span class="hljs-attr">addresses:</span> [<span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span>, <span class="hljs-number">8.8</span><span class="hljs-number">.4</span><span class="hljs-number">.4</span>]<br>  <span class="hljs-attr">version:</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Linux系统网络配置&quot;&gt;&lt;a href=&quot;#Linux系统网络配置&quot; class=&quot;headerlink&quot; title=&quot;Linux系统网络配置&quot;&gt;&lt;/a&gt;Linux系统网络配置&lt;/h1&gt;&lt;p&gt;下文说到需要配置网络的Linux系统，都是使用最小化安装，没有安装任</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://pygyme.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Proxmox VE 安装与使用</title>
+    <link href="https://pygyme.com/Windows/proxmox-ve-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <id>https://pygyme.com/Windows/proxmox-ve-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
+    <published>2024-01-24T10:04:00.000Z</published>
+    <updated>2024-03-25T04:08:38.345Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Proxmox-VE-安装与使用"><a href="#Proxmox-VE-安装与使用" class="headerlink" title="Proxmox VE 安装与使用"></a>Proxmox VE 安装与使用</h1><h2 id="Proxmox-VE-虚拟机解除锁定"><a href="#Proxmox-VE-虚拟机解除锁定" class="headerlink" title="Proxmox VE 虚拟机解除锁定"></a>Proxmox VE 虚拟机解除锁定</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@pve:~<span class="hljs-comment"># qm unlock 106</span><br></code></pre></td></tr></table></figure><h2 id="Proxmox-VE-虚拟机打标签"><a href="#Proxmox-VE-虚拟机打标签" class="headerlink" title="Proxmox VE 虚拟机打标签"></a>Proxmox VE 虚拟机打标签</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@pve:~<span class="hljs-comment"># qm set 121 -tags app</span><br>update VM 121: -tags app<br>root@pve:~<span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure><h2 id="Proxmox-VE-虚拟机磁盘不释放"><a href="#Proxmox-VE-虚拟机磁盘不释放" class="headerlink" title="Proxmox VE 虚拟机磁盘不释放"></a>Proxmox VE 虚拟机磁盘不释放</h2><ol><li>问题描述</li></ol><p>PVE虚拟机磁盘删除大量文件后， 磁盘空间没有释放。</p><ol start="2"><li>解决方案</li></ol><p>关闭虚拟机， 在 硬件 选项里面， 双击 硬盘 ， 弹出的选项卡里面， 勾选 丢弃 。</p><p>开启虚拟机， ssh连上去， 执行 <code>fstrim -av</code> 命令。 命令执行成功之后， 磁盘空间就释放了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Proxmox-VE-安装与使用&quot;&gt;&lt;a href=&quot;#Proxmox-VE-安装与使用&quot; class=&quot;headerlink&quot; title=&quot;Proxmox VE 安装与使用&quot;&gt;&lt;/a&gt;Proxmox VE 安装与使用&lt;/h1&gt;&lt;h2 id=&quot;Proxmox-V</summary>
+      
+    
+    
+    
+    <category term="Windows" scheme="https://pygyme.com/categories/Windows/"/>
+    
+    
+    <category term="Proxmox VE" scheme="https://pygyme.com/tags/Proxmox-VE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hyper-V安装PVE</title>
+    <link href="https://pygyme.com/Windows/hyper-v%E5%AE%89%E8%A3%85pve/"/>
+    <id>https://pygyme.com/Windows/hyper-v%E5%AE%89%E8%A3%85pve/</id>
+    <published>2024-01-24T10:03:00.000Z</published>
+    <updated>2024-01-25T12:20:48.425Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Hyper-V安装PVE"><a href="#Hyper-V安装PVE" class="headerlink" title="Hyper-V安装PVE"></a>Hyper-V安装PVE</h2><h3 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h3><p>创建第二代虚拟机， 记得关掉安全启动，不然iso没法引导。</p><h3 id="开启嵌套虚拟化"><a href="#开启嵌套虚拟化" class="headerlink" title="开启嵌套虚拟化"></a>开启嵌套虚拟化</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set-VMProcessor</span> <span class="hljs-literal">-ExposeVirtualizationExtensions</span> <span class="hljs-variable">$true</span> <span class="hljs-literal">-VMName</span> PVE<br></code></pre></td></tr></table></figure><h3 id="新建NAT网络"><a href="#新建NAT网络" class="headerlink" title="新建NAT网络"></a>新建NAT网络</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set-VMProcessor</span> <span class="hljs-literal">-ExposeVirtualizationExtensions</span> <span class="hljs-variable">$true</span> <span class="hljs-literal">-VMName</span> PVE<br><br><span class="hljs-built_in">New-VMSwitch</span> <span class="hljs-literal">-SwitchName</span> <span class="hljs-string">&quot;PVE-NAT&quot;</span> <span class="hljs-literal">-SwitchType</span> Internal<br><br><span class="hljs-variable">$ifindex</span> = <span class="hljs-built_in">Get-NetAdapter</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">&quot;vEthernet (PVE-NAT)&quot;</span> | <span class="hljs-built_in">Select-Object</span> <span class="hljs-literal">-ExpandProperty</span> <span class="hljs-string">&#x27;ifIndex&#x27;</span><br><br><span class="hljs-built_in">New-NetIPAddress</span> <span class="hljs-literal">-IPAddress</span> <span class="hljs-number">172.17</span>.<span class="hljs-number">0.2</span> <span class="hljs-literal">-PrefixLength</span> <span class="hljs-number">16</span> <span class="hljs-literal">-InterfaceIndex</span> <span class="hljs-variable">$ifindex</span><br><br><span class="hljs-built_in">New-NetNat</span> <span class="hljs-literal">-Name</span> PVE<span class="hljs-literal">-NAT</span> <span class="hljs-literal">-InternalIPInterfaceAddressPrefix</span> <span class="hljs-number">172.17</span>.<span class="hljs-number">0.2</span>/<span class="hljs-number">24</span><br></code></pre></td></tr></table></figure><p>关于Nat网络，在已经安装了 VMware workstation 的时候，其实不用重新创建。</p><p>在 Hyper-V 里面创建一个虚拟网络交换机，使用外部网络， 选中 VMware workstation 已经创建好的 VMnet8 就行了。 </p><p>这样 Hyper-V 创建的虚拟机就可以跟 VMware workstation 创建的虚拟机相互通信。 这是最便捷的方式了。</p><p>如果外部局域网想要访问 VMnet8 里面的虚拟机，那就在windows开启路由转发，并且通讯双方都配置静态路由。</p><h3 id="为PVE虚拟机启用MAC地址欺骗"><a href="#为PVE虚拟机启用MAC地址欺骗" class="headerlink" title="为PVE虚拟机启用MAC地址欺骗"></a>为PVE虚拟机启用MAC地址欺骗</h3><p>选中虚拟机， 进入设置，在网络适配器 》 高级功能里面，勾选 启用mac地址欺骗。</p><p>如果不启用的话， pve虚拟机里面创建的虚拟机，不能与windows通信。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Hyper-V安装PVE&quot;&gt;&lt;a href=&quot;#Hyper-V安装PVE&quot; class=&quot;headerlink&quot; title=&quot;Hyper-V安装PVE&quot;&gt;&lt;/a&gt;Hyper-V安装PVE&lt;/h2&gt;&lt;h3 id=&quot;创建虚拟机&quot;&gt;&lt;a href=&quot;#创建虚拟机&quot; c</summary>
+      
+    
+    
+    
+    <category term="Windows" scheme="https://pygyme.com/categories/Windows/"/>
+    
+    
+    <category term="Hyper-V" scheme="https://pygyme.com/tags/Hyper-V/"/>
+    
+    <category term="Proxmox VE" scheme="https://pygyme.com/tags/Proxmox-VE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WSL常用命令</title>
+    <link href="https://pygyme.com/Windows/wsl%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://pygyme.com/Windows/wsl%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2024-01-24T10:02:00.000Z</published>
+    <updated>2024-01-25T12:20:41.826Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="WSL常用命令"><a href="#WSL常用命令" class="headerlink" title="WSL常用命令"></a>WSL常用命令</h1><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">wsl</span> <span class="hljs-string">--help Help 命令</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">--status  检查 WSL 状态</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">--update  更新 WSL</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">--shutdown  关闭</span><br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">-l 或 wsl --list 列出所有已安装虚拟机</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-l -v 显示详细信息(也不怎么详细)</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-l -o 列出网上可用的系统</span><br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">-t ubuntu 关闭ubuntu</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">--shutdown 关闭所有系统及虚拟机引擎</span><br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">-d ubuntu 启动ubuntu并进行终端</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-u root 以root身份支行</span><br> <br> <br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">--install 安装默认虚拟机(ubuntu)</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-l -o 列出网上可用的系统</span><br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">启动默认虚拟机并进入终端</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-s 虚拟机名 进入默认虚拟机</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;WSL常用命令&quot;&gt;&lt;a href=&quot;#WSL常用命令&quot; class=&quot;headerlink&quot; title=&quot;WSL常用命令&quot;&gt;&lt;/a&gt;WSL常用命令&lt;/h1&gt;&lt;figure class=&quot;highlight properties&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c</summary>
+      
+    
+    
+    
+    <category term="Windows" scheme="https://pygyme.com/categories/Windows/"/>
+    
+    
+    <category term="WSL2" scheme="https://pygyme.com/tags/WSL2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows删除流氓文件夹</title>
+    <link href="https://pygyme.com/Windows/windows%E5%88%A0%E9%99%A4%E6%B5%81%E6%B0%93%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
+    <id>https://pygyme.com/Windows/windows%E5%88%A0%E9%99%A4%E6%B5%81%E6%B0%93%E6%96%87%E4%BB%B6%E5%A4%B9/</id>
+    <published>2024-01-24T10:01:00.000Z</published>
+    <updated>2024-01-25T12:20:21.321Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Windows删除流氓文件夹"><a href="#Windows删除流氓文件夹" class="headerlink" title="Windows删除流氓文件夹"></a>Windows删除流氓文件夹</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>我们在使用电脑的过程中，尤其是办公，去创建一些文档，但是在删除的时候就删除不了了，系统提示“找不到该项目”，关于删除文件或者文件夹提示“找不到该项目”强删方法。</p><p>一个盘下面出现两个迅雷下载文件夹， 其中一个删不掉。</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>新建一个压缩文件，将它添加进压缩文件时勾选“压缩后删除源文件”，针对文件夹同样有效。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Windows删除流氓文件夹&quot;&gt;&lt;a href=&quot;#Windows删除流氓文件夹&quot; class=&quot;headerlink&quot; title=&quot;Windows删除流氓文件夹&quot;&gt;&lt;/a&gt;Windows删除流氓文件夹&lt;/h1&gt;&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问</summary>
+      
+    
+    
+    
+    <category term="Windows" scheme="https://pygyme.com/categories/Windows/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Redis的事件驱动实现-aeEventLoop</title>
+    <link href="https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E5%AE%9E%E7%8E%B0-aeeventloop/"/>
+    <id>https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E5%AE%9E%E7%8E%B0-aeeventloop/</id>
+    <published>2023-08-29T03:07:00.000Z</published>
+    <updated>2024-03-24T03:21:44.765Z</updated>
+    
+    
+    
+    
+    <category term="Redis-Analysis" scheme="https://pygyme.com/categories/Redis-Analysis/"/>
+    
+    
+    <category term="Redis" scheme="https://pygyme.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis的事件驱动模型 </title>
+    <link href="https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B/</id>
+    <published>2023-08-29T03:06:00.000Z</published>
+    <updated>2024-03-24T03:21:42.621Z</updated>
+    
+    
+    
+    
+    <category term="Redis-Analysis" scheme="https://pygyme.com/categories/Redis-Analysis/"/>
+    
+    
+    <category term="Redis" scheme="https://pygyme.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis的数据结构-字典</title>
+    <link href="https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8/"/>
+    <id>https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8/</id>
+    <published>2023-08-29T03:04:00.000Z</published>
+    <updated>2024-03-24T03:21:46.969Z</updated>
+    
+    
+    
+    
+    <category term="Redis-Analysis" scheme="https://pygyme.com/categories/Redis-Analysis/"/>
+    
+    
+    <category term="Redis" scheme="https://pygyme.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis的数据结构-整数集合</title>
+    <link href="https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B4%E6%95%B0%E9%9B%86%E5%90%88/"/>
+    <id>https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B4%E6%95%B0%E9%9B%86%E5%90%88/</id>
+    <published>2023-08-29T03:03:00.000Z</published>
+    <updated>2024-03-24T03:21:49.258Z</updated>
+    
+    
+    
+    
+    <category term="Redis-Analysis" scheme="https://pygyme.com/categories/Redis-Analysis/"/>
+    
+    
+    <category term="Redis" scheme="https://pygyme.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis的数据结构-链表</title>
+    <link href="https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/"/>
+    <id>https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/</id>
+    <published>2023-08-29T03:02:00.000Z</published>
+    <updated>2024-03-24T03:21:52.305Z</updated>
+    
+    
+    
+    
+    <category term="Redis-Analysis" scheme="https://pygyme.com/categories/Redis-Analysis/"/>
+    
+    
+    <category term="Redis" scheme="https://pygyme.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis的数据结构-string</title>
+    <link href="https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-string/"/>
+    <id>https://pygyme.com/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-string/</id>
+    <published>2023-08-29T03:01:00.000Z</published>
+    <updated>2024-03-24T03:22:01.515Z</updated>
+    
+    
+    
+    
+    <category term="Redis-Analysis" scheme="https://pygyme.com/categories/Redis-Analysis/"/>
+    
+    
+    <category term="Redis" scheme="https://pygyme.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis源码分析方法简介</title>
+    <link href="https://pygyme.com/Redis-Analysis/redis%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/"/>
+    <id>https://pygyme.com/Redis-Analysis/redis%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/</id>
+    <published>2023-08-29T03:00:00.000Z</published>
+    <updated>2024-03-24T03:21:34.793Z</updated>
+    
+    
+    
+    
+    <category term="Redis-Analysis" scheme="https://pygyme.com/categories/Redis-Analysis/"/>
+    
+    
+    <category term="Redis" scheme="https://pygyme.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>left join 与 right join 的区别</title>
+    <link href="https://pygyme.com/Relational-Database-Theory/left-join-%E4%B8%8E-right-join-%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://pygyme.com/Relational-Database-Theory/left-join-%E4%B8%8E-right-join-%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2022-08-29T14:37:00.000Z</published>
+    <updated>2024-03-24T03:25:20.865Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="left-join-与-right-join-的区别"><a href="#left-join-与-right-join-的区别" class="headerlink" title="left join 与 right join 的区别"></a>left join 与 right join 的区别</h2><h2 id="一、建表-SQL-Server"><a href="#一、建表-SQL-Server" class="headerlink" title="一、建表 (SQL Server)"></a>一、建表 (SQL Server)</h2><ol><li><p>创建 j1 表</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">use</span> db1<br><span class="hljs-keyword">go</span><br><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> dbo.j1<br>(<br>  <span class="hljs-keyword">id</span>  <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>  <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span><br>)<br><span class="hljs-keyword">go</span> <br></code></pre></td></tr></table></figure></li></ol><p>表中数据：</p><table><thead><tr><th align="left">id</th><th align="left">name</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">a</td></tr><tr><td align="left">2</td><td align="left">b</td></tr><tr><td align="left">3</td><td align="left">c</td></tr></tbody></table><ol start="2"><li>创建 j2 表</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">use</span> db1<br><span class="hljs-keyword">go</span><br><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> dbo.j2<br>(<br>  <span class="hljs-keyword">id</span>  <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>  <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span><br>)<br><span class="hljs-keyword">go</span><br></code></pre></td></tr></table></figure><p>表中数据：</p><table><thead><tr><th align="left">id</th><th align="left">name</th></tr></thead><tbody><tr><td align="left">2</td><td align="left">q</td></tr><tr><td align="left">3</td><td align="left">w</td></tr><tr><td align="left">2</td><td align="left">e</td></tr></tbody></table><h3 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h3><ol><li>j1  left join  j2</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> j1.id <span class="hljs-keyword">as</span> j1id, j1.name <span class="hljs-keyword">as</span> j1name, j2.id <span class="hljs-keyword">as</span> j2id, j2.name <span class="hljs-keyword">as</span> j2name<br><span class="hljs-keyword">from</span> j1<br><span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> j2 <span class="hljs-keyword">on</span> j1.id = j2.id;<br></code></pre></td></tr></table></figure><p>left join 结果:</p><table><thead><tr><th align="left">j1id</th><th align="left">j1name</th><th align="left">j2id</th><th align="left">j2name</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">a</td><td align="left">null</td><td align="left">null</td></tr><tr><td align="left">2</td><td align="left">b</td><td align="left">2</td><td align="left">q</td></tr><tr><td align="left">2</td><td align="left">b</td><td align="left">2</td><td align="left">e</td></tr><tr><td align="left">3</td><td align="left">c</td><td align="left">3</td><td align="left">w</td></tr></tbody></table><ol start="2"><li>j1  right join  j2</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> j1.id <span class="hljs-keyword">as</span> j1id, j1.name <span class="hljs-keyword">as</span> j1name, j2.id <span class="hljs-keyword">as</span> j2id, j2.name <span class="hljs-keyword">as</span> j2name<br><span class="hljs-keyword">from</span> j1<br><span class="hljs-keyword">right</span> <span class="hljs-keyword">join</span> j2 <span class="hljs-keyword">on</span> j1.id = j2.id;<br></code></pre></td></tr></table></figure><p>right join 结果:</p><table><thead><tr><th align="left">j1id</th><th align="left">j1name</th><th align="left">j2id</th><th align="left">j2name</th></tr></thead><tbody><tr><td align="left">2</td><td align="left">b</td><td align="left">2</td><td align="left">q</td></tr><tr><td align="left">3</td><td align="left">c</td><td align="left">3</td><td align="left">w</td></tr><tr><td align="left">2</td><td align="left">b</td><td align="left">2</td><td align="left">e</td></tr></tbody></table><p>可以看出区别在于 id为1的记录。</p><ul><li>j1  left join  j2 时， 以 j1 为主表， id为1的记录会显示在 join 结果中</li><li>j1  right join  j2 时，以 j2 为主表， j2中不包含 id为1的记录， 因此id为1的记录不会显示在 join 结果中。</li></ul><p>总结：  left join 的结果  跟 right join 的结果，其记录数量是不相同的。 具体结果需要具体分析。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;left-join-与-right-join-的区别&quot;&gt;&lt;a href=&quot;#left-join-与-right-join-的区别&quot; class=&quot;headerlink&quot; title=&quot;left join 与 right join 的区别&quot;&gt;&lt;/a&gt;left joi</summary>
+      
+    
+    
+    
+    <category term="Relational-Database-Theory" scheme="https://pygyme.com/categories/Relational-Database-Theory/"/>
+    
+    
+    <category term="Database" scheme="https://pygyme.com/tags/Database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git安装与配置</title>
+    <link href="https://pygyme.com/Git/git%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>https://pygyme.com/Git/git%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</id>
+    <published>2021-12-31T05:26:00.000Z</published>
+    <updated>2024-03-25T03:16:14.214Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git-SSH协议代理"><a href="#Git-SSH协议代理" class="headerlink" title="Git SSH协议代理"></a>Git SSH协议代理</h1><h2 id="Windows下面配置"><a href="#Windows下面配置" class="headerlink" title="Windows下面配置"></a>Windows下面配置</h2><p>在 <code>.ssh</code> 目录下，新建 <code>C:\Users\lukas\.ssh\config</code> 文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs conf">proxyCommand &quot;C:\Program Files\Git\mingw64\bin\connect&quot; -S 127.0.0.1:5081 %h %p<br><br>Host github.com<br>  User git<br>  Port 22<br>  Hostname github.com<br>  <br>Host ssh.github.com<br>  User git<br>  Port 443<br>  Hostname ssh.github.com<br></code></pre></td></tr></table></figure><ul><li>注意是 <code>C:\Users\lukas\.ssh\config</code> 文件, 而不是 <code>C:\Users\lukas\.gitconfig</code> 文件, 不要搞混了。</li><li><code>connect</code> 命令，只要安装了 <code>Git for windows</code> 就会有， 记得找到正确的位置。</li><li><code>127.0.0.1:5081</code> 是 socket5 服务器地址</li><li>不用写 <code>IdentityFile</code> 指令， 执行git命令时，会自动读取相关私钥文件；只要配置了相应的私钥，就不会有问题。</li></ul><h2 id="其他系统配置"><a href="#其他系统配置" class="headerlink" title="其他系统配置"></a>其他系统配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs conf">Host github.com *.github.com<br>User git<br># SSH默认端口22， HTTPS默认端口443<br>Port 22<br>Hostname %h<br># # 注意修改路径为你的路径<br># IdentityFile ~&#x2F;.ssh&#x2F;id_ed25519<br>AddKeysToAgent yes<br>TCPKeepAlive yes<br># Linux&#x2F;Mac走 HTTP 代理，需要安装socat， brew install socat<br># ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport&#x3D;8080<br># linux&#x2F;Mac走 socks5 代理（如 Shadowsocks） nc是linux自带的工具<br># ProxyCommand nc -v -x 127.0.0.1:1080 %h %p<br><br># Windows走 HTTP 代理,connect是git自带的工具<br># ProxyCommand connect -H 127.0.0.1:7890 -a none %h %p<br># Windows走 socks5 代理（如 Shadowsocks）<br># ProxyCommand connect -S 127.0.0.1:7890 -a none %h %p<br></code></pre></td></tr></table></figure><h2 id="Git多平台换行符设置"><a href="#Git多平台换行符设置" class="headerlink" title="Git多平台换行符设置"></a>Git多平台换行符设置</h2><h3 id="core-autocrlf-配置选项"><a href="#core-autocrlf-配置选项" class="headerlink" title="core.autocrlf 配置选项"></a><code>core.autocrlf</code> 配置选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 提交时转换为LF，检出时转换为CRLF</span><br>git config --global core.autocrlf <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 提交时转换为LF，检出时不转换</span><br>git config --global core.autocrlf input<br><br><span class="hljs-comment"># 提交检出均不转换</span><br>git config --global core.autocrlf <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><h3 id="core-safecrlf-配置选项"><a href="#core-safecrlf-配置选项" class="headerlink" title="core.safecrlf 配置选项"></a><code>core.safecrlf</code> 配置选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 拒绝提交包含混合换行符的文件</span><br>git config --global core.safecrlf <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 允许提交包含混合换行符的文件</span><br>git config --global core.safecrlf <span class="hljs-literal">false</span><br><br><span class="hljs-comment"># 提交包含混合换行符的文件时给出警告</span><br>git config --global core.safecrlf warn<br></code></pre></td></tr></table></figure><h3 id="换行符实际问题"><a href="#换行符实际问题" class="headerlink" title="换行符实际问题"></a>换行符实际问题</h3><p>Git跨平台工作时，才会碰到下面的问题， 如果一直在单一平台下工作，应该不会碰见该问题。</p><ol><li>问题描述</li></ol><ul><li>Windows 默认换行符 CRLF</li><li>Linux   默认换行符 LF</li><li>Mac     默认换行符 LF</li></ul><p>对于Git仓库中的文件，文件内如果出现非本平台的换行符，文件被视为整个被修改，从而导致出现下面这种情况：</p><ul><li>对于已经提交的文件， 由于换行符导致的问题， 被Git显示为未提交</li></ul><ol start="2"><li>问题解决方案</li></ol><p>Git跨平台下换行符使用原则： </p><ul><li>Git提交时统一使用 LF</li><li>Git检出时， 根据自己的平台来决定是否转换为CRLF</li><li>不要提交CRLF到仓库，提交时应该统一使用LF</li></ul><p>对于windows平台，推荐Git进行以下设置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global core.autocrlf <span class="hljs-literal">true</span><br>git config --global core.safecrlf <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><p>这样配置的意思是：</p><ul><li>提交时自动转换为LF，检出时转换为CRLF</li><li>拒绝提交包含混合换行符的文件</li></ul><p>对于Linux/MAC平台，推荐Git进行以下设置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global core.autocrlf input<br>git config --global core.safecrlf <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><p>这样配置的意思是：</p><ul><li>提交时自动转换为LF，检出时不转换为CRLF</li><li>拒绝提交包含混合换行符的文件</li></ul><ol start="3"><li>为什么要 拒绝提交包含混合换行符的文件 ？</li></ol><p>因为混合换行符会影响到 Git 的 diff 功能， 导致明明文件内容没有修改，却因为换行符，Git会显示文件被修改，从而影响到我们查看diff。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Git-SSH协议代理&quot;&gt;&lt;a href=&quot;#Git-SSH协议代理&quot; class=&quot;headerlink&quot; title=&quot;Git SSH协议代理&quot;&gt;&lt;/a&gt;Git SSH协议代理&lt;/h1&gt;&lt;h2 id=&quot;Windows下面配置&quot;&gt;&lt;a href=&quot;#Window</summary>
+      
+    
+    
+    
+    <category term="Git" scheme="https://pygyme.com/categories/Git/"/>
+    
+    
+    <category term="Git" scheme="https://pygyme.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>EF Core设置Gin索引</title>
+    <link href="https://pygyme.com/Relational-Database-PostgreSQL/ef-core%E8%AE%BE%E7%BD%AEgin%E7%B4%A2%E5%BC%95/"/>
+    <id>https://pygyme.com/Relational-Database-PostgreSQL/ef-core%E8%AE%BE%E7%BD%AEgin%E7%B4%A2%E5%BC%95/</id>
+    <published>2021-12-31T05:22:00.000Z</published>
+    <updated>2024-03-24T03:23:08.716Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="EF-Core中如何设置Gin索引"><a href="#EF-Core中如何设置Gin索引" class="headerlink" title="EF Core中如何设置Gin索引?"></a>EF Core中如何设置Gin索引?</h2><p><a href="https://stackoverflow.com/questions/54618858/can-jsonb-gin-indexes-be-specified-in-codefirst-entityframework-with-npgsql">https://stackoverflow.com/questions/54618858/can-jsonb-gin-indexes-be-specified-in-codefirst-entityframework-with-npgsql</a></p><hr><p>Since .ForNpgsqlHasMethod(“gin”) is obsolete, with EF Core 3.1 you can use this:</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c#">metaBuilder<br>    .HasIndex(x =&gt; x.DocumentNumber)<br>    .HasMethod(<span class="hljs-string">&quot;gin&quot;</span>)<br>    .HasOperators(<span class="hljs-string">&quot;gin_trgm_ops&quot;</span>);<br></code></pre></td></tr></table></figure><p>and your migration will look like this:</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c#">migrationBuilder.CreateIndex(<br>    name: <span class="hljs-string">&quot;IX_DocumentContentMeta_DocumentNumber&quot;</span>,<br>    table: <span class="hljs-string">&quot;DocumentContentMeta&quot;</span>,<br>    column: <span class="hljs-string">&quot;DocumentNumber&quot;</span>)<br>    .Annotation(<span class="hljs-string">&quot;Npgsql:IndexMethod&quot;</span>, <span class="hljs-string">&quot;gin&quot;</span>)<br>    .Annotation(<span class="hljs-string">&quot;Npgsql:IndexOperators&quot;</span>, <span class="hljs-keyword">new</span>[] &#123; <span class="hljs-string">&quot;gin_trgm_ops&quot;</span> &#125;);<br></code></pre></td></tr></table></figure><hr><p>Well, actually u can do it like this</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnModelCreating</span>(<span class="hljs-params">ModelBuilder modelBuilder</span>)</span><br><span class="hljs-function"></span>&#123;<br>    modelBuilder.Entity&lt;Artist&gt;()<br>       .HasIndex(a =&gt; <span class="hljs-keyword">new</span> &#123; a.Album &#125;)<br>       .ForNpgsqlHasMethod(<span class="hljs-string">&quot;gin&quot;</span>);<br><br>    <span class="hljs-keyword">base</span>.OnModelCreating(modelBuilder);<br>&#125;<br></code></pre></td></tr></table></figure><p>and when u run ef add migration, the sql query generated will be like:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> ix_artist_album <span class="hljs-keyword">ON</span> artist <span class="hljs-keyword">USING</span> gin (<span class="hljs-string">&quot;album&quot;</span>);<br></code></pre></td></tr></table></figure><p>Documentation in Npgsql: <a href="http://www.npgsql.org/efcore/modeling/indexes.html">http://www.npgsql.org/efcore/modeling/indexes.html</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;EF-Core中如何设置Gin索引&quot;&gt;&lt;a href=&quot;#EF-Core中如何设置Gin索引&quot; class=&quot;headerlink&quot; title=&quot;EF Core中如何设置Gin索引?&quot;&gt;&lt;/a&gt;EF Core中如何设置Gin索引?&lt;/h2&gt;&lt;p&gt;&lt;a href=</summary>
+      
+    
+    
+    
+    <category term="Relational-Database-PostgreSQL" scheme="https://pygyme.com/categories/Relational-Database-PostgreSQL/"/>
+    
+    
+    <category term="EFCore" scheme="https://pygyme.com/tags/EFCore/"/>
+    
+    <category term="Gin" scheme="https://pygyme.com/tags/Gin/"/>
+    
+  </entry>
+  
+</feed>

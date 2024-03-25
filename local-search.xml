@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>包管理器vcpkg</title>
+    <link href="/C/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8vcpkg/"/>
+    <url>/C/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8vcpkg/</url>
+    
+    <content type="html"><![CDATA[<h1 id="包管理器vcpkg"><a href="#包管理器vcpkg" class="headerlink" title="包管理器vcpkg"></a>包管理器vcpkg</h1><p>学习 Versioning 特性，并且使用 vcpkg 来管理 Cmake 项目的依赖。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul><li><a href="https://www.cnblogs.com/vcpkg/p/15019907.html">VCPKG 特性 - Versioning</a></li><li><a href="https://www.cnblogs.com/vcpkg/p/16791033.html">Manifest使用示例2 - 依赖多个vcpkg的历史版本库</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vcpkg</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux下scp命令</title>
+    <link href="/Linux/linux%E4%B8%8Bscp%E5%91%BD%E4%BB%A4/"/>
+    <url>/Linux/linux%E4%B8%8Bscp%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Linux下scp命令"><a href="#Linux下scp命令" class="headerlink" title="Linux下scp命令"></a>Linux下scp命令</h1><p>scp可以进行简单的远程复制文件的功能。它是一个在各个主机之间进行复制或文件传输的一个命令工具。它使用一种同ssh一样的安全机制来进行文件的传输。</p><h2 id="scp常规的使用方式"><a href="#scp常规的使用方式" class="headerlink" title="scp常规的使用方式"></a>scp常规的使用方式</h2><p>注意：下面定义的远程计算机的主机域名是 <code>192.168.1.104</code>， 上传文件的路径是 <code>/usr/local/nginx/html/webs</code> 下面的文件；且 服务器的账号是  <code>root</code> ， 那么密码需要自己输入自己的密码即可。</p><p>从本地上传文件到远程计算机或服务器的命令如下：</p><p>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp my_local_file.zip root@192.168.1.104:/usr/local/nginx/html/webs<br></code></pre></td></tr></table></figure><p>从远程主机复制文件到本地主机(下载)的命令如下：（假如远程文件是about.zip）<br>  先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp root@192.168.1.104:/usr/local/nginx/html/webs/about.zip .<br></code></pre></td></tr></table></figure><h2 id="多文件传输"><a href="#多文件传输" class="headerlink" title="多文件传输"></a>多文件传输</h2><p>从本地文件复制多个文件到远程主机（多个文件使用空格分隔开）<br>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp index.css json.js root@192.168.1.104:/usr/local/nginx/html/webs<br></code></pre></td></tr></table></figure><p>从远程主机复制多个文件到当前目录<br>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp root@192.168.1.104:/usr/local/nginx/html/webs/\&#123;index.css,json.js\&#125; .<br></code></pre></td></tr></table></figure><h2 id="复制整个文件夹-使用r-switch-并且指定目录"><a href="#复制整个文件夹-使用r-switch-并且指定目录" class="headerlink" title="复制整个文件夹(使用r switch 并且指定目录)"></a>复制整个文件夹(使用r switch 并且指定目录)</h2><p>从本地文件复制整个文件夹到远程主机上（文件夹假如是diff）<br>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp -v -r diff root@192.168.1.104:/usr/local/nginx/html/webs<br></code></pre></td></tr></table></figure><p>从远程主机复制整个文件夹到本地目录下（文件夹假如是diff）<br>先进入本地目录下，然后运行如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp -r root@192.168.1.104:/usr/local/nginx/html/webs/diff .<br></code></pre></td></tr></table></figure><h2 id="在两个远程主机之间复制文件"><a href="#在两个远程主机之间复制文件" class="headerlink" title="在两个远程主机之间复制文件"></a>在两个远程主机之间复制文件</h2><p>scp也可以把文件从一个远程主机复制到另一个远程主机上。<br>如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp root@192.168.1.104:/usr/local/nginx/html/webs/xx.txt root@192.168.1.105:/usr/local/nginx/html/webs/<br></code></pre></td></tr></table></figure><h2 id="使用压缩来加快传输"><a href="#使用压缩来加快传输" class="headerlink" title="使用压缩来加快传输"></a>使用压缩来加快传输</h2><p>在文件传输的过程中，我们可以使用压缩文件来加快文件传输，我们可以使用 C选项来启用压缩功能，该文件在传输过程中被压缩，<br>在目的主机上被解压缩。</p><p>如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp -vrC diff root@192.168.1.104:/usr/local/nginx/html/webs<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux下内存占用分析</title>
+    <link href="/Linux/linux%E4%B8%8B%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
+    <url>/Linux/linux%E4%B8%8B%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Linux下内存占用分析"><a href="#Linux下内存占用分析" class="headerlink" title="Linux下内存占用分析"></a>Linux下内存占用分析</h1><h2 id="使用-free-命令进行分析"><a href="#使用-free-命令进行分析" class="headerlink" title="使用 free 命令进行分析"></a>使用 free 命令进行分析</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@k8s-control-plane-02 ~]# free -lwh<br>              total        used        free      shared     buffers       cache   available<br>Mem:          7.5Gi       4.7Gi       1.4Gi        72Mi          0B       1.4Gi       2.4Gi<br>Low:          7.5Gi       6.1Gi       1.4Gi<br>High:            0B          0B          0B<br>Swap:            0B          0B          0B<br>[root@k8s-control-plane-02 ~]#<br></code></pre></td></tr></table></figure><ul><li>Total(7.5Gi) =  Low used(6.1Gi)   + free(1.4Gi)</li><li>Low used(6.1Gi) = Mem used(4.7Gi) + cache(1.4Gi)</li></ul><h3 id="1-cache-字段说明"><a href="#1-cache-字段说明" class="headerlink" title="1. cache 字段说明"></a>1. cache 字段说明</h3><ul><li>cache: IO读缓存， 这个IO不只是文件IO，也可以是网络IO</li></ul><p>cache 就是缓存的意思。当系统读文件的时候，都是把数据从硬盘读到内存里，因为硬盘比内存慢很多，所以这个过程会很耗时。</p><p>为了提高效率，linux 会把读进来的文件在内存中缓存下来（因为读取相近部分的内容是程序很常见的情况），即使程序结束，cache 也不会被自动释放。</p><p>所以呢，如果有程序进行大量的读文件操作，你会发现内存使用率就上去了。</p><p>如果其他程序使用要使用内存的时候，linux 也会把这些没人使用的 cache 释放掉，给其他运行的程序使用。</p><p>手动去释放掉这部分内存：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo 1 &gt; /proc/sys/vm/drop_caches<br></code></pre></td></tr></table></figure><h3 id="2-buffer-字段说明"><a href="#2-buffer-字段说明" class="headerlink" title="2. buffer 字段说明"></a>2. buffer 字段说明</h3><ul><li>buffer: IO写缓存， 这个IO不只是文件IO，也可以是网络IO</li></ul><p>buffer 的意思和 cache 相近，不过稍有区别。</p><p>考虑内存写文件到硬盘的过程，因为硬盘太慢了，如果内存要等待数据写完之后才继续后面的操作，实在是效率很低的事情，也会影响程序的运行速度。</p><p>所以就有了 buffer，写到硬盘的数据会放到 buffer 里面，内存很快把数据写到 buffer，可以继续其他的工作，而硬盘可以在后台慢慢读出 buffer 中的数据，保存起来。这样就提高了读写的效率！</p><p>讲一个大家会经常遇到的例子，当我们把电脑里中的文件拷贝到 U 盘的时候，如果文件特别大，大家会遇到这种情况：明明看到文件已经拷贝完了，但系统还是会提示 U 盘正在使用中。这就是 buffer 的原因，拷贝程序把东西放到 buffer 之后，但是 U 盘还没有写完。</p><p>同样的，可以手动来 flush buffer 的内容，使用的命令是 sync。</p><h3 id="3-free-字段说明"><a href="#3-free-字段说明" class="headerlink" title="3. free 字段说明"></a>3. free 字段说明</h3><p>free 是真正尚未被使用的物理内存数量。</p><h3 id="4-available-字段说明"><a href="#4-available-字段说明" class="headerlink" title="4. available 字段说明"></a>4. available 字段说明</h3><p>available 是从应用程序的角度看到的可用内存数量。</p><p>Linux 内核为了提升磁盘操作的性能，会消耗一部分内存去缓存磁盘数据，就是我们介绍的 buffer 和 cache。所以对于内核来说，buffer 和 cache 都属于已经被使用的内存。</p><p>当应用程序需要内存时，如果没有足够的 free 内存可以用，内核就会从 buffer 和 cache 中回收内存来满足应用程序的请求。</p><p>所以从应用程序的角度来说，available  = free + buffer + cache。请注意，这只是一个很理想的计算方式，实际中的数据往往有较大的误差。</p><h3 id="5-shared-字段说明"><a href="#5-shared-字段说明" class="headerlink" title="5. shared 字段说明"></a>5. shared 字段说明</h3><p>shared 被共享使用的物理内存大小，是进程间通信的一种方式。</p><h3 id="6-swap-字段说明"><a href="#6-swap-字段说明" class="headerlink" title="6. swap 字段说明"></a>6. swap 字段说明</h3><p>swap 是实现虚拟内存的重要概念。如果系统的负载太大，内存被用完，可能会出现严重的问题。</p><p>swap 就是把硬盘上一部分空间当做内存使用，正在运行程序会使用物理内存，把没有正在使用的内存放到硬盘，这叫做 swap out；而把硬盘 swap 部分的内存重新放到物理内存中，叫做 swap in。</p><p>swap 可以再逻辑上扩大内存空间，但是会造成系统变慢，因为硬盘读写速度很慢。linux 系统比较智能，会把那些不怎么频繁使用的内存放到 swap。</p><h3 id="7-proc-meminfo-文件"><a href="#7-proc-meminfo-文件" class="headerlink" title="7. /proc/meminfo 文件"></a>7. /proc/meminfo 文件</h3><p>其实 free 命令中的信息都来自于 /proc/meminfo 文件。/proc/meminfo 文件包含了更多更原始的信息，只是看起来不太直观：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">cat <span class="hljs-regexp">/proc/m</span>eminfo<br></code></pre></td></tr></table></figure><h2 id="查看内存占用较高的进程"><a href="#查看内存占用较高的进程" class="headerlink" title="查看内存占用较高的进程"></a>查看内存占用较高的进程</h2><h3 id="使用-top-命令"><a href="#使用-top-命令" class="headerlink" title="使用 top 命令"></a>使用 top 命令</h3><p>执行 top 命令之后， </p><ul><li>输入 大写P 是按 cpu利用率排序</li><li>输入 大写M 是按 内存占用率排序</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>XFS文件系统异常断电修复</title>
+    <link href="/Linux/xfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%BC%82%E5%B8%B8%E6%96%AD%E7%94%B5%E4%BF%AE%E5%A4%8D/"/>
+    <url>/Linux/xfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%BC%82%E5%B8%B8%E6%96%AD%E7%94%B5%E4%BF%AE%E5%A4%8D/</url>
+    
+    <content type="html"><![CDATA[<h1 id="XFS文件系统异常断电修复"><a href="#XFS文件系统异常断电修复" class="headerlink" title="XFS文件系统异常断电修复"></a>XFS文件系统异常断电修复</h1><h2 id="异常断电导致xfs文件系统出错"><a href="#异常断电导致xfs文件系统出错" class="headerlink" title="异常断电导致xfs文件系统出错"></a>异常断电导致xfs文件系统出错</h2><p>问题描述，因为异常断电，xfs文件系统异常，无法正常开机启动系统。</p><p>因为文件系统是基于lvm创建的， 开机启动时，提示  /dev/pve/root 无法挂载到 / ， 需要修复。</p><h3 id="如何修复？"><a href="#如何修复？" class="headerlink" title="如何修复？"></a>如何修复？</h3><p>因为磁盘是使用lvm创建的，所有需要先激活卷组和逻辑卷。</p><ol><li><p>扫描卷组</p><p> 使用 vgscan 扫描，可以发现一个叫 pve 的卷组</p></li><li><p>激活卷组</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vgchange -ay  pve<br></code></pre></td></tr></table></figure><p> 注意： 激活卷组，只是激活而已，并没有挂载到系统</p></li></ol><ol start="3"><li><p>现在可以使用 lvscan 查看逻辑卷</p></li><li><p>修复之前，先尝试看能不能正常挂载</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir /asdf<br>mount /dev/pve/root /asdf<br></code></pre></td></tr></table></figure><p> 执行 mount 命令发现，无法挂载</p></li><li><p>使用 xfs_repair 进行修复</p><p> 先使用 xfs_repair 进行修复。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xfs_repair /dev/pve/root<br></code></pre></td></tr></table></figure><p> 如果不行，再使用 -L 选项强制修复， 此选项会清除文件系统的log日志。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xfs_repair -L /dev/pve/root<br></code></pre></td></tr></table></figure></li><li><p>修复之后，尝试重新挂载</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir /asdf<br>mount /dev/pve/root /asdf<br></code></pre></td></tr></table></figure><p> 执行 mount 命令后发现，现在可以正常挂载， 问题已修复。 可以重启。</p></li></ol><h2 id="lvm相关命令"><a href="#lvm相关命令" class="headerlink" title="lvm相关命令"></a>lvm相关命令</h2><p>dm是device mapper的意思，dm-0, dm-1的实体可以通过下面几个命令看出，lvm会把每个lv连接到一个/dev/dm-x的设备档，这个设备档并不是一个真正的磁盘，所以不会有分区表存在，不能把dm设备分区。</p><ol><li><code>iostat -d 1</code> ,可以查看device的实时I/O</li></ol><ol start="2"><li><p><code>dmsetup ls</code></p><p> <code>dmsetup info</code> 可以来查看dm设备（lvm）映射情况，可以看到主设备号，次设备号，看不到物理硬盘信息（sda/sdb）</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>LVM</tag>
+      
+      <tag>XFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Ubuntu挂载Windows共享文件夹</title>
+    <link href="/Linux/ubuntu%E6%8C%82%E8%BD%BDwindows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
+    <url>/Linux/ubuntu%E6%8C%82%E8%BD%BDwindows%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Ubuntu挂载Windows共享文件夹"><a href="#Ubuntu挂载Windows共享文件夹" class="headerlink" title="Ubuntu挂载Windows共享文件夹"></a>Ubuntu挂载Windows共享文件夹</h1><p>参考官方文档的配置： <a href="https://wiki.ubuntu.com/MountWindowsSharesPermanently">点击跳转</a></p><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install cifs-utils<br></code></pre></td></tr></table></figure><h2 id="Windows配置"><a href="#Windows配置" class="headerlink" title="Windows配置"></a>Windows配置</h2><p>不要设置每个人都可以读写文件夹，选择一个用户，只允许这个用户可以读写共享文件夹。</p><h2 id="Ubuntu配置"><a href="#Ubuntu配置" class="headerlink" title="Ubuntu配置"></a>Ubuntu配置</h2><h3 id="etc-fstab-文件配置"><a href="#etc-fstab-文件配置" class="headerlink" title="/etc/fstab 文件配置"></a>/etc/fstab 文件配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">lukas@ubuntu-vm:~$ cat /etc/fstab <br><span class="hljs-meta">#</span><span class="bash"> /etc/fstab: static file system information.</span><br><span class="hljs-meta">#</span><br><span class="hljs-meta">#</span><span class="bash"> Use <span class="hljs-string">&#x27;blkid&#x27;</span> to <span class="hljs-built_in">print</span> the universally unique identifier <span class="hljs-keyword">for</span> a</span><br><span class="hljs-meta">#</span><span class="bash"> device; this may be used with UUID= as a more robust way to name devices</span><br><span class="hljs-meta">#</span><span class="bash"> that works even <span class="hljs-keyword">if</span> disks are added and removed. See fstab(5).</span><br><span class="hljs-meta">#</span><br><span class="hljs-meta">#</span><span class="bash"> &lt;file system&gt; &lt;mount point&gt;   &lt;<span class="hljs-built_in">type</span>&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span><br>/dev/mapper/vgubuntu-root /               ext4    errors=remount-ro 0       1<br><span class="hljs-meta">#</span><span class="bash"> /boot/efi was on /dev/sda2 during installation</span><br>UUID=FB79-6FAD  /boot/efi       vfat    umask=0077      0       1<br>/dev/mapper/vgubuntu-swap_1 none            swap    sw              0       0<br><br>//172.17.0.1/diskd  /mnt/d  cifs   uid=lukas,username=lukas,password=linux,iocharset=utf8   0<br>//172.17.0.1/diske  /mnt/e  cifs   uid=lukas,username=lukas,password=linux,iocharset=utf8   0<br><br>lukas@ubuntu-vm:~$<br></code></pre></td></tr></table></figure><h3 id="配置选项说明"><a href="#配置选项说明" class="headerlink" title="配置选项说明"></a>配置选项说明</h3><ul><li>uid=lukas  这里是指定ubuntu用户，不指定的话，你会没有访问权限的。</li><li>username=lukas,password=linux   这里是windows用户名和密码， (设置windows共享的时候你指定的用户)</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux系统网络配置</title>
+    <link href="/Linux/linux%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    <url>/Linux/linux%E7%B3%BB%E7%BB%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Linux系统网络配置"><a href="#Linux系统网络配置" class="headerlink" title="Linux系统网络配置"></a>Linux系统网络配置</h1><p>下文说到需要配置网络的Linux系统，都是使用最小化安装，没有安装任何图形界面。</p><h2 id="RHEL-Rocky-Almalinux-Fedora-网络配置"><a href="#RHEL-Rocky-Almalinux-Fedora-网络配置" class="headerlink" title="RHEL/Rocky/Almalinux/Fedora 网络配置"></a>RHEL/Rocky/Almalinux/Fedora 网络配置</h2><h3 id="设置静态IP地址"><a href="#设置静态IP地址" class="headerlink" title="设置静态IP地址"></a>设置静态IP地址</h3><p>基于<code>nmcli</code>命令，一条命令即可完成静态IP配置，重启系统后生效。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmcli connection modify \<br>    <span class="hljs-string">&quot;<span class="hljs-subst">$(nmcli -t -f NAME c show --active | awk &#x27;! /^lo/ &#123; printf <span class="hljs-string">&quot;%s\n&quot;</span>, $0 &#125;&#x27;)</span>&quot;</span> \<br>    connection.autoconnect yes \<br>    ipv4.method manual \<br>    ipv4.addresses <span class="hljs-string">&quot;172.17.1.116/16&quot;</span> \<br>    ipv4.gateway 172.17.0.2 \<br>    ipv4.dns 8.8.8.8,8.8.4.4 \<br>    ipv6.method disabled<br></code></pre></td></tr></table></figure><h2 id="Ubuntu-网络配置"><a href="#Ubuntu-网络配置" class="headerlink" title="Ubuntu 网络配置"></a>Ubuntu 网络配置</h2><p>Ubuntu使用netplan来管理网络，默认使用dhcp，设置静态IP地址需要手写配置文件。</p><p>参考官方文档的配置： <a href="https://ubuntu.com/server/docs/network-configuration">点击跳转</a></p><h3 id="设置DHCP"><a href="#设置DHCP" class="headerlink" title="设置DHCP"></a>设置DHCP</h3><p>Ubuntu 的 systemd-networkd 默认使用 /etc/machine-id 来识别机器，当虚拟机克隆的时候，他们都有一样的 /etc/machine-id 和 DHCP server，因此返回的都是同一个 ip 了。</p><p>手写配置文件，完整配置文件<code>00-installer-config.yaml</code>，内容如下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">network:</span><br>  <span class="hljs-attr">ethernets:</span><br>    <span class="hljs-attr">ens33:</span><br>      <span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-comment"># 加上这一行，可以避免克隆的虚拟机获取到相同的IP地址</span><br>      <span class="hljs-attr">dhcp-identifier:</span> <span class="hljs-string">mac</span><br>  <span class="hljs-attr">version:</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure><h3 id="设置静态IP地址-1"><a href="#设置静态IP地址-1" class="headerlink" title="设置静态IP地址"></a>设置静态IP地址</h3><p>手写配置文件，完整配置文件<code>00-installer-config.yaml</code>，内容如下：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">network:</span><br>  <span class="hljs-attr">ethernets:</span><br>    <span class="hljs-attr">ens18:</span><br>      <span class="hljs-attr">link-local:</span> [ <span class="hljs-string">ipv4</span> ]  <br>      <span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">no</span><br>      <span class="hljs-attr">addresses:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-number">172.17</span><span class="hljs-number">.1</span><span class="hljs-number">.121</span><span class="hljs-string">/16</span><br>      <span class="hljs-attr">gateway4:</span> <span class="hljs-number">172.17</span><span class="hljs-number">.0</span><span class="hljs-number">.2</span><br>      <span class="hljs-attr">nameservers:</span><br>          <span class="hljs-attr">addresses:</span> [<span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span>, <span class="hljs-number">8.8</span><span class="hljs-number">.4</span><span class="hljs-number">.4</span>]<br>  <span class="hljs-attr">version:</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Proxmox VE 安装与使用</title>
+    <link href="/Windows/proxmox-ve-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <url>/Windows/proxmox-ve-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Proxmox-VE-安装与使用"><a href="#Proxmox-VE-安装与使用" class="headerlink" title="Proxmox VE 安装与使用"></a>Proxmox VE 安装与使用</h1><h2 id="Proxmox-VE-虚拟机解除锁定"><a href="#Proxmox-VE-虚拟机解除锁定" class="headerlink" title="Proxmox VE 虚拟机解除锁定"></a>Proxmox VE 虚拟机解除锁定</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@pve:~<span class="hljs-comment"># qm unlock 106</span><br></code></pre></td></tr></table></figure><h2 id="Proxmox-VE-虚拟机打标签"><a href="#Proxmox-VE-虚拟机打标签" class="headerlink" title="Proxmox VE 虚拟机打标签"></a>Proxmox VE 虚拟机打标签</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@pve:~<span class="hljs-comment"># qm set 121 -tags app</span><br>update VM 121: -tags app<br>root@pve:~<span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure><h2 id="Proxmox-VE-虚拟机磁盘不释放"><a href="#Proxmox-VE-虚拟机磁盘不释放" class="headerlink" title="Proxmox VE 虚拟机磁盘不释放"></a>Proxmox VE 虚拟机磁盘不释放</h2><ol><li>问题描述</li></ol><p>PVE虚拟机磁盘删除大量文件后， 磁盘空间没有释放。</p><ol start="2"><li>解决方案</li></ol><p>关闭虚拟机， 在 硬件 选项里面， 双击 硬盘 ， 弹出的选项卡里面， 勾选 丢弃 。</p><p>开启虚拟机， ssh连上去， 执行 <code>fstrim -av</code> 命令。 命令执行成功之后， 磁盘空间就释放了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Proxmox VE</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hyper-V安装PVE</title>
+    <link href="/Windows/hyper-v%E5%AE%89%E8%A3%85pve/"/>
+    <url>/Windows/hyper-v%E5%AE%89%E8%A3%85pve/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Hyper-V安装PVE"><a href="#Hyper-V安装PVE" class="headerlink" title="Hyper-V安装PVE"></a>Hyper-V安装PVE</h2><h3 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h3><p>创建第二代虚拟机， 记得关掉安全启动，不然iso没法引导。</p><h3 id="开启嵌套虚拟化"><a href="#开启嵌套虚拟化" class="headerlink" title="开启嵌套虚拟化"></a>开启嵌套虚拟化</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set-VMProcessor</span> <span class="hljs-literal">-ExposeVirtualizationExtensions</span> <span class="hljs-variable">$true</span> <span class="hljs-literal">-VMName</span> PVE<br></code></pre></td></tr></table></figure><h3 id="新建NAT网络"><a href="#新建NAT网络" class="headerlink" title="新建NAT网络"></a>新建NAT网络</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set-VMProcessor</span> <span class="hljs-literal">-ExposeVirtualizationExtensions</span> <span class="hljs-variable">$true</span> <span class="hljs-literal">-VMName</span> PVE<br><br><span class="hljs-built_in">New-VMSwitch</span> <span class="hljs-literal">-SwitchName</span> <span class="hljs-string">&quot;PVE-NAT&quot;</span> <span class="hljs-literal">-SwitchType</span> Internal<br><br><span class="hljs-variable">$ifindex</span> = <span class="hljs-built_in">Get-NetAdapter</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">&quot;vEthernet (PVE-NAT)&quot;</span> | <span class="hljs-built_in">Select-Object</span> <span class="hljs-literal">-ExpandProperty</span> <span class="hljs-string">&#x27;ifIndex&#x27;</span><br><br><span class="hljs-built_in">New-NetIPAddress</span> <span class="hljs-literal">-IPAddress</span> <span class="hljs-number">172.17</span>.<span class="hljs-number">0.2</span> <span class="hljs-literal">-PrefixLength</span> <span class="hljs-number">16</span> <span class="hljs-literal">-InterfaceIndex</span> <span class="hljs-variable">$ifindex</span><br><br><span class="hljs-built_in">New-NetNat</span> <span class="hljs-literal">-Name</span> PVE<span class="hljs-literal">-NAT</span> <span class="hljs-literal">-InternalIPInterfaceAddressPrefix</span> <span class="hljs-number">172.17</span>.<span class="hljs-number">0.2</span>/<span class="hljs-number">24</span><br></code></pre></td></tr></table></figure><p>关于Nat网络，在已经安装了 VMware workstation 的时候，其实不用重新创建。</p><p>在 Hyper-V 里面创建一个虚拟网络交换机，使用外部网络， 选中 VMware workstation 已经创建好的 VMnet8 就行了。 </p><p>这样 Hyper-V 创建的虚拟机就可以跟 VMware workstation 创建的虚拟机相互通信。 这是最便捷的方式了。</p><p>如果外部局域网想要访问 VMnet8 里面的虚拟机，那就在windows开启路由转发，并且通讯双方都配置静态路由。</p><h3 id="为PVE虚拟机启用MAC地址欺骗"><a href="#为PVE虚拟机启用MAC地址欺骗" class="headerlink" title="为PVE虚拟机启用MAC地址欺骗"></a>为PVE虚拟机启用MAC地址欺骗</h3><p>选中虚拟机， 进入设置，在网络适配器 》 高级功能里面，勾选 启用mac地址欺骗。</p><p>如果不启用的话， pve虚拟机里面创建的虚拟机，不能与windows通信。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hyper-V</tag>
+      
+      <tag>Proxmox VE</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>WSL常用命令</title>
+    <link href="/Windows/wsl%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <url>/Windows/wsl%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h1 id="WSL常用命令"><a href="#WSL常用命令" class="headerlink" title="WSL常用命令"></a>WSL常用命令</h1><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">wsl</span> <span class="hljs-string">--help Help 命令</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">--status  检查 WSL 状态</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">--update  更新 WSL</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">--shutdown  关闭</span><br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">-l 或 wsl --list 列出所有已安装虚拟机</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-l -v 显示详细信息(也不怎么详细)</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-l -o 列出网上可用的系统</span><br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">-t ubuntu 关闭ubuntu</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">--shutdown 关闭所有系统及虚拟机引擎</span><br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">-d ubuntu 启动ubuntu并进行终端</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-u root 以root身份支行</span><br> <br> <br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">--install 安装默认虚拟机(ubuntu)</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-l -o 列出网上可用的系统</span><br> <br> <br><span class="hljs-attr">wsl</span> <span class="hljs-string">启动默认虚拟机并进入终端</span><br><span class="hljs-attr">wsl</span> <span class="hljs-string">-s 虚拟机名 进入默认虚拟机</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>WSL2</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows删除流氓文件夹</title>
+    <link href="/Windows/windows%E5%88%A0%E9%99%A4%E6%B5%81%E6%B0%93%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
+    <url>/Windows/windows%E5%88%A0%E9%99%A4%E6%B5%81%E6%B0%93%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Windows删除流氓文件夹"><a href="#Windows删除流氓文件夹" class="headerlink" title="Windows删除流氓文件夹"></a>Windows删除流氓文件夹</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>我们在使用电脑的过程中，尤其是办公，去创建一些文档，但是在删除的时候就删除不了了，系统提示“找不到该项目”，关于删除文件或者文件夹提示“找不到该项目”强删方法。</p><p>一个盘下面出现两个迅雷下载文件夹， 其中一个删不掉。</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>新建一个压缩文件，将它添加进压缩文件时勾选“压缩后删除源文件”，针对文件夹同样有效。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis的事件驱动实现-aeEventLoop</title>
+    <link href="/Redis-Analysis/redis%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E5%AE%9E%E7%8E%B0-aeeventloop/"/>
+    <url>/Redis-Analysis/redis%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E5%AE%9E%E7%8E%B0-aeeventloop/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Redis-Analysis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis的事件驱动模型 </title>
+    <link href="/Redis-Analysis/redis%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B/"/>
+    <url>/Redis-Analysis/redis%E7%9A%84%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Redis-Analysis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis的数据结构-字典</title>
+    <link href="/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8/"/>
+    <url>/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Redis-Analysis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis的数据结构-整数集合</title>
+    <link href="/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B4%E6%95%B0%E9%9B%86%E5%90%88/"/>
+    <url>/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B4%E6%95%B0%E9%9B%86%E5%90%88/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Redis-Analysis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis的数据结构-链表</title>
+    <link href="/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/"/>
+    <url>/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Redis-Analysis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis的数据结构-string</title>
+    <link href="/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-string/"/>
+    <url>/Redis-Analysis/redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-string/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Redis-Analysis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis源码分析方法简介</title>
+    <link href="/Redis-Analysis/redis%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/"/>
+    <url>/Redis-Analysis/redis%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Redis-Analysis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>left join 与 right join 的区别</title>
+    <link href="/Relational-Database-Theory/left-join-%E4%B8%8E-right-join-%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <url>/Relational-Database-Theory/left-join-%E4%B8%8E-right-join-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    
+    <content type="html"><![CDATA[<h2 id="left-join-与-right-join-的区别"><a href="#left-join-与-right-join-的区别" class="headerlink" title="left join 与 right join 的区别"></a>left join 与 right join 的区别</h2><h2 id="一、建表-SQL-Server"><a href="#一、建表-SQL-Server" class="headerlink" title="一、建表 (SQL Server)"></a>一、建表 (SQL Server)</h2><ol><li><p>创建 j1 表</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">use</span> db1<br><span class="hljs-keyword">go</span><br><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> dbo.j1<br>(<br>  <span class="hljs-keyword">id</span>  <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>  <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span><br>)<br><span class="hljs-keyword">go</span> <br></code></pre></td></tr></table></figure></li></ol><p>表中数据：</p><table><thead><tr><th align="left">id</th><th align="left">name</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">a</td></tr><tr><td align="left">2</td><td align="left">b</td></tr><tr><td align="left">3</td><td align="left">c</td></tr></tbody></table><ol start="2"><li>创建 j2 表</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">use</span> db1<br><span class="hljs-keyword">go</span><br><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> dbo.j2<br>(<br>  <span class="hljs-keyword">id</span>  <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>  <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span><br>)<br><span class="hljs-keyword">go</span><br></code></pre></td></tr></table></figure><p>表中数据：</p><table><thead><tr><th align="left">id</th><th align="left">name</th></tr></thead><tbody><tr><td align="left">2</td><td align="left">q</td></tr><tr><td align="left">3</td><td align="left">w</td></tr><tr><td align="left">2</td><td align="left">e</td></tr></tbody></table><h3 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h3><ol><li>j1  left join  j2</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> j1.id <span class="hljs-keyword">as</span> j1id, j1.name <span class="hljs-keyword">as</span> j1name, j2.id <span class="hljs-keyword">as</span> j2id, j2.name <span class="hljs-keyword">as</span> j2name<br><span class="hljs-keyword">from</span> j1<br><span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> j2 <span class="hljs-keyword">on</span> j1.id = j2.id;<br></code></pre></td></tr></table></figure><p>left join 结果:</p><table><thead><tr><th align="left">j1id</th><th align="left">j1name</th><th align="left">j2id</th><th align="left">j2name</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">a</td><td align="left">null</td><td align="left">null</td></tr><tr><td align="left">2</td><td align="left">b</td><td align="left">2</td><td align="left">q</td></tr><tr><td align="left">2</td><td align="left">b</td><td align="left">2</td><td align="left">e</td></tr><tr><td align="left">3</td><td align="left">c</td><td align="left">3</td><td align="left">w</td></tr></tbody></table><ol start="2"><li>j1  right join  j2</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> j1.id <span class="hljs-keyword">as</span> j1id, j1.name <span class="hljs-keyword">as</span> j1name, j2.id <span class="hljs-keyword">as</span> j2id, j2.name <span class="hljs-keyword">as</span> j2name<br><span class="hljs-keyword">from</span> j1<br><span class="hljs-keyword">right</span> <span class="hljs-keyword">join</span> j2 <span class="hljs-keyword">on</span> j1.id = j2.id;<br></code></pre></td></tr></table></figure><p>right join 结果:</p><table><thead><tr><th align="left">j1id</th><th align="left">j1name</th><th align="left">j2id</th><th align="left">j2name</th></tr></thead><tbody><tr><td align="left">2</td><td align="left">b</td><td align="left">2</td><td align="left">q</td></tr><tr><td align="left">3</td><td align="left">c</td><td align="left">3</td><td align="left">w</td></tr><tr><td align="left">2</td><td align="left">b</td><td align="left">2</td><td align="left">e</td></tr></tbody></table><p>可以看出区别在于 id为1的记录。</p><ul><li>j1  left join  j2 时， 以 j1 为主表， id为1的记录会显示在 join 结果中</li><li>j1  right join  j2 时，以 j2 为主表， j2中不包含 id为1的记录， 因此id为1的记录不会显示在 join 结果中。</li></ul><p>总结：  left join 的结果  跟 right join 的结果，其记录数量是不相同的。 具体结果需要具体分析。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Relational-Database-Theory</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Database</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Git安装与配置</title>
+    <link href="/Git/git%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <url>/Git/git%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Git-SSH协议代理"><a href="#Git-SSH协议代理" class="headerlink" title="Git SSH协议代理"></a>Git SSH协议代理</h1><h2 id="Windows下面配置"><a href="#Windows下面配置" class="headerlink" title="Windows下面配置"></a>Windows下面配置</h2><p>在 <code>.ssh</code> 目录下，新建 <code>C:\Users\lukas\.ssh\config</code> 文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs conf">proxyCommand &quot;C:\Program Files\Git\mingw64\bin\connect&quot; -S 127.0.0.1:5081 %h %p<br><br>Host github.com<br>  User git<br>  Port 22<br>  Hostname github.com<br>  <br>Host ssh.github.com<br>  User git<br>  Port 443<br>  Hostname ssh.github.com<br></code></pre></td></tr></table></figure><ul><li>注意是 <code>C:\Users\lukas\.ssh\config</code> 文件, 而不是 <code>C:\Users\lukas\.gitconfig</code> 文件, 不要搞混了。</li><li><code>connect</code> 命令，只要安装了 <code>Git for windows</code> 就会有， 记得找到正确的位置。</li><li><code>127.0.0.1:5081</code> 是 socket5 服务器地址</li><li>不用写 <code>IdentityFile</code> 指令， 执行git命令时，会自动读取相关私钥文件；只要配置了相应的私钥，就不会有问题。</li></ul><h2 id="其他系统配置"><a href="#其他系统配置" class="headerlink" title="其他系统配置"></a>其他系统配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs conf">Host github.com *.github.com<br>User git<br># SSH默认端口22， HTTPS默认端口443<br>Port 22<br>Hostname %h<br># # 注意修改路径为你的路径<br># IdentityFile ~&#x2F;.ssh&#x2F;id_ed25519<br>AddKeysToAgent yes<br>TCPKeepAlive yes<br># Linux&#x2F;Mac走 HTTP 代理，需要安装socat， brew install socat<br># ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport&#x3D;8080<br># linux&#x2F;Mac走 socks5 代理（如 Shadowsocks） nc是linux自带的工具<br># ProxyCommand nc -v -x 127.0.0.1:1080 %h %p<br><br># Windows走 HTTP 代理,connect是git自带的工具<br># ProxyCommand connect -H 127.0.0.1:7890 -a none %h %p<br># Windows走 socks5 代理（如 Shadowsocks）<br># ProxyCommand connect -S 127.0.0.1:7890 -a none %h %p<br></code></pre></td></tr></table></figure><h2 id="Git多平台换行符设置"><a href="#Git多平台换行符设置" class="headerlink" title="Git多平台换行符设置"></a>Git多平台换行符设置</h2><h3 id="core-autocrlf-配置选项"><a href="#core-autocrlf-配置选项" class="headerlink" title="core.autocrlf 配置选项"></a><code>core.autocrlf</code> 配置选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 提交时转换为LF，检出时转换为CRLF</span><br>git config --global core.autocrlf <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 提交时转换为LF，检出时不转换</span><br>git config --global core.autocrlf input<br><br><span class="hljs-comment"># 提交检出均不转换</span><br>git config --global core.autocrlf <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><h3 id="core-safecrlf-配置选项"><a href="#core-safecrlf-配置选项" class="headerlink" title="core.safecrlf 配置选项"></a><code>core.safecrlf</code> 配置选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 拒绝提交包含混合换行符的文件</span><br>git config --global core.safecrlf <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 允许提交包含混合换行符的文件</span><br>git config --global core.safecrlf <span class="hljs-literal">false</span><br><br><span class="hljs-comment"># 提交包含混合换行符的文件时给出警告</span><br>git config --global core.safecrlf warn<br></code></pre></td></tr></table></figure><h3 id="换行符实际问题"><a href="#换行符实际问题" class="headerlink" title="换行符实际问题"></a>换行符实际问题</h3><p>Git跨平台工作时，才会碰到下面的问题， 如果一直在单一平台下工作，应该不会碰见该问题。</p><ol><li>问题描述</li></ol><ul><li>Windows 默认换行符 CRLF</li><li>Linux   默认换行符 LF</li><li>Mac     默认换行符 LF</li></ul><p>对于Git仓库中的文件，文件内如果出现非本平台的换行符，文件被视为整个被修改，从而导致出现下面这种情况：</p><ul><li>对于已经提交的文件， 由于换行符导致的问题， 被Git显示为未提交</li></ul><ol start="2"><li>问题解决方案</li></ol><p>Git跨平台下换行符使用原则： </p><ul><li>Git提交时统一使用 LF</li><li>Git检出时， 根据自己的平台来决定是否转换为CRLF</li><li>不要提交CRLF到仓库，提交时应该统一使用LF</li></ul><p>对于windows平台，推荐Git进行以下设置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global core.autocrlf <span class="hljs-literal">true</span><br>git config --global core.safecrlf <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><p>这样配置的意思是：</p><ul><li>提交时自动转换为LF，检出时转换为CRLF</li><li>拒绝提交包含混合换行符的文件</li></ul><p>对于Linux/MAC平台，推荐Git进行以下设置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global core.autocrlf input<br>git config --global core.safecrlf <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><p>这样配置的意思是：</p><ul><li>提交时自动转换为LF，检出时不转换为CRLF</li><li>拒绝提交包含混合换行符的文件</li></ul><ol start="3"><li>为什么要 拒绝提交包含混合换行符的文件 ？</li></ol><p>因为混合换行符会影响到 Git 的 diff 功能， 导致明明文件内容没有修改，却因为换行符，Git会显示文件被修改，从而影响到我们查看diff。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>EF Core设置Gin索引</title>
+    <link href="/Relational-Database-PostgreSQL/ef-core%E8%AE%BE%E7%BD%AEgin%E7%B4%A2%E5%BC%95/"/>
+    <url>/Relational-Database-PostgreSQL/ef-core%E8%AE%BE%E7%BD%AEgin%E7%B4%A2%E5%BC%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="EF-Core中如何设置Gin索引"><a href="#EF-Core中如何设置Gin索引" class="headerlink" title="EF Core中如何设置Gin索引?"></a>EF Core中如何设置Gin索引?</h2><p><a href="https://stackoverflow.com/questions/54618858/can-jsonb-gin-indexes-be-specified-in-codefirst-entityframework-with-npgsql">https://stackoverflow.com/questions/54618858/can-jsonb-gin-indexes-be-specified-in-codefirst-entityframework-with-npgsql</a></p><hr><p>Since .ForNpgsqlHasMethod(“gin”) is obsolete, with EF Core 3.1 you can use this:</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c#">metaBuilder<br>    .HasIndex(x =&gt; x.DocumentNumber)<br>    .HasMethod(<span class="hljs-string">&quot;gin&quot;</span>)<br>    .HasOperators(<span class="hljs-string">&quot;gin_trgm_ops&quot;</span>);<br></code></pre></td></tr></table></figure><p>and your migration will look like this:</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c#">migrationBuilder.CreateIndex(<br>    name: <span class="hljs-string">&quot;IX_DocumentContentMeta_DocumentNumber&quot;</span>,<br>    table: <span class="hljs-string">&quot;DocumentContentMeta&quot;</span>,<br>    column: <span class="hljs-string">&quot;DocumentNumber&quot;</span>)<br>    .Annotation(<span class="hljs-string">&quot;Npgsql:IndexMethod&quot;</span>, <span class="hljs-string">&quot;gin&quot;</span>)<br>    .Annotation(<span class="hljs-string">&quot;Npgsql:IndexOperators&quot;</span>, <span class="hljs-keyword">new</span>[] &#123; <span class="hljs-string">&quot;gin_trgm_ops&quot;</span> &#125;);<br></code></pre></td></tr></table></figure><hr><p>Well, actually u can do it like this</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnModelCreating</span>(<span class="hljs-params">ModelBuilder modelBuilder</span>)</span><br><span class="hljs-function"></span>&#123;<br>    modelBuilder.Entity&lt;Artist&gt;()<br>       .HasIndex(a =&gt; <span class="hljs-keyword">new</span> &#123; a.Album &#125;)<br>       .ForNpgsqlHasMethod(<span class="hljs-string">&quot;gin&quot;</span>);<br><br>    <span class="hljs-keyword">base</span>.OnModelCreating(modelBuilder);<br>&#125;<br></code></pre></td></tr></table></figure><p>and when u run ef add migration, the sql query generated will be like:</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> ix_artist_album <span class="hljs-keyword">ON</span> artist <span class="hljs-keyword">USING</span> gin (<span class="hljs-string">&quot;album&quot;</span>);<br></code></pre></td></tr></table></figure><p>Documentation in Npgsql: <a href="http://www.npgsql.org/efcore/modeling/indexes.html">http://www.npgsql.org/efcore/modeling/indexes.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Relational-Database-PostgreSQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>EFCore</tag>
+      
+      <tag>Gin</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>设计分布式日志系统</title>
+    <link href="/System-Desgin/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/"/>
+    <url>/System-Desgin/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>System-Desgin</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Logging</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PG生成RowNumber行号</title>
+    <link href="/Relational-Database-PostgreSQL/pg%E7%94%9F%E6%88%90rownumber%E8%A1%8C%E5%8F%B7/"/>
+    <url>/Relational-Database-PostgreSQL/pg%E7%94%9F%E6%88%90rownumber%E8%A1%8C%E5%8F%B7/</url>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Oracle ROWNUM是一个虚拟列，每输出一行递增1。  </p><h2 id="Oracle-rownum"><a href="#Oracle-rownum" class="headerlink" title="Oracle rownum"></a>Oracle rownum</h2><p>通常被用于LIMIT输出记录数。  </p><pre><code class="hljs">SELECT ROWNUM, empno, ename, job FROM emp WHERE ROWNUM &lt; 5 ORDER BY ename;   rownum | empno | ename |   job  --------+-------+-------+----------        2 |  7499 | ALLEN | SALESMAN        4 |  7566 | JONES | MANAGER        1 |  7369 | SMITH | CLERK        3 |  7521 | WARD  | SALESMAN  (4 rows)  </code></pre><p>或者用于生成序列值。  </p><pre><code class="hljs">ALTER TABLE jobhist ADD seqno NUMBER(3);  UPDATE jobhist SET seqno = ROWNUM;  </code></pre><pre><code class="hljs">SELECT seqno, empno, TO_CHAR(startdate,&#39;DD-MON-YY&#39;) AS start, job FROM jobhist;   seqno | empno |   start   |    job  -------+-------+-----------+-----------       1 |  7369 | 17-DEC-80 | CLERK       2 |  7499 | 20-FEB-81 | SALESMAN       3 |  7521 | 22-FEB-81 | SALESMAN       4 |  7566 | 02-APR-81 | MANAGER       5 |  7654 | 28-SEP-81 | SALESMAN       6 |  7698 | 01-MAY-81 | MANAGER       7 |  7782 | 09-JUN-81 | MANAGER       8 |  7788 | 19-APR-87 | CLERK       9 |  7788 | 13-APR-88 | CLERK      10 |  7788 | 05-MAY-90 | ANALYST      11 |  7839 | 17-NOV-81 | PRESIDENT      12 |  7844 | 08-SEP-81 | SALESMAN      13 |  7876 | 23-MAY-87 | CLERK      14 |  7900 | 03-DEC-81 | CLERK      15 |  7900 | 15-JAN-83 | CLERK      16 |  7902 | 03-DEC-81 | ANALYST      17 |  7934 | 23-JAN-82 | CLERK  (17 rows)  </code></pre><h2 id="PostgreSQL-rownum"><a href="#PostgreSQL-rownum" class="headerlink" title="PostgreSQL rownum"></a>PostgreSQL rownum</h2><p>PostgreSQL 目前没有rownum虚拟列，但是实现同样的功能确很容易：  </p><p>1、输出行号，使用临时序列  </p><pre><code class="hljs">postgres=# create temp sequence if not exists tmp_seq;  postgres=# alter sequence tmp_seq restart with 1;  postgres=# select nextval(&#39;tmp_seq&#39;) as rownum, * from test limit 10;   rownum | id | info |          crt_time            --------+----+------+----------------------------        1 |  1 | test | 2018-01-24 11:06:24.882708        2 |  2 | test | 2018-01-24 11:06:24.882708        3 |  3 | test | 2018-01-24 11:06:24.882708        4 |  4 | test | 2018-01-24 11:06:24.882708        5 |  5 | test | 2018-01-24 11:06:24.882708        6 |  6 | test | 2018-01-24 11:06:24.882708        7 |  7 | test | 2018-01-24 11:06:24.882708        8 |  8 | test | 2018-01-24 11:06:24.882708        9 |  9 | test | 2018-01-24 11:06:24.882708       10 | 10 | test | 2018-01-24 11:06:24.882708  (10 rows)  </code></pre><p>2、输出行号，使用窗口函数  </p><pre><code class="hljs">postgres=# select row_number() over () as rownum, * from test limit 10;   rownum | id | info |          crt_time            --------+----+------+----------------------------        1 |  1 | test | 2018-01-24 11:06:24.882708        2 |  2 | test | 2018-01-24 11:06:24.882708        3 |  3 | test | 2018-01-24 11:06:24.882708        4 |  4 | test | 2018-01-24 11:06:24.882708        5 |  5 | test | 2018-01-24 11:06:24.882708        6 |  6 | test | 2018-01-24 11:06:24.882708        7 |  7 | test | 2018-01-24 11:06:24.882708        8 |  8 | test | 2018-01-24 11:06:24.882708        9 |  9 | test | 2018-01-24 11:06:24.882708       10 | 10 | test | 2018-01-24 11:06:24.882708  (10 rows)  </code></pre><p>3、LIMIT，直接语法支持  </p><pre><code class="hljs">postgres=# select * from test limit 10;   id | info |          crt_time            ----+------+----------------------------    1 | test | 2018-01-24 11:06:24.882708    2 | test | 2018-01-24 11:06:24.882708    3 | test | 2018-01-24 11:06:24.882708    4 | test | 2018-01-24 11:06:24.882708    5 | test | 2018-01-24 11:06:24.882708    6 | test | 2018-01-24 11:06:24.882708    7 | test | 2018-01-24 11:06:24.882708    8 | test | 2018-01-24 11:06:24.882708    9 | test | 2018-01-24 11:06:24.882708   10 | test | 2018-01-24 11:06:24.882708  (10 rows)  </code></pre><p>4、为某个字段生成序列值。  </p><pre><code class="hljs">postgres=# create temp sequence if not exists tmp_seq;  postgres=# alter sequence tmp_seq restart with 1;  postgres=# alter table test add column col1 int;  ALTER TABLE  postgres=# update test set col1=nextval(&#39;tmp_seq&#39;);  UPDATE 10000000  postgres=# select * from test limit 10;   id | info |          crt_time          | col1   ----+------+----------------------------+------    1 | test | 2018-01-24 11:06:24.882708 |    1    2 | test | 2018-01-24 11:06:24.882708 |    2    3 | test | 2018-01-24 11:06:24.882708 |    3    4 | test | 2018-01-24 11:06:24.882708 |    4    5 | test | 2018-01-24 11:06:24.882708 |    5    6 | test | 2018-01-24 11:06:24.882708 |    6    7 | test | 2018-01-24 11:06:24.882708 |    7    8 | test | 2018-01-24 11:06:24.882708 |    8    9 | test | 2018-01-24 11:06:24.882708 |    9   10 | test | 2018-01-24 11:06:24.882708 |   10  (10 rows)  </code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Relational-Database-PostgreSQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>RowNumber</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>设计思路</title>
+    <link href="/System-Desgin/%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/"/>
+    <url>/System-Desgin/%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</url>
+    
+    <content type="html"><![CDATA[<ol><li>业界可参考的解决方案</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>System-Desgin</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Git常用命令总结</title>
+    <link href="/Git/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"/>
+    <url>/Git/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Git分支合并"><a href="#Git分支合并" class="headerlink" title="Git分支合并"></a>Git分支合并</h2><h3 id="分支合并之前怎么检测是否有冲突？"><a href="#分支合并之前怎么检测是否有冲突？" class="headerlink" title="分支合并之前怎么检测是否有冲突？"></a>分支合并之前怎么检测是否有冲突？</h3><p>场景举例：</p><ol><li><p>个人分支：personal</p></li><li><p>项目主干分支：master</p></li><li><p>开发人员在个人分支上进行特性开发，期间可能会往远端库推送多次，最终会合入到主干分支</p></li></ol><p>怎么检测？</p><p>通过三路合并检测：</p><ol><li><p>通过<code>git merge-base personal master</code>找出共同的节点，称之为：base_sha</p></li><li><p>通过<code>git merge-tree base_sha personal master</code>获取合并后的结果</p></li><li><p>如果输出有<code>changed in both</code>字样，那说明存在冲突</p></li></ol><p>总结</p><ol><li><p>定期拉取主干分支，更新到个人分支，保持与主干分支差异最想</p></li><li><p>开发完成后，尽快合入 </p></li><li><p>根据冲突提前检测，统计出频繁冲突文件列表，能够提前预警</p></li></ol><h3 id="怎么进行git-rebase合并分支？"><a href="#怎么进行git-rebase合并分支？" class="headerlink" title="怎么进行git rebase合并分支？"></a>怎么进行<code>git rebase</code>合并分支？</h3><h2 id="Git日志"><a href="#Git日志" class="headerlink" title="Git日志"></a>Git日志</h2><h3 id="怎么查看最近三次的提交信息？"><a href="#怎么查看最近三次的提交信息？" class="headerlink" title="怎么查看最近三次的提交信息？"></a>怎么查看最近三次的提交信息？</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> -3<br></code></pre></td></tr></table></figure><h3 id="git-走代理"><a href="#git-走代理" class="headerlink" title="git:// 走代理"></a><code>git://</code> 走代理</h3><p>~/.ssh/config 文件权限 600</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs routeros">[lukas@localhost pygyme]$ cat ~/.ssh/config<br>Host github.com *.github.com<br>   <span class="hljs-built_in"> User </span>git<br>    Hostname %h<br>    ProxyCommand nc -x 172.17.0.1:7890 %h %p<br>[lukas@localhost pygyme]$<br>[lukas@localhost yum.repos.d]$ ls -l ~/.ssh/config<br>-rw------- 1 lukas lukas 74  3月 10 21:41 /home/lukas/.ssh/config<br>[lukas@localhost yum.repos.d]$<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>GDB调试C++</title>
+    <link href="/C/gdb%E8%B0%83%E8%AF%95c/"/>
+    <url>/C/gdb%E8%B0%83%E8%AF%95c/</url>
+    
+    <content type="html"><![CDATA[<h2 id="GDB调试基础"><a href="#GDB调试基础" class="headerlink" title="GDB调试基础"></a>GDB调试基础</h2><ol><li>命令行传参</li></ol><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">(gdb) <span class="hljs-builtin-name">set</span> args<span class="hljs-built_in"> aaa </span>bbb<br></code></pre></td></tr></table></figure><h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">100</span>个GDB小技巧<br>https:<span class="hljs-regexp">//</span>wizardforcel.gitbooks.io<span class="hljs-regexp">/100-gdb-tips/</span>content/<span class="hljs-keyword">break</span>-on-linenum.html<br></code></pre></td></tr></table></figure><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">gdb 调试利器<br>https:<span class="hljs-regexp">//</span>linuxtools-rst.readthedocs.io<span class="hljs-regexp">/zh_CN/</span>latest<span class="hljs-regexp">/tool/g</span>db.html<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>GDB</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Fedora X11开发环境</title>
+    <link href="/Linux/fedora-x11%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <url>/Linux/fedora-x11%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Windows系统"><a href="#Windows系统" class="headerlink" title="Windows系统"></a>Windows系统</h2><p>安装 vcxsrv, xshell, xftp。</p><p>clion在Windows上可以远程linux开发，但是调试多个tcp程序不如命令行手动gdb来的实在。<br>调试redis源码也要用gdb，反正无论怎样都是要用gdb调试的，逃不开躲不过，还是尽早适应的好。</p><p>不在xshell中用vim写C++，而是通过X11使用vscode写C++。不使用vscode调试C++，而是在命令行手动gdb进行调试。</p><p>vim的配置太恶心了，要什么功能都要用插件去实现，选插件然后配置太麻烦，关键的是没法保证实现想要的效果，浪费生命浪费时间。</p><p>抛弃vim，拥抱vscode，从我做起！</p><p>在windows上跑虚拟机才是正解，linux开发环境使用X11更加方便，只要CPU够强、内存够大，鱼与熊掌可以兼得。</p><h2 id="Fedora34系统环境从零开始"><a href="#Fedora34系统环境从零开始" class="headerlink" title="Fedora34系统环境从零开始"></a>Fedora34系统环境从零开始</h2><h3 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h3><h4 id="1-使用-Fedora-Workstation-Live-x86-64-34-1-2-iso-安装系统"><a href="#1-使用-Fedora-Workstation-Live-x86-64-34-1-2-iso-安装系统" class="headerlink" title="1. 使用 Fedora-Workstation-Live-x86_64-34-1.2.iso 安装系统"></a>1. 使用 <code>Fedora-Workstation-Live-x86_64-34-1.2.iso</code> 安装系统</h4><p>开发环境使用 Workstation版， 不用Server版。配置默认为字符界面，桌面在需要时再进行切换。</p><p>自定义LVM磁盘分区, 设置登录账号。</p><h4 id="2-更新系统"><a href="#2-更新系统" class="headerlink" title="2. 更新系统"></a>2. 更新系统</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[lukas@fedora muduo]$ dnf update<br></code></pre></td></tr></table></figure><h4 id="3-调整运行级别"><a href="#3-调整运行级别" class="headerlink" title="3. 调整运行级别"></a>3. 调整运行级别</h4><p>配置默认为字符界面，这样虚拟机需要的运行资源占用少。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[lukas@fedora muduo]$ systemctl set-default runlevel3.target<br></code></pre></td></tr></table></figure><h4 id="4-C-编译工具"><a href="#4-C-编译工具" class="headerlink" title="4. C++编译工具"></a>4. C++编译工具</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">dnf install -y boost boost-devel zlib-devel curl-devel \<br>protobuf protobuf-devel cmake gcc gcc-c++ gdb make \<br>tmux git vim openssh-server<br><br>dnf install -y clang clang-devel clang-libs llvm llvm-doc \<br>llvm-devel clang-tools-extra clang-analyzer<br></code></pre></td></tr></table></figure><h4 id="5-VSCode"><a href="#5-VSCode" class="headerlink" title="5. VSCode"></a>5. VSCode</h4><p>5.1 按文档安装</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>code.visualstudio.com<span class="hljs-regexp">/docs/</span>setup/linux<br></code></pre></td></tr></table></figure><p>5.2 launch.json 示例</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-comment">// 使用 IntelliSense 了解相关属性。 </span><br>    <span class="hljs-comment">// 悬停以查看现有属性的描述。</span><br>    <span class="hljs-comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br>    <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;0.2.0&quot;</span>,<br>    <span class="hljs-attr">&quot;configurations&quot;</span>: [<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;asio_chat_server&quot;</span>,<br>            <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;cppdbg&quot;</span>,<br>            <span class="hljs-attr">&quot;request&quot;</span>: <span class="hljs-string">&quot;launch&quot;</span>,<br>            <span class="hljs-attr">&quot;program&quot;</span>: <span class="hljs-string">&quot;$&#123;workspaceFolder&#125;/build/bin/asio_chat_server&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<span class="hljs-string">&quot;4000&quot;</span>],<br>            <span class="hljs-attr">&quot;stopAtEntry&quot;</span>: <span class="hljs-literal">false</span>,<br>            <span class="hljs-attr">&quot;cwd&quot;</span>: <span class="hljs-string">&quot;$&#123;fileDirname&#125;&quot;</span>,<br>            <span class="hljs-attr">&quot;environment&quot;</span>: [],<br>            <span class="hljs-attr">&quot;externalConsole&quot;</span>: <span class="hljs-literal">false</span>,<br>            <span class="hljs-attr">&quot;MIMode&quot;</span>: <span class="hljs-string">&quot;gdb&quot;</span>,<br>            <span class="hljs-attr">&quot;setupCommands&quot;</span>: [<br>                &#123;<br>                    <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;为 gdb 启用整齐打印&quot;</span>,<br>                    <span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;-enable-pretty-printing&quot;</span>,<br>                    <span class="hljs-attr">&quot;ignoreFailures&quot;</span>: <span class="hljs-literal">true</span><br>                &#125;<br>            ],<br>            <span class="hljs-attr">&quot;preLaunchTask&quot;</span>: <span class="hljs-string">&quot;build-all&quot;</span><br>        &#125;<br>    ]<br>&#125;<br></code></pre></td></tr></table></figure><p>5.3 tasks.json 示例</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;2.0.0&quot;</span>,<br>    <span class="hljs-attr">&quot;tasks&quot;</span>: [<br>        &#123;<br>            <span class="hljs-attr">&quot;label&quot;</span>: <span class="hljs-string">&quot;build-all&quot;</span>,<br>            <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;shell&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;/usr/bin/bash vscode.sh&quot;</span>,<br>            <span class="hljs-attr">&quot;problemMatcher&quot;</span>: [],<br>            <span class="hljs-attr">&quot;group&quot;</span>: &#123;<br>                <span class="hljs-attr">&quot;kind&quot;</span>: <span class="hljs-string">&quot;build&quot;</span>,<br>                <span class="hljs-attr">&quot;isDefault&quot;</span>: <span class="hljs-literal">true</span><br>            &#125;<br>        &#125;<br>    ]<br><br>&#125;<br></code></pre></td></tr></table></figure><p>菜单 终端 -&gt; 运行生成任务(Ctrl+Shift+B), 会运行 tasks.json 中 <code>&quot;isDefault&quot;: true</code> 的task。</p><h2 id="X11环境下的输入法"><a href="#X11环境下的输入法" class="headerlink" title="X11环境下的输入法"></a>X11环境下的输入法</h2><p>Fedora默认输入法是Ibus，当运行级别为3的时候，Ibus相关的服务不是开机启动的，需要你在xshell连上之后，手动启动ibus。</p><h3 id="0-用到的包"><a href="#0-用到的包" class="headerlink" title="0. 用到的包"></a>0. 用到的包</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">[<span class="hljs-symbol">lukas@</span>localhost yum.repos.d]$ rpm -qa | grep ^ibus<br>ibus-libs<span class="hljs-number">-1.5</span><span class="hljs-number">.24</span><span class="hljs-number">-5.f</span>c34.x86_64<br>ibus-gtk2<span class="hljs-number">-1.5</span><span class="hljs-number">.24</span><span class="hljs-number">-5.f</span>c34.x86_64<br>ibus-gtk3<span class="hljs-number">-1.5</span><span class="hljs-number">.24</span><span class="hljs-number">-5.f</span>c34.x86_64<br>ibus<span class="hljs-number">-1.5</span><span class="hljs-number">.24</span><span class="hljs-number">-5.f</span>c34.x86_64<br>ibus-setup<span class="hljs-number">-1.5</span><span class="hljs-number">.24</span><span class="hljs-number">-5.f</span>c34.noarch<br>ibus-libzhuyin<span class="hljs-number">-1.10</span><span class="hljs-number">.0</span><span class="hljs-number">-2.f</span>c34.x86_64<br>ibus-m17n<span class="hljs-number">-1.4</span><span class="hljs-number">.9</span><span class="hljs-number">-1.f</span>c34.x86_64<br>ibus-libpinyin<span class="hljs-number">-1.12</span><span class="hljs-number">.0</span><span class="hljs-number">-3.f</span>c34.x86_64<br>ibus-anthy-python<span class="hljs-number">-1.5</span><span class="hljs-number">.12</span><span class="hljs-number">-7.f</span>c34.noarch<br>ibus-anthy<span class="hljs-number">-1.5</span><span class="hljs-number">.12</span><span class="hljs-number">-7.f</span>c34.x86_64<br>ibus-hangul<span class="hljs-number">-1.5</span><span class="hljs-number">.4</span><span class="hljs-number">-5.f</span>c34.x86_64<br>ibus-typing-booster<span class="hljs-number">-2.15</span><span class="hljs-number">.16</span><span class="hljs-number">-1.f</span>c34.noarch<br>[<span class="hljs-symbol">lukas@</span>localhost yum.repos.d]$<br></code></pre></td></tr></table></figure><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> dnf install ibus-libs ibus-gtk<span class="hljs-number">2</span> ibus-gtk<span class="hljs-number">3</span> ibus ibus-setup ibus-libzhuyin ibus-m<span class="hljs-number">17</span>n ibus-libpinyin ibus-anthy-python ibus-anthy ibus-hangul ibus-typing-booster xsel<br></code></pre></td></tr></table></figure><h3 id="1-复制粘贴"><a href="#1-复制粘贴" class="headerlink" title="1. 复制粘贴"></a>1. 复制粘贴</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">sudo dnf -y <span class="hljs-keyword">install</span> xsel<br></code></pre></td></tr></table></figure><h3 id="1-设置快捷键"><a href="#1-设置快捷键" class="headerlink" title="1. 设置快捷键"></a>1. 设置快捷键</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">[lukas<span class="hljs-variable">@fedora</span> muduo]<span class="hljs-variable">$ </span>ibus-setup<br></code></pre></td></tr></table></figure><p>在程序窗口中设置为 Ctrl + 空格</p><h3 id="2-设置Ibus相关环境变量"><a href="#2-设置Ibus相关环境变量" class="headerlink" title="2. 设置Ibus相关环境变量"></a>2. 设置Ibus相关环境变量</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">XIM</span>=ibus<br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">GTK_IM_MODULE</span>=ibus<br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">QT_IM_MODULE</span>=ibus<br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">XIM_PROGRAM</span>=<span class="hljs-string">&quot;ibus-daemon&quot;</span><br><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">XMODIFIERS</span>=<span class="hljs-string">&quot;@im=ibus&quot;</span><br></code></pre></td></tr></table></figure><p>在 ~/.bashrc 里面添加</p><h3 id="3-手动启动Ibus守护进程"><a href="#3-手动启动Ibus守护进程" class="headerlink" title="3. 手动启动Ibus守护进程"></a>3. 手动启动Ibus守护进程</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ibus-daemon -x -d</span><br></code></pre></td></tr></table></figure><h3 id="4-剪切板复制粘贴"><a href="#4-剪切板复制粘贴" class="headerlink" title="4. 剪切板复制粘贴"></a>4. 剪切板复制粘贴</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">ForwardX11</span> <span class="hljs-literal">yes</span><br></code></pre></td></tr></table></figure><p>修改ssh配置，在 <code>/etc/ssh/ssh_config</code> 文件配置上述选项。<br>vmware中启用剪切板复制粘贴。</p><h2 id="X11环境下可能出现的问题"><a href="#X11环境下可能出现的问题" class="headerlink" title="X11环境下可能出现的问题"></a>X11环境下可能出现的问题</h2><ol><li>文本输入时，按了字母数字外的键盘按键，出现一直输入222222222222222222222222无法停止的现象</li></ol><p>这是一个偶尔出现的状况，不太清楚原因，没找到彻底的解决办法。</p><p>解决办法： 关闭程序，重新开启程序</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Fedora</tag>
+      
+      <tag>X11</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HTTP请求参数处理</title>
+    <link href="/NET/http%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86/"/>
+    <url>/NET/http%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h2 id="HTTP请求参数枚举类型的处理"><a href="#HTTP请求参数枚举类型的处理" class="headerlink" title="HTTP请求参数枚举类型的处理"></a>HTTP请求参数枚举类型的处理</h2><p>业务上使用枚举类型，标识业务某一类的类型，代码上更加可读。</p><p>枚举其实是一个int类型的数字，那么在传参的时候，直接使用int类型作为请求参数的类型，后面再转换成业务相关的枚举类型，进行比较等操作。</p><h2 id="HTTP请求参数日期时间类型的处理"><a href="#HTTP请求参数日期时间类型的处理" class="headerlink" title="HTTP请求参数日期时间类型的处理"></a>HTTP请求参数日期时间类型的处理</h2><h3 id="前端给后端传参？"><a href="#前端给后端传参？" class="headerlink" title="前端给后端传参？"></a>前端给后端传参？</h3><p>使用时间戳</p><p>  这么做</p><h3 id="后端给前端返回结果"><a href="#后端给前端返回结果" class="headerlink" title="后端给前端返回结果"></a>后端给前端返回结果</h3><p>  涉及到时区的处理，前端后端要有统一的约定。<br>  例如： 统一使用utc时间，不同时区的时间处理，交给不同时区的web和客户端去具体处理。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>.NET</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AspNetCore</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PostgreSQL时间戳</title>
+    <link href="/Relational-Database-PostgreSQL/postgresql%E6%97%B6%E9%97%B4%E6%88%B3/"/>
+    <url>/Relational-Database-PostgreSQL/postgresql%E6%97%B6%E9%97%B4%E6%88%B3/</url>
+    
+    <content type="html"><![CDATA[<h2 id="DataGrip设置时区"><a href="#DataGrip设置时区" class="headerlink" title="DataGrip设置时区"></a>DataGrip设置时区</h2><p>DataGrip时区默认是 UTC+0, 不是UTC+8, 在连接属性里面设置UTC+8。</p><h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol><li>右键打开你想要修改的数据库连接的Properties菜单；</li><li>点击Advanced按钮；</li><li>在VM options后面写入-Duser.timezone=Asia/Shanghai，就可以啦；</li><li>断开数据库连接，重新执行一条SQL就可以看到效果了。</li></ol><h2 id="PG中时间戳类型的查询写法"><a href="#PG中时间戳类型的查询写法" class="headerlink" title="PG中时间戳类型的查询写法"></a>PG中时间戳类型的查询写法</h2><h3 id="时间戳存储"><a href="#时间戳存储" class="headerlink" title="时间戳存储"></a>时间戳存储</h3><p>对于timestamp with time zone，内部存储的值总是 UTC （全球统一时间，以前也叫格林威治时间GMT）。<br>如果一个输入值有明确的时区声明， 那么它将用该时区合适的偏移量转换成 UTC。<br>如果在输入串里没有时区声明， 那么它就被假设是在系统的TimeZone参数里的那个时区，然后使用这个 timezone时区的偏移转换成 UTC。 </p><h3 id="双冒号语法"><a href="#双冒号语法" class="headerlink" title="双冒号语法"></a>双冒号语法</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">:: 操作符  =<span class="hljs-function">=&gt;</span> PostgreSQL风格的类型转换<br></code></pre></td></tr></table></figure><p>在PostgreSQL数据库中，双冒号:: 是用于类型转换的，比如’2010-01-01’::date。</p><h3 id="时间戳查询"><a href="#时间戳查询" class="headerlink" title="时间戳查询"></a>时间戳查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs sql"><br><span class="hljs-keyword">SET</span> TIMEZONE <span class="hljs-keyword">TO</span> <span class="hljs-string">&#x27;Asia/Shanghai&#x27;</span>;<br><br><span class="hljs-keyword">select</span> <span class="hljs-keyword">current_timestamp</span>;<br><br><span class="hljs-keyword">select</span> <span class="hljs-string">&#x27;2021-12-18 19:53:49.985033+08&#x27;</span>::<span class="hljs-built_in">timestamp</span> <span class="hljs-keyword">with</span> <span class="hljs-built_in">time</span> zone;<br><br><span class="hljs-keyword">select</span> <span class="hljs-string">&#x27;2021-12-18 19:53:49+08&#x27;</span>::<span class="hljs-built_in">timestamp</span> <span class="hljs-keyword">with</span> <span class="hljs-built_in">time</span> zone;<br><br><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;Order&quot;</span> <span class="hljs-keyword">where</span> <span class="hljs-string">&quot;CreationTime&quot;</span> = <span class="hljs-string">&#x27;2021-12-19 15:49:31.210972+08&#x27;</span>::<span class="hljs-built_in">timestamp</span> <span class="hljs-keyword">with</span> <span class="hljs-built_in">time</span> zone;<br><br><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;Order&quot;</span><br><span class="hljs-keyword">where</span> <span class="hljs-string">&quot;PaymentTime&quot;</span>  <br><span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;2021-12-19 15:13:10.024023+08&#x27;</span>::<span class="hljs-built_in">timestamp</span> <span class="hljs-keyword">with</span> <span class="hljs-built_in">time</span> zone<br><span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;2021-12-19 16:45:15.108045+08&#x27;</span>::<span class="hljs-built_in">timestamp</span> <span class="hljs-keyword">with</span> <span class="hljs-built_in">time</span> zone;<br><br></code></pre></td></tr></table></figure><h2 id="程序中时间戳类型的选择"><a href="#程序中时间戳类型的选择" class="headerlink" title="程序中时间戳类型的选择"></a>程序中时间戳类型的选择</h2><h3 id="C-类型DateTime和DateTimeOffset的选择"><a href="#C-类型DateTime和DateTimeOffset的选择" class="headerlink" title="C#类型DateTime和DateTimeOffset的选择"></a>C#类型DateTime和DateTimeOffset的选择</h3><p>在程序中统一使用UTC时间，http请求参数使用DateTimeOffset；<br>在参数解析绑定时，DateTimeOffset类型会自动带上本地时区的Offset，<br>而 DateTime 不会有时区信息，Kind属性值是DateTimeKind.Unspecified，</p><p>前端给后端传时间戳，后端收到转成utc时间(使用DateTimeOffset类型)，这样可以避免处理时区的问题。</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c#">[<span class="hljs-meta">HttpGet</span>]<br>[<span class="hljs-meta">Route(<span class="hljs-meta-string">&quot;date1&quot;</span>)</span>]<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;JsonResult&gt; <span class="hljs-title">DatetimeOffset1</span>(<span class="hljs-params">DateTime dt</span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// http://localhost:9000/api/date1?dt=2021-12-19 15:13:10</span><br>    <span class="hljs-comment">// &quot;2021-12-19T15:13:10&quot;</span><br><br>    <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> Task.FromResult(<span class="hljs-keyword">new</span> JsonResult(dt));<br>&#125;<br><br>[<span class="hljs-meta">HttpGet</span>]<br>[<span class="hljs-meta">Route(<span class="hljs-meta-string">&quot;date2&quot;</span>)</span>]<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;JsonResult&gt; <span class="hljs-title">DatetimeOffset2</span>(<span class="hljs-params">DateTimeOffset dt</span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// http://localhost:9000/api/date2?dt=2021-12-19 15:13:10</span><br>    <span class="hljs-comment">// &quot;2021-12-19T15:13:10+08:00&quot;</span><br><br>    <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> Task.FromResult(<span class="hljs-keyword">new</span> JsonResult(dt));<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="JsonResult中DateTimeOffset的格式化"><a href="#JsonResult中DateTimeOffset的格式化" class="headerlink" title="JsonResult中DateTimeOffset的格式化"></a>JsonResult中DateTimeOffset的格式化</h3><ol><li>编写自定义转换器</li></ol><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Globalization;<br><span class="hljs-keyword">using</span> System.Text.Json;<br><span class="hljs-keyword">using</span> System.Text.Json.Serialization;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">Practical.Api.Helper</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DateTimeOffsetConverter</span> : <span class="hljs-title">JsonConverter</span>&lt;<span class="hljs-title">DateTimeOffset</span>&gt;<br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> DateTimeOffset <span class="hljs-title">Read</span>(<span class="hljs-params"><span class="hljs-keyword">ref</span> Utf8JsonReader reader, </span></span><br><span class="hljs-function"><span class="hljs-params">            Type typeToConvert, </span></span><br><span class="hljs-function"><span class="hljs-params">            JsonSerializerOptions options</span>)</span><br><span class="hljs-function"></span>        &#123;<br>            <span class="hljs-keyword">return</span> DateTimeOffset<br>            .ParseExact(reader.GetString(), <span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>, CultureInfo.InvariantCulture);<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Write</span>(<span class="hljs-params">Utf8JsonWriter writer, </span></span><br><span class="hljs-function"><span class="hljs-params">            DateTimeOffset <span class="hljs-keyword">value</span>, </span></span><br><span class="hljs-function"><span class="hljs-params">            JsonSerializerOptions options</span>)</span><br><span class="hljs-function"></span>        &#123;<br>            writer.WriteStringValue(<span class="hljs-keyword">value</span>.ToLocalTime()<br>                .ToString(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>, CultureInfo.InvariantCulture));<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><ol start="2"><li>StartUp类中配置序列化选项</li></ol><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ConfigureServices</span>(<span class="hljs-params">IServiceCollection services</span>)</span><br><span class="hljs-function"></span>&#123;<br><br>    services.AddControllers()<br>    .AddJsonOptions(op =&gt; op.JsonSerializerOptions<br>                            .Converters.Add(<span class="hljs-keyword">new</span> DateTimeOffsetConverter()));<br>    services.AddSwaggerGen(c =&gt;<br>    &#123;<br>        c.SwaggerDoc(<span class="hljs-string">&quot;v1&quot;</span>, <span class="hljs-keyword">new</span> OpenApiInfo &#123; Title = <span class="hljs-string">&quot;Practical.API&quot;</span>, Version = <span class="hljs-string">&quot;v1&quot;</span> &#125;);<br>    &#125;);<br><br>    RegisterMediatR(services);<br>&#125;<br></code></pre></td></tr></table></figure><ol start="3"><li>Newtonsoft.Json库使用JsonSerializerSettings进行设置</li></ol><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros">var<span class="hljs-built_in"> settings </span>= new JsonSerializerSettings()<br>&#123;<br>    DateFormatString = <span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>,<br>    DateTimeZoneHandling = DateTimeZoneHandling.Local<br>&#125;;<br></code></pre></td></tr></table></figure><p>参考文章：<br><a href="https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-converters-how-to?pivots=dotnet-6-0#sample-basic-converter">https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-converters-how-to?pivots=dotnet-6-0#sample-basic-converter</a></p><h3 id="JS时间戳的转换"><a href="#JS时间戳的转换" class="headerlink" title="JS时间戳的转换"></a>JS时间戳的转换</h3><p>首先要清楚JavaScript与Unix的时间戳的区别：</p><p>JavaScript时间戳：是指格林威治时间1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)起至现在的总毫秒数。</p><p>Unix时间戳：是指格林威治时间1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)起至现在的总秒数。</p><p>可以看出JavaScript时间戳总毫秒数，Unix时间戳是总秒数。</p><p>比如同样是的 2016/11/03 12:30:00 ，转换为JavaScript时间戳为 1478147400000；转换为Unix时间戳为 1478147400。</p><ol><li>C# DateTime转换为JavaScript时间戳</li></ol><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c#"> <span class="hljs-comment">// 当地时区</span><br>System.DateTime startTime = TimeZone.CurrentTimeZone<br>                                    .ToLocalTime(<span class="hljs-keyword">new</span> System.DateTime(<span class="hljs-number">1970</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>));<br><span class="hljs-keyword">long</span> timeStamp = (<span class="hljs-keyword">long</span>)(DateTime.Now - startTime).TotalMilliseconds; <span class="hljs-comment">// 相差毫秒数</span><br>System.Console.WriteLine(timeStamp);<br></code></pre></td></tr></table></figure><ol start="2"><li>JavaScript时间戳转换为C# DateTime</li></ol><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">long</span> jsTimeStamp = <span class="hljs-number">1478169023479</span>;<br> <span class="hljs-comment">// 当地时区</span><br>System.DateTime startTime = TimeZone.CurrentTimeZone<br>                                    .ToLocalTime(<span class="hljs-keyword">new</span> System.DateTime(<span class="hljs-number">1970</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>));<br>DateTime dt = startTime.AddMilliseconds(jsTimeStamp);<br>System.Console.WriteLine(dt.ToString(<span class="hljs-string">&quot;yyyy/MM/dd HH:mm:ss:ffff&quot;</span>));<br><br><span class="hljs-keyword">var</span> udt1 = DateTimeOffset.FromUnixTimeSeconds(<span class="hljs-number">1478147400</span>);<br><span class="hljs-keyword">var</span> udt2 = DateTimeOffset.FromUnixTimeMilliseconds(<span class="hljs-number">1478147400000</span>);<br></code></pre></td></tr></table></figure><ol start="3"><li>JavaScript获取时间戳与时间戳转化</li></ol><p>Javascript 获取当前时间戳（毫秒级别）：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js">第一种方法：结果：<span class="hljs-number">1470220594000</span><br><br><span class="hljs-keyword">var</span> timestamp1 = <span class="hljs-built_in">Date</span>.parse( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());<br><br><br>第二种方法：结果：<span class="hljs-number">1470220608533</span><br><br><span class="hljs-keyword">var</span> timestamp2 = ( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()).valueOf();<br><br><br>第三种方法：结果：<span class="hljs-number">1470220608533</span><br><br><span class="hljs-keyword">var</span> timestamp3 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();<br></code></pre></td></tr></table></figure><p>第一种获取的时间戳是精确到秒。<br>第二种和第三种是获取的时间戳精确到毫秒。</p><p>获取时间戳的方法还有：<br>+new Date();<br>Date.now(); // 这个ES5才添加的方法<br>还有 new Date - 0;</p><hr><p>获取指定时间的时间戳：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;2016-08-03 00:00:00&quot;</span>);<br></code></pre></td></tr></table></figure><p>时间戳转化成时间：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">timetrans</span>(<span class="hljs-params">date</span>)</span>&#123;<br>    <span class="hljs-keyword">var</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(date*<span class="hljs-number">1000</span>);<span class="hljs-comment">//如果date为13位不需要乘1000</span><br>    <span class="hljs-keyword">var</span> Y = date.getFullYear() + <span class="hljs-string">&#x27;-&#x27;</span>;<br>    <span class="hljs-keyword">var</span> M = (date.getMonth()+<span class="hljs-number">1</span> &lt; <span class="hljs-number">10</span> ? <span class="hljs-string">&#x27;0&#x27;</span>+(date.getMonth()+<span class="hljs-number">1</span>) : date.getMonth()+<span class="hljs-number">1</span>) + <span class="hljs-string">&#x27;-&#x27;</span>;<br>    <span class="hljs-keyword">var</span> D = (date.getDate() &lt; <span class="hljs-number">10</span> ? <span class="hljs-string">&#x27;0&#x27;</span> + (date.getDate()) : date.getDate()) + <span class="hljs-string">&#x27; &#x27;</span>;<br>    <span class="hljs-keyword">var</span> h = (date.getHours() &lt; <span class="hljs-number">10</span> ? <span class="hljs-string">&#x27;0&#x27;</span> + date.getHours() : date.getHours()) + <span class="hljs-string">&#x27;:&#x27;</span>;<br>    <span class="hljs-keyword">var</span> m = (date.getMinutes() &lt;<span class="hljs-number">10</span> ? <span class="hljs-string">&#x27;0&#x27;</span> + date.getMinutes() : date.getMinutes()) + <span class="hljs-string">&#x27;:&#x27;</span>;<br>    <span class="hljs-keyword">var</span> s = (date.getSeconds() &lt;<span class="hljs-number">10</span> ? <span class="hljs-string">&#x27;0&#x27;</span> + date.getSeconds() : date.getSeconds());<br>    <span class="hljs-keyword">return</span> Y+M+D+h+m+s;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Relational-Database-PostgreSQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Timestamp</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HTTP协议认证</title>
+    <link href="/HTTP-Protocol/http%E5%8D%8F%E8%AE%AE%E8%AE%A4%E8%AF%81/"/>
+    <url>/HTTP-Protocol/http%E5%8D%8F%E8%AE%AE%E8%AE%A4%E8%AF%81/</url>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在HTTP协议中，包含了认证相关的内容。</p><h2 id="RFC7235中的内容"><a href="#RFC7235中的内容" class="headerlink" title="RFC7235中的内容"></a>RFC7235中的内容</h2><p>在HTTP协议中，包含了认证相关的内容。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>HTTP-Protocol</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Authentication</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Gin的用法</title>
+    <link href="/Golang/gin%E7%9A%84%E7%94%A8%E6%B3%95/"/>
+    <url>/Golang/gin%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>Gin 是一个web框架</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Golang</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Gin</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>GORM的用法</title>
+    <link href="/Golang/gorm%E7%9A%84%E7%94%A8%E6%B3%95/"/>
+    <url>/Golang/gorm%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="迁移-AutoMigrate"><a href="#迁移-AutoMigrate" class="headerlink" title="迁移(AutoMigrate)"></a>迁移(AutoMigrate)</h2><ol><li>介绍<br>GORM 的 AutoMigrate() 方法用于自动迁移 ORM 的 Schemas。所谓 “迁移” 就是刷新数据库中的表格定义，使其保持最新（只增不减）。</li></ol><p>AutoMigrate 会创建（新的）表、缺少的外键、约束、列和索引，并且会更改现有列的类型（如果其大小、精度、是否为空可更改的话）。但不会删除未使用的列，以保护现存的数据。</p><ol start="2"><li>数据库版本控制</li></ol><p>需要注意的是，GORM 虽然提供了不错的数据库迁移功能，但是距离理想的 “版本控制” 仍有距离。不支持，包括：版本记录、版本回退、版本选择。这些都需要开发者自行封装。</p><p>这玩意跟 EF Core 比起来就是个弟弟，弱的不能再弱，凑合用！</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://blog.51cto.com/u_15301988/3079977">https://blog.51cto.com/u_15301988/3079977</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Golang</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>GORM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pgx-tern迁移的用法</title>
+    <link href="/Golang/pgx-tern%E8%BF%81%E7%A7%BB%E7%9A%84%E7%94%A8%E6%B3%95/"/>
+    <url>/Golang/pgx-tern%E8%BF%81%E7%A7%BB%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>tern 是一个 pgx 配套的pg迁移工具。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Golang</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PGX</tag>
+      
+      <tag>Tern</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Go协程的设计</title>
+    <link href="/Golang/go%E5%8D%8F%E7%A8%8B%E7%9A%84%E8%AE%BE%E8%AE%A1/"/>
+    <url>/Golang/go%E5%8D%8F%E7%A8%8B%E7%9A%84%E8%AE%BE%E8%AE%A1/</url>
+    
+    <content type="html"><![CDATA[<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.zhihu.com/question/20862617">https://www.zhihu.com/question/20862617</a><br><a href="https://chasecs.github.io/posts/go-scheduler-introduction/">https://chasecs.github.io/posts/go-scheduler-introduction/</a><br><a href="https://morsmachine.dk/go-scheduler">https://morsmachine.dk/go-scheduler</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Golang</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Go-Runtime</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>自定义配置HttpClient</title>
+    <link href="/NET/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AEhttpclient/"/>
+    <url>/NET/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AEhttpclient/</url>
+    
+    <content type="html"><![CDATA[<h2 id="完全封装-HttpClient"><a href="#完全封装-HttpClient" class="headerlink" title="完全封装 HttpClient"></a>完全封装 HttpClient</h2><ol><li>自定义 HttpClientFactory 请求类</li></ol><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">ISampleClient</span><br>&#123;<br>    <span class="hljs-function">Task&lt;<span class="hljs-keyword">string</span>&gt; <span class="hljs-title">GetData</span>(<span class="hljs-params"></span>)</span>;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SampleClient</span> : <span class="hljs-title">ISampleClient</span><br>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> HttpClient _client;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SampleClient</span>(<span class="hljs-params">HttpClient httpClient</span>)</span><br><span class="hljs-function"></span>    &#123;<br>        httpClient.BaseAddress = <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">&quot;https://api.SampleClient.com/&quot;</span>);<br>        httpClient.DefaultRequestHeaders.Add(<span class="hljs-string">&quot;Accept&quot;</span>, <span class="hljs-string">&quot;application/json&quot;</span>);<br>        httpClient.DefaultRequestHeaders.Add(<span class="hljs-string">&quot;User-Agent&quot;</span>, <span class="hljs-string">&quot;HttpClientFactory-Sample&quot;</span>);<br>        _client = httpClient;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">string</span>&gt; <span class="hljs-title">GetData</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> _client.GetStringAsync(<span class="hljs-string">&quot;/&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><ol start="2"><li>在Startup.cs中ConfigureService方法中注册SampleClient</li></ol><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c#">services.AddHttpClient&lt;ISampleClient, SampleClient&gt;();<br></code></pre></td></tr></table></figure><ol start="3"><li>从容器获取实例</li></ol><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ValuesController</span> : <span class="hljs-title">Controller</span><br>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> ISampleClient  _sampleClient;;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ValuesController</span>(<span class="hljs-params">ISampleClient  sampleClient</span>)</span><br><span class="hljs-function"></span>    &#123;<br>        _sampleClient = sampleClient;<br>    &#125;<br><br>    [<span class="hljs-meta">HttpGet</span>]<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;ActionResult&gt; <span class="hljs-title">Get</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>    &#123;<br>        <span class="hljs-keyword">string</span> result = <span class="hljs-keyword">await</span> _sampleClient.GetData();<br>        <span class="hljs-keyword">return</span> Ok(result);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>.NET</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AspNetCore</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>指定AspNetCore运行地址的方法</title>
+    <link href="/NET/%E6%8C%87%E5%AE%9Aaspnetcore%E8%BF%90%E8%A1%8C%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <url>/NET/%E6%8C%87%E5%AE%9Aaspnetcore%E8%BF%90%E8%A1%8C%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="How-to-specify-the-port-an-ASP-NET-Core-application-is-hosted-on"><a href="#How-to-specify-the-port-an-ASP-NET-Core-application-is-hosted-on" class="headerlink" title="How to specify the port an ASP.NET Core application is hosted on?"></a>How to specify the port an ASP.NET Core application is hosted on?</h1><p>In ASP.NET Core 3.1, there are 4 main ways to specify a custom port:</p><h3 id="Using-command-line-arguments-by-starting-your-NET-application-with-–urls-url"><a href="#Using-command-line-arguments-by-starting-your-NET-application-with-–urls-url" class="headerlink" title="Using command line arguments, by starting your .NET application with –urls=[url]:"></a>Using command line arguments, by starting your .NET application with –urls=[url]:</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">dotnet run -<span class="hljs-literal">-urls</span>=http://localhost:<span class="hljs-number">5001</span>/<br></code></pre></td></tr></table></figure><h3 id="Using-appsettings-json-by-adding-a-Urls-node"><a href="#Using-appsettings-json-by-adding-a-Urls-node" class="headerlink" title="Using appsettings.json, by adding a Urls node:"></a>Using appsettings.json, by adding a Urls node:</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;Urls&quot;</span>: <span class="hljs-string">&quot;http://localhost:5001&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure><h3 id="Using-environment-variables-with-ASPNETCORE-URLS-http-localhost-5001"><a href="#Using-environment-variables-with-ASPNETCORE-URLS-http-localhost-5001" class="headerlink" title="Using environment variables, with ASPNETCORE_URLS=http://localhost:5001/."></a>Using environment variables, with ASPNETCORE_URLS=<a href="http://localhost:5001/">http://localhost:5001/</a>.</h3><h3 id="Using-UseUrls-if-you-prefer-doing-it-programmatically"><a href="#Using-UseUrls-if-you-prefer-doing-it-programmatically" class="headerlink" title="Using UseUrls(), if you prefer doing it programmatically:"></a>Using UseUrls(), if you prefer doing it programmatically:</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span> =&gt;<br>        CreateHostBuilder(args).Build().Run();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IHostBuilder <span class="hljs-title">CreateHostBuilder</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span> =&gt;<br>        Host.CreateDefaultBuilder(args)<br>            .ConfigureWebHostDefaults(builder =&gt;<br>            &#123;<br>                builder.UseStartup&lt;Startup&gt;();<br>                builder.UseUrls(<span class="hljs-string">&quot;http://localhost:5001/&quot;</span>);<br>            &#125;);<br>&#125;<br></code></pre></td></tr></table></figure><p>Or, if you’re still using the web host builder instead of the generic host builder:</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span> =&gt;<br>        <span class="hljs-keyword">new</span> WebHostBuilder()<br>            .UseKestrel()<br>            .UseContentRoot(Directory.GetCurrentDirectory())<br>            .UseIISIntegration()<br>            .UseStartup&lt;Startup&gt;()<br>            .UseUrls(<span class="hljs-string">&quot;http://localhost:5001/&quot;</span>)<br>            .Build()<br>            .Run();<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>.NET</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AspNetCore</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Polly的用法</title>
+    <link href="/NET/polly%E7%9A%84%E7%94%A8%E6%B3%95/"/>
+    <url>/NET/polly%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>要详细了解就去看仓库的英文wiki，上面介绍的很详细，搜到的英文翻译很烂，中文跟英文意思相差很大！</p><table><thead><tr><th>Policy</th><th>前提</th><th align="center">Aka</th><th>How does the policy mitigate?</th></tr></thead><tbody><tr><td><strong>Retry</strong> <br/>(policy family)<br/><sub>(<a href="#retry">quickstart</a>&nbsp;;&nbsp;<a href="https://github.com/App-vNext/Polly/wiki/Retry">deep</a>)</sub></td><td>许多故障是暂时的，在一段时间后会正常</td><td align="center">“Maybe it’s just a blip”</td><td>允许配置自动重试</td></tr><tr><td><strong>Circuit-breaker</strong><br/>(policy family)<br/><sub>(<a href="#circuit-breaker">quickstart</a>&nbsp;;&nbsp;<a href="https://github.com/App-vNext/Polly/wiki/Circuit-Breaker">deep</a>)</sub></td><td>当系统发生严重故障时，快速响应请求失败比让用户等待要好。</td><td align="center"></td><td></td></tr><tr><td>避免故障系统过载有助于恢复系统。  <br/><br/>Protecting a faulting system from overload can help it recover.</td><td>“Stop doing it if it hurts” <br/><br/>“Give that system a break”</td><td align="center">当系统错误超过预配置的数量，系统将断路一段时间。</td><td></td></tr><tr><td><strong>Timeout</strong><br/><sub>(<a href="#timeout">quickstart</a>&nbsp;;&nbsp;<a href="https://github.com/App-vNext/Polly/wiki/Timeout">deep</a>)</sub></td><td>超出一定时间的等待，想要得到正确的结果是不太可能的。</td><td align="center">“Don’t wait forever”</td><td>保证调用者不需要等待超过设置的超时。</td></tr><tr><td><strong>Bulkhead Isolation</strong><br/><sub>(<a href="#bulkhead">quickstart</a>&nbsp;;&nbsp;<a href="https://github.com/App-vNext/Polly/wiki/Bulkhead">deep</a>)</sub></td><td>When a process faults, multiple failing calls backing up can easily swamp resource (eg threads/CPU) in a host.<br/><br/>A faulting downstream system can also cause ‘backed-up’ failing calls upstream.<br/><br/>Both risk a faulting process bringing down a wider system.</td><td align="center">“One fault shouldn’t sink the whole ship”</td><td>Constrains the governed actions to a fixed-size resource pool, isolating their potential  to affect others.</td></tr><tr><td><strong>Cache</strong><br/><sub>(<a href="#cache">quickstart</a>&nbsp;;&nbsp;<a href="https://github.com/App-vNext/Polly/wiki/Cache">deep</a>)</sub></td><td>Some proportion of requests may be similar.</td><td align="center">“You’ve asked that one before”</td><td>Provides a response from cache if known. <br/><br/>Stores responses automatically in cache, when first retrieved.</td></tr><tr><td><strong>Fallback</strong><br/><sub>(<a href="#fallback">quickstart</a>&nbsp;;&nbsp;<a href="https://github.com/App-vNext/Polly/wiki/Fallback">deep</a>)</sub></td><td>Things will still fail - plan what you will do when that happens.</td><td align="center">“Degrade gracefully”</td><td>Defines an alternative value to be returned (or action to be executed) on failure.</td></tr><tr><td><strong>PolicyWrap</strong><br/><sub>(<a href="#policywrap">quickstart</a>&nbsp;;&nbsp;<a href="https://github.com/App-vNext/Polly/wiki/PolicyWrap">deep</a>)</sub></td><td>Different faults require different strategies; resilience means using a combination.</td><td align="center">“Defence in depth”</td><td>Allows any of the above policies to be combined flexibly.</td></tr></tbody></table><h2 id="请求重试"><a href="#请求重试" class="headerlink" title="请求重试"></a>请求重试</h2><p>当发生请求异常或网络错误时, 就重新尝试N次。</p><img src="/NET/polly%E7%9A%84%E7%94%A8%E6%B3%95/how-polly-retry-works-2.png" class="" title="Polly重试工作流程"><h2 id="请求超时"><a href="#请求超时" class="headerlink" title="请求超时"></a>请求超时</h2><p>当系统超过一定时间的等待，我们就几乎可以判断不可能会有成功的结果。<br>比如平时一个网络请求瞬间就完成了，如果有一次网络请求超过了 30 秒还没完成，我们就知道这次大概率是不会返回成功的结果了。<br>因此，我们需要设置系统的超时时间，避免系统长时间做无谓的等待。</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-comment">// 超时时间不能超过 30 秒，否则就认为是错误的结果，并执行回调。</span><br>Policy.Timeout(<span class="hljs-number">30</span>, onTimeout: (context, timespan, task) =&gt;<br>&#123;<br>    <span class="hljs-comment">// do something</span><br>&#125;);<br></code></pre></td></tr></table></figure><h2 id="请求断路-Circuit-breaker"><a href="#请求断路-Circuit-breaker" class="headerlink" title="请求断路(Circuit-breaker)"></a>请求断路(Circuit-breaker)</h2><p>断路： 等待一段时间后再继续。</p><p>当系统遇到严重问题时，快速回馈失败比让用户/调用者等待要好，限制系统出错的体量，有助于系统恢复。<br>比如，当我们去调一个第三方的 API，有很长一段时间 API 都没有响应，可能对方服务器瘫痪了。<br>如果我们的系统还不停地重试，不仅会加重系统的负担，还会可能导致系统其它任务受影响。<br>所以，当系统出错的次数超过了指定的阈值，就要中断当前线路，等待一段时间后再继续。</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-comment">// 当系统出现两次异常时，就停下来，等待 1 分钟后再继续。</span><br>Policy.Handle&lt;SomeException&gt;()<br>      .CircuitBreaker(<span class="hljs-number">2</span>, TimeSpan.FromMinutes(<span class="hljs-number">1</span>));<br></code></pre></td></tr></table></figure><h2 id="AspNetCore实践使用"><a href="#AspNetCore实践使用" class="headerlink" title="AspNetCore实践使用"></a>AspNetCore实践使用</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SendCloudMailProvider</span> : <span class="hljs-title">INoticeProvider</span><br>&#123;<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> HttpClient _httpClient;<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> ILogger _logger;<br><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SendCloudMailProvider</span>(<span class="hljs-params">HttpClient httpClient, ILogger&lt;SendCloudMailProvider&gt; logger</span>)</span><br><span class="hljs-function"></span>  &#123;<br>      _httpClient = httpClient;<br>      _logger = logger;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">using</span> Polly;<br><span class="hljs-keyword">using</span> Polly.Extensions.Http;<br><br>services.AddHttpClient&lt;INoticeProvider, SendCloudMailProvider&gt;()<br>        .AddPolicyHandler(GetRetryPolicy())<br>        .AddPolicyHandler(GetCircuitBreakerPolicy());<br><br><span class="hljs-comment">// 重试策略</span><br><span class="hljs-function"><span class="hljs-keyword">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; <span class="hljs-title">GetRetryPolicy</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> HttpPolicyExtensions<br>      .HandleTransientHttpError()<br>      .OrResult(msg =&gt; msg.StatusCode == System.Net.HttpStatusCode.NotFound)<br>      .WaitAndRetryAsync(<span class="hljs-number">3</span>, retryAttempt =&gt; TimeSpan.FromMilliseconds(<span class="hljs-number">500</span>));<br>&#125;<br><br><span class="hljs-comment">// 断路策略</span><br><span class="hljs-function"><span class="hljs-keyword">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; <span class="hljs-title">GetCircuitBreakerPolicy</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> HttpPolicyExtensions<br>        .HandleTransientHttpError()<br>        .CircuitBreakerAsync(<span class="hljs-number">5</span>, TimeSpan.FromSeconds(<span class="hljs-number">30</span>));<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>.NET</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AspNetCore</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TaskScheduler</title>
+    <link href="/NET/taskscheduler/"/>
+    <url>/NET/taskscheduler/</url>
+    
+    <content type="html"><![CDATA[<p>Async Await 异步的实现原理，老是被问到， 看了Go的调度器文章，设计上感觉跟这个很相似。</p><p>这应该会是一个系列文章， 一篇写不下的， 欠的债慢慢还！</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://stackoverflow.com/questions/14177891/understanding-async-await-in-c-sharp">https://stackoverflow.com/questions/14177891/understanding-async-await-in-c-sharp</a><br><a href="https://blog.stephencleary.com/2012/02/async-and-await.html">https://blog.stephencleary.com/2012/02/async-and-await.html</a><br><a href="https://stackoverflow.com/questions/17320595/replacing-the-task-scheduler-in-c-sharp-with-a-custom-built-one">https://stackoverflow.com/questions/17320595/replacing-the-task-scheduler-in-c-sharp-with-a-custom-built-one</a><br><a href="https://www.codeproject.com/Articles/31971/Understanding-SynchronizationContext-Part-I">https://www.codeproject.com/Articles/31971/Understanding-SynchronizationContext-Part-I</a><br><a href="https://stackoverflow.com/questions/15428604/how-to-run-a-task-on-a-custom-taskscheduler-using-await">https://stackoverflow.com/questions/15428604/how-to-run-a-task-on-a-custom-taskscheduler-using-await</a><br><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskscheduler?view=net-6.0">https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskscheduler?view=net-6.0</a><br><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskscheduler?view=net-6.0#Sync">https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskscheduler?view=net-6.0#Sync</a><br><a href="https://devblogs.microsoft.com/pfxteam/taskscheduler-fromcurrentsynchronizationcontext/">https://devblogs.microsoft.com/pfxteam/taskscheduler-fromcurrentsynchronizationcontext/</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>.NET</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AsyncAwait</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HTTPS OCSP响应的坑</title>
+    <link href="/HTTP-Protocol/https-ocsp%E5%93%8D%E5%BA%94%E7%9A%84%E5%9D%91/"/>
+    <url>/HTTP-Protocol/https-ocsp%E5%93%8D%E5%BA%94%E7%9A%84%E5%9D%91/</url>
+    
+    <content type="html"><![CDATA[<p>由于https使用的是 Let’s Encrypt 签发的免费证书，部署的环境是在企业内部网络，完全与外网隔离，无法联网。</p><h2 id="DNS污染问题"><a href="#DNS污染问题" class="headerlink" title="DNS污染问题"></a>DNS污染问题</h2><ol><li>修改hosts, 避免DNS污染</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># /etc/hosts1</span><br><br>23.32.3.72     ocsp.int-x3.letsencrypt.org<br></code></pre></td></tr></table></figure><h2 id="请求OCSP响应"><a href="#请求OCSP响应" class="headerlink" title="请求OCSP响应"></a>请求OCSP响应</h2><p>下面是完整的响应信息：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ openssl ocsp -issuer ca.cer -cert website.cer -no_nonce -text \<br>          -url http://ocsp.int-x3.letsencrypt.org -text -respout ocsp_stapling_file<br><br>OCSP Request Data:<br>    Version: 1 (0x0)<br>    Requestor List:<br>        Certificate ID:<br>          Hash Algorithm: sha1<br>          Issuer Name Hash: 7EE66AE7729AB3FCF8A220646C16A12D6071085D<br>          Issuer Key Hash: A84A6A63047DDDBAE6D139B7A64565EFF3A8ECA1<br>          Serial Number: 04470F9AA9CA09D7D2AE20F5C7056964194C<br>OCSP Response Data:<br>    OCSP Response Status: successful (0x0)<br>    Response Type: Basic OCSP Response<br>    Version: 1 (0x0)<br>    Responder Id: C = US, O = Let<span class="hljs-string">&#x27;s Encrypt, CN = Let&#x27;</span>s Encrypt Authority X3<br>    Produced At: Jul  2 19:16:00 2020 GMT<br>    Responses:<br>    Certificate ID:<br>      Hash Algorithm: sha1<br>      Issuer Name Hash: 7EE66AE7729AB3FCF8A220646C16A12D6071085D<br>      Issuer Key Hash: A84A6A63047DDDBAE6D139B7A64565EFF3A8ECA1<br>      Serial Number: 04470F9AA9CA09D7D2AE20F5C7056964194C<br>    Cert Status: good<br>    This Update: Jul  2 19:00:00 2020 GMT<br>    Next Update: Jul  9 19:00:00 2020 GMT<br><br>    Signature Algorithm: sha256WithRSAEncryption<br>         0c:d4:98:31:05:89:ea:40:21:4a:71:be:81:f9:cf:0b:be:c3:<br>         8e:a9:ed:3f:73:fe:a7:65:c2:64:23:a7:c3:02:1a:7b:89:db:<br>         6f:26:20:01:a7:98:1f:87:8f:61:bd:74:59:83:a1:10:d2:75:<br>         b5:7e:ea:08:2d:6e:e0:44:99:38:38:02:43:e1:3b:3b:54:15:<br>         9b:8a:a8:b2:01:92:04:34:81:8d:87:7b:86:c4:84:ba:8c:09:<br>         a1:bb:fd:3a:2b:a1:8a:bd:e7:f9:22:a6:0c:00:83:29:57:39:<br>         ef:43:0e:28:2c:0c:47:50:4d:2f:a4:68:e1:93:35:63:d3:1b:<br>         55:f0:67:a2:c0:d2:6f:6e:19:3d:a0:e9:94:3a:03:6c:11:54:<br>         80:ba:8b:56:d8:d0:c1:00:ca:e3:6d:20:aa:9e:f8:e1:d5:28:<br>         90:ab:21:1f:64:c4:ef:59:89:5a:30:87:c4:23:<span class="hljs-built_in">cd</span>:e1:77:6f:<br>         a4:f5:3c:58:a2:1e:f9:5e:e1:41:9f:1a:1f:26:64:68:18:68:<br>         4c:30:1a:5a:65:26:6a:ec:96:45:1d:06:01:e8:e1:42:93:cc:<br>         43:c8:b3:fd:43:20:ac:6c:c2:3c:e1:c0:29:4c:6f:dc:43:18:<br>         27:87:d2:50:8a:ed:47:2b:de:45:cc:ea:45:a6:ec:af:20:f1:<br>         d7:ab:54:32<br>_.mes.haorizi.cn.cer: good<br>        This Update: Jul  2 19:00:00 2020 GMT<br>        Next Update: Jul  9 19:00:00 2020 GMT<br>Response verify OK<br><br></code></pre></td></tr></table></figure><h2 id="OCSP响应有效期"><a href="#OCSP响应有效期" class="headerlink" title="OCSP响应有效期"></a>OCSP响应有效期</h2><p>具体的坑就在这里： 一次OCSP响应有效期为7天</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">This Update: Jul  2 19:00:00 2020 GMT<br>Next Update: Jul  9 19:00:00 2020 GMT<br></code></pre></td></tr></table></figure><p>通过将OCSP响应保持为文件，配置到Nginx中，从而避免进行在线对证书进行验证； 对于能够联网的nginx服务器来说，一次OCSP响应有效期为7天是没有问题的，到期之后再一次进行更新即可；可我们的服务器是在企业内网，无法连接外网，这就导致了在IE浏览器访问慢的问题。</p><p>在部署Nginx时，采取了一系列优化手段去提升浏览器访问网站首页的速度，此时访问速度真是快的飞起，给人一种秒开的感觉，然后就开心的下班了。问题发生在七天后，此时的OCSP响应已经过期，现在用IE浏览器去打开，真是比蜗牛还慢；但是如果用谷歌浏览器去访问，依然是快的飞起；使用火狐浏览器，直接无法访问，提示 <code>SEC_ERROR_OCSP_OLD_RESPONSE</code> OCSP响应信息过期。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>HTTP-Protocol</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>HTTPS</tag>
+      
+      <tag>OCSP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Murmur哈希</title>
+    <link href="/Distributed-System/murmur%E5%93%88%E5%B8%8C/"/>
+    <url>/Distributed-System/murmur%E5%93%88%E5%B8%8C/</url>
+    
+    <content type="html"><![CDATA[<h2 id="MurmurHash算法"><a href="#MurmurHash算法" class="headerlink" title="MurmurHash算法"></a>MurmurHash算法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AsyncLogging::append</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* logline, <span class="hljs-keyword">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-function">muduo::MutexLockGuard <span class="hljs-title">lock</span><span class="hljs-params">(mutex_)</span></span>;<br>  <span class="hljs-keyword">if</span> (currentBuffer_-&gt;avail() &gt; len)<br>  &#123;<br>    currentBuffer_-&gt;append(logline, len);<br>  &#125;<br>  <span class="hljs-keyword">else</span><br>  &#123;<br>    buffers_.push_back(<span class="hljs-built_in">std</span>::move(currentBuffer_));<br><br>    <span class="hljs-keyword">if</span> (nextBuffer_)<br>    &#123;<br>      currentBuffer_ = <span class="hljs-built_in">std</span>::move(nextBuffer_);<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>      currentBuffer_.reset(<span class="hljs-keyword">new</span> Buffer); <span class="hljs-comment">// Rarely happens</span><br>    &#125;<br>    currentBuffer_-&gt;append(logline, len);<br>    cond_.notify();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Distributed-System</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>一致性哈希</tag>
+      
+      <tag>MurmurHash</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>术语: Fail-safe 和 Poka-yoke</title>
+    <link href="/Glossary/%E6%9C%AF%E8%AF%AD-fail-safe-%E5%92%8C-poka-yoke/"/>
+    <url>/Glossary/%E6%9C%AF%E8%AF%AD-fail-safe-%E5%92%8C-poka-yoke/</url>
+    
+    <content type="html"><![CDATA[<p>词义解析</p><h2 id="Poka-yoke-防呆"><a href="#Poka-yoke-防呆" class="headerlink" title="Poka-yoke - 防呆"></a>Poka-yoke - 防呆</h2><p><a href="https://zh.wikipedia.org/wiki/%E9%98%B2%E5%91%86">Poka-yoke</a> 又称错误校对，是一种预防矫正的行为约束手段，运用防止错误发生的限制方法，让操作者不需要花费注意力、也不需要经验与专业知识，凭借直觉即可准确无误地完成的操作</p><h2 id="Fail-safe-失效安全"><a href="#Fail-safe-失效安全" class="headerlink" title="Fail-safe - 失效安全"></a>Fail-safe - 失效安全</h2><p>失效安全（<a href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%95%88%E5%AE%89%E5%85%A8">Fail-safe</a>）, 也称为故障保险、失效导向安全，是指一个设备或是实务，即使有特定失效下，也不会造成对人员或其他设备的伤害（或者将伤害最小化），失效安全是安全系统的一部分。</p><h2 id="Fail-secure-失效安全"><a href="#Fail-secure-失效安全" class="headerlink" title="Fail-secure - 失效安全"></a>Fail-secure - 失效安全</h2><ul><li>Fail-safe是指设备失效时不会造成对人员或其他设备的威胁</li><li>Fail-secure是指设备失效时不会将资料或是存取权落入坏人之手</li></ul><p>Fail-secure和Fail-safe的实作结果会完全不同。Fail-safe系统会自动开锁，让人员可以快速逃出，消防人员可以尽快进入，但Fail-secure系统会自动上锁，避免没授权的人员进入建筑物。</p><h2 id="程序的失效安全"><a href="#程序的失效安全" class="headerlink" title="程序的失效安全"></a>程序的失效安全</h2><p>如同实体的设备一様，程序上也可以有失效安全的机制，因此若一个程序没有执行或程序被错误执行，不会有危险的效果。</p><h2 id="防御式设计（Defensive-design）"><a href="#防御式设计（Defensive-design）" class="headerlink" title="防御式设计（Defensive design）"></a>防御式设计（Defensive design）</h2><p><a href="https://zh.wikipedia.org/wiki/%E9%98%B2%E5%BE%A1%E6%80%A7%E8%AE%BE%E8%AE%A1">防御性设计</a>是考虑使用者可能会错误使用的所有情形，用设计手法避免错误使用，或是降低错误使用的机会。例如，假如某一个接头需要以特定的方向插到插座中，而且这个非常重要，会设法设计此接头，让接头必需依正确的方向才能插入插座中。</p><h2 id="契约式设计（Design-by-Contract）"><a href="#契约式设计（Design-by-Contract）" class="headerlink" title="契约式设计（Design by Contract）"></a>契约式设计（Design by Contract）</h2><p><a href="https://zh.wikipedia.org/wiki/%E5%A5%91%E7%BA%A6%E5%BC%8F%E8%AE%BE%E8%AE%A1">契约式设计</a>，一种设计计算机软件的方法。</p><p>这种方法要求软件设计者为软件组件定义正式的，精确的并且可验证的接口，这样，为传统的抽象数据类型又增加了先验条件、后验条件和不变式。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Glossary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Design Smell</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Design Smell: 执着于基本类型</title>
+    <link href="/Software-Design/design-smell-%E6%89%A7%E7%9D%80%E4%BA%8E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/"/>
+    <url>/Software-Design/design-smell-%E6%89%A7%E7%9D%80%E4%BA%8E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><ul><li>从基本类型转换领域模型（值对象）</li></ul><h2 id="代码片段1"><a href="#代码片段1" class="headerlink" title="代码片段1"></a>代码片段1</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AsyncLogging::append</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* logline, <span class="hljs-keyword">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-function">muduo::MutexLockGuard <span class="hljs-title">lock</span><span class="hljs-params">(mutex_)</span></span>;<br>  <span class="hljs-keyword">if</span> (currentBuffer_-&gt;avail() &gt; len)<br>  &#123;<br>    currentBuffer_-&gt;append(logline, len);<br>  &#125;<br>  <span class="hljs-keyword">else</span><br>  &#123;<br>    buffers_.push_back(<span class="hljs-built_in">std</span>::move(currentBuffer_));<br><br>    <span class="hljs-keyword">if</span> (nextBuffer_)<br>    &#123;<br>      currentBuffer_ = <span class="hljs-built_in">std</span>::move(nextBuffer_);<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>      currentBuffer_.reset(<span class="hljs-keyword">new</span> Buffer); <span class="hljs-comment">// Rarely happens</span><br>    &#125;<br>    currentBuffer_-&gt;append(logline, len);<br>    cond_.notify();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="代码片段1-1"><a href="#代码片段1-1" class="headerlink" title="代码片段1"></a>代码片段1</h2><p>从基本类型转换领域模型（值对象）</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Software-Design</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Design Smell</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Design Smell: 时空耦合</title>
+    <link href="/Software-Design/design-smell-%E6%97%B6%E7%A9%BA%E8%80%A6%E5%90%88/"/>
+    <url>/Software-Design/design-smell-%E6%97%B6%E7%A9%BA%E8%80%A6%E5%90%88/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Design-Smell-时空耦合"><a href="#Design-Smell-时空耦合" class="headerlink" title="Design Smell: 时空耦合"></a>Design Smell: 时空耦合</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AsyncLogging::append</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* logline, <span class="hljs-keyword">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-function">muduo::MutexLockGuard <span class="hljs-title">lock</span><span class="hljs-params">(mutex_)</span></span>;<br>  <span class="hljs-keyword">if</span> (currentBuffer_-&gt;avail() &gt; len)<br>  &#123;<br>    currentBuffer_-&gt;append(logline, len);<br>  &#125;<br>  <span class="hljs-keyword">else</span><br>  &#123;<br>    buffers_.push_back(<span class="hljs-built_in">std</span>::move(currentBuffer_));<br><br>    <span class="hljs-keyword">if</span> (nextBuffer_)<br>    &#123;<br>      currentBuffer_ = <span class="hljs-built_in">std</span>::move(nextBuffer_);<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>      currentBuffer_.reset(<span class="hljs-keyword">new</span> Buffer); <span class="hljs-comment">// Rarely happens</span><br>    &#125;<br>    currentBuffer_-&gt;append(logline, len);<br>    cond_.notify();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Software-Design</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Design Smell</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
