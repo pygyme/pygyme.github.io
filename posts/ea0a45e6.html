@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>VMware Workstation Pro 嵌套虚拟化 ProxmoxVE | 桃花月落</title><meta name="author" content="断空"><meta name="copyright" content="断空"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="VMware安装PVE虚拟机下载ISO安装镜像，正常安装就好。不会的话就去网上搜教程。 虚拟磁盘创建策略第一块硬盘叫做 disk01.vmdk，第二块硬盘叫做 disk02.vmdk，以此类推。 PVE虚拟机,虚拟机名称叫 ProxmoxVE。 ProxmoxVE.vmdk 64GB  用于安装PVE系统，以及local存储目录，使用ext4文件系统。 删掉local-lvm这个逻辑卷，把空间全都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VMware Workstation Pro 嵌套虚拟化 ProxmoxVE">
+<meta property="og:url" content="https://156256.xyz/posts/ea0a45e6.html">
+<meta property="og:site_name" content="桃花月落">
+<meta property="og:description" content="VMware安装PVE虚拟机下载ISO安装镜像，正常安装就好。不会的话就去网上搜教程。 虚拟磁盘创建策略第一块硬盘叫做 disk01.vmdk，第二块硬盘叫做 disk02.vmdk，以此类推。 PVE虚拟机,虚拟机名称叫 ProxmoxVE。 ProxmoxVE.vmdk 64GB  用于安装PVE系统，以及local存储目录，使用ext4文件系统。 删掉local-lvm这个逻辑卷，把空间全都">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://156256.xyz/images/collections/canvas01/pexels-anniroenkae-3418325.jpg">
+<meta property="article:published_time" content="2024-01-27T10:16:03.000Z">
+<meta property="article:modified_time" content="2025-11-02T03:01:42.832Z">
+<meta property="article:author" content="断空">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://156256.xyz/images/collections/canvas01/pexels-anniroenkae-3418325.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "VMware Workstation Pro 嵌套虚拟化 ProxmoxVE",
+  "url": "https://156256.xyz/posts/ea0a45e6.html",
+  "image": "https://156256.xyz/images/collections/canvas01/pexels-anniroenkae-3418325.jpg",
+  "datePublished": "2024-01-27T10:16:03.000Z",
+  "dateModified": "2025-11-02T03:01:42.832Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "断空",
+      "url": "https://156256.xyz/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://156256.xyz/posts/ea0a45e6.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'VMware Workstation Pro 嵌套虚拟化 ProxmoxVE',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="桃花月落" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">147</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 🏡 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 🐈 文章卡片</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><span> 🫎 分类</span></a></li><li><a class="site-page child" href="/tags/"><span> 🏷️ 标签</span></a></li><li><a class="site-page child" href="/archives/"><span> 🗃️ 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🐆 系列文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/posts/8ee9a54a.html"><span> 🦙 开发技术</span></a></li><li><a class="site-page child" href="/posts/56a16bf9.html"><span> 🐒 教育教学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦘 书籍阅读</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/ComputerScience/"><span> 📖 计算机科学</span></a></li><li><a class="site-page child" href="/Pedagogy/"><span> 📖 教育学</span></a></li><li><a class="site-page child" href="/Psychology/"><span> 📖 心理学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦒 生活片段</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><span> 🎉 说说</span></a></li><li><a class="site-page child" href="/travel/"><span> 🗺️ 旅行</span></a></li><li><a class="site-page child" href="/gallery/"><span> 🖼️ 图库</span></a></li><li><a class="site-page child" href="/music/"><span> 🎸 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 📽️ 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><span> 🐫 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 🐿️ 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/collections/canvas01/pexels-anniroenkae-3418325.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/logo.png" alt="Logo"><span class="site-name">桃花月落</span></a><a class="nav-page-title" href="/"><span class="site-name">VMware Workstation Pro 嵌套虚拟化 ProxmoxVE</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i>🔍 </i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 🏡 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 🐈 文章卡片</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><span> 🫎 分类</span></a></li><li><a class="site-page child" href="/tags/"><span> 🏷️ 标签</span></a></li><li><a class="site-page child" href="/archives/"><span> 🗃️ 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🐆 系列文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/posts/8ee9a54a.html"><span> 🦙 开发技术</span></a></li><li><a class="site-page child" href="/posts/56a16bf9.html"><span> 🐒 教育教学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦘 书籍阅读</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/ComputerScience/"><span> 📖 计算机科学</span></a></li><li><a class="site-page child" href="/Pedagogy/"><span> 📖 教育学</span></a></li><li><a class="site-page child" href="/Psychology/"><span> 📖 心理学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦒 生活片段</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><span> 🎉 说说</span></a></li><li><a class="site-page child" href="/travel/"><span> 🗺️ 旅行</span></a></li><li><a class="site-page child" href="/gallery/"><span> 🖼️ 图库</span></a></li><li><a class="site-page child" href="/music/"><span> 🎸 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 📽️ 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><span> 🐫 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 🐿️ 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">VMware Workstation Pro 嵌套虚拟化 ProxmoxVE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-27T10:16:03.000Z" title="发表于 2024-01-27 18:16:03">2024-01-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-02T03:01:42.832Z" title="更新于 2025-11-02 11:01:42">2025-11-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/">虚拟化技术</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/VMwareWorkstationPro/">VMwareWorkstationPro</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="VMware安装PVE虚拟机"><a href="#VMware安装PVE虚拟机" class="headerlink" title="VMware安装PVE虚拟机"></a>VMware安装PVE虚拟机</h2><p>下载ISO安装镜像，正常安装就好。不会的话就去网上搜教程。</p>
+<h3 id="虚拟磁盘创建策略"><a href="#虚拟磁盘创建策略" class="headerlink" title="虚拟磁盘创建策略"></a>虚拟磁盘创建策略</h3><p>第一块硬盘叫做 disk01.vmdk，第二块硬盘叫做 disk02.vmdk，以此类推。</p>
+<p>PVE虚拟机,虚拟机名称叫 ProxmoxVE。</p>
+<p>ProxmoxVE.vmdk 64GB  用于安装PVE系统，以及local存储目录，使用ext4文件系统。 删掉local-lvm这个逻辑卷，把空间全都分给local存储目录。</p>
+<p>系统盘 64G ，1GB &#x2F;boot, 16GB swap分区，剩下的分给local目录，主要用于上传下载备份文件，足矣， 再大纯属浪费。</p>
+<p>disk01.vmdk 512GB  用于存储PVE创建的虚拟机。 单独一个分区，不做LVM，使用ext4文件系统，挂载到 &#x2F;storage&#x2F;disk01, 对应存储目录 disk01</p>
+<p>disk02.vmdk 512GB  用于存储PVE创建的虚拟机。 单独一个分区，不做LVM，使用ext4文件系统，挂载到 &#x2F;storage&#x2F;disk02, 对应存储目录 disk02</p>
+<h3 id="安装需要注意的点"><a href="#安装需要注意的点" class="headerlink" title="安装需要注意的点"></a>安装需要注意的点</h3><p>1.使用lvm创建分区挂载各个挂载点，方便后期磁盘空间扩容。</p>
+<p>2.虚拟机安装完成后，在虚拟机里面把vmtools装上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>3.虚拟机设置》处理器》虚拟化引擎，把 <code>虚拟化 Intel VT-x AMD-V</code> 和 <code>虚拟化CPU性能计数器</code> 两个选项都勾上。</p>
+<ul>
+<li><code>虚拟化 Intel VT-x AMD-V</code>： 必须勾选，不选这个，没法使用PVE创建运行虚拟机。</li>
+<li><code>虚拟化CPU性能计数器</code>： 可以提升虚拟机CPU性能</li>
+</ul>
+<h3 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 基础工具</span></span><br><span class="line">apt-get install -y apt-file</span><br><span class="line">apt-get install -y vim tree unzip tar bzip2</span><br><span class="line"></span><br><span class="line"><span class="comment">## 传感器相关</span></span><br><span class="line">apt-get install -y lm-sensors hddtemp</span><br><span class="line"></span><br><span class="line"><span class="comment">## openvswitch</span></span><br><span class="line">apt-get install -y openvswitch-switch openvswitch-common \</span><br><span class="line">    openvswitch-switch-dpdk openvswitch-ipsec openvswitch-test</span><br><span class="line"></span><br><span class="line"><span class="comment">## qemu arm aarch64</span></span><br><span class="line">apt-get install -y qemu-efi qemu-efi-arm qemu-efi-aarch64</span><br></pre></td></tr></table></figure>
+
+<h2 id="PVE虚拟机管理"><a href="#PVE虚拟机管理" class="headerlink" title="PVE虚拟机管理"></a>PVE虚拟机管理</h2><h3 id="虚拟机常用管理命令"><a href="#虚拟机常用管理命令" class="headerlink" title="虚拟机常用管理命令"></a>虚拟机常用管理命令</h3><p>1.虚拟机解除锁定</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# qm unlock 106</span><br></pre></td></tr></table></figure>
+
+<p>2.虚拟机打标签</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# qm <span class="built_in">set</span> 121 -tags app</span><br><span class="line">update VM 121: -tags app</span><br><span class="line">root@pve:~#</span><br></pre></td></tr></table></figure>
+
+<h3 id="虚拟机磁盘不释放"><a href="#虚拟机磁盘不释放" class="headerlink" title="虚拟机磁盘不释放"></a>虚拟机磁盘不释放</h3><ol>
+<li>问题描述</li>
+</ol>
+<p>PVE虚拟机磁盘删除大量文件后， 磁盘空间没有释放。</p>
+<ol start="2">
+<li>解决方案</li>
+</ol>
+<p>关闭虚拟机， 在 硬件 选项里面， 双击 硬盘 ， 弹出的选项卡里面， 勾选 丢弃 。</p>
+<p>开启虚拟机， ssh连上去， 执行 <code>fstrim -av</code> 命令。 命令执行成功之后， 磁盘空间就释放了。</p>
+<h2 id="PVE8-导入-VMware-Workstation-Pro-虚拟机"><a href="#PVE8-导入-VMware-Workstation-Pro-虚拟机" class="headerlink" title="PVE8 导入 VMware Workstation Pro 虚拟机"></a>PVE8 导入 VMware Workstation Pro 虚拟机</h2><h3 id="第一步：VMware-Workstation-Pro-导出虚拟机"><a href="#第一步：VMware-Workstation-Pro-导出虚拟机" class="headerlink" title="第一步：VMware Workstation Pro 导出虚拟机"></a>第一步：VMware Workstation Pro 导出虚拟机</h3><p>选中虚拟机， 文件 &gt;  导出为OVF</p>
+<h3 id="第二步：PVE8导入虚拟机"><a href="#第二步：PVE8导入虚拟机" class="headerlink" title="第二步：PVE8导入虚拟机"></a>第二步：PVE8导入虚拟机</h3><ol>
+<li><p>把导出的ovf文件传到服务器</p>
+</li>
+<li><p>使用<code>qm importovf &lt;vmid&gt; &lt;ovf file&gt; &lt;storage&gt;</code> 命令导入，如： <code>qm importovf 100 exported.ovf local-lvm</code></p>
+</li>
+</ol>
+<h3 id="第三步：虚拟机导入PVE8之后的操作"><a href="#第三步：虚拟机导入PVE8之后的操作" class="headerlink" title="第三步：虚拟机导入PVE8之后的操作"></a>第三步：虚拟机导入PVE8之后的操作</h3><ol>
+<li>磁盘接口选中 IDE接口</li>
+<li>重新设置虚拟机引导顺序</li>
+<li>重新配置网卡接口和IP地址</li>
+<li><code>CentOS7</code>配置网卡</li>
+</ol>
+<h2 id="PVE8虚拟机-导出到-VMware-Workstation-Pro-虚拟机"><a href="#PVE8虚拟机-导出到-VMware-Workstation-Pro-虚拟机" class="headerlink" title="PVE8虚拟机 导出到 VMware Workstation Pro 虚拟机"></a>PVE8虚拟机 导出到 VMware Workstation Pro 虚拟机</h2><h3 id="第一步-PVE8管理界面下备份虚拟机，生成备份文件"><a href="#第一步-PVE8管理界面下备份虚拟机，生成备份文件" class="headerlink" title="第一步: PVE8管理界面下备份虚拟机，生成备份文件"></a>第一步: PVE8管理界面下备份虚拟机，生成备份文件</h3><p>这里对虚拟机(Fedora Server 38) 进行了备份，生成的备份文件如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# <span class="built_in">ls</span> -lh /var/lib/vz/dump/</span><br><span class="line">total 3.2G</span><br><span class="line">-rw-r--r-- 1 root root 4.3K Mar 22 17:35 vzdump-qemu-116-2024_03_22-16_03_12.log</span><br><span class="line">-rw-r--r-- 1 root root 3.2G Mar 22 17:36 vzdump-qemu-116-2024_03_22-16_03_12.vma.zst</span><br><span class="line">-rw-r--r-- 1 root root  116 Mar 22 17:35 vzdump-qemu-116-2024_03_22-16_03_12.vma.zst.notes</span><br><span class="line">root@pve:~#</span><br></pre></td></tr></table></figure>
+
+<h3 id="第二步-格式转换，将虚拟机备份文件-vma-zst转换成vmdk格式"><a href="#第二步-格式转换，将虚拟机备份文件-vma-zst转换成vmdk格式" class="headerlink" title="第二步: 格式转换，将虚拟机备份文件*.vma.zst转换成vmdk格式"></a>第二步: 格式转换，将虚拟机备份文件<code>*.vma.zst</code>转换成<code>vmdk</code>格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# <span class="comment"># 先解压 *.vma.zst 文件，得到 *.vma 文件</span></span><br><span class="line">root@pve:~# <span class="built_in">cd</span> /var/lib/vz/dump/</span><br><span class="line">root@pve:/var/lib/vz/dump# <span class="built_in">ls</span> *.vma.zst</span><br><span class="line">vzdump-qemu-116-2024_03_22-16_03_12.vma.zst</span><br><span class="line">root@pve:/var/lib/vz/dump#</span><br><span class="line">root@pve:/var/lib/vz/dump# zstd -d vzdump-qemu-116-2024_03_22-16_03_12.vma.zst</span><br><span class="line">vzdump-qemu-116-2024_03_22-16_03_12.vma.zst: 7025745408 bytes                  </span><br><span class="line">root@pve:/var/lib/vz/dump# <span class="built_in">ls</span> *.vma</span><br><span class="line">vzdump-qemu-116-2024_03_22-16_03_12.vma</span><br><span class="line">root@pve:/var/lib/vz/dump#</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# <span class="comment"># 再把 *.vma 文件解压得到 *.raw 文件</span></span><br><span class="line">root@pve:/var/lib/vz/dump# vma extract vzdump-qemu-116-2024_03_22-16_03_12.vma extract</span><br><span class="line">DEVINFO extract/tmp-disk-drive-scsi0.raw 274877906944</span><br><span class="line">root@pve:/var/lib/vz/dump# <span class="built_in">ls</span> extract/*.raw</span><br><span class="line">extract/disk-drive-scsi0.raw</span><br><span class="line">root@pve:/var/lib/vz/dump#</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@pve:~# <span class="comment"># 最后用qemu-img把raw转换vmdk</span></span><br><span class="line">root@pve:/var/lib/vz/dump# <span class="built_in">cd</span> extract/</span><br><span class="line">root@pve:/var/lib/vz/dump/extract# qemu-img convert -f raw -O vmdk disk-drive-scsi0.raw disk-drive-scsi0.vmdk</span><br><span class="line">root@pve:/var/lib/vz/dump/extract# <span class="built_in">ls</span></span><br><span class="line">disk-drive-scsi0.raw  disk-drive-scsi0.vmdk  qemu-server.conf</span><br><span class="line">root@pve:/var/lib/vz/dump/extract#</span><br></pre></td></tr></table></figure>
+
+<p>得到vmdk文件后,你可以导入VMware作为虚拟机的虚拟硬盘了。</p>
+<h3 id="第三步-VMware-Workstation-Pro-创建虚拟机"><a href="#第三步-VMware-Workstation-Pro-创建虚拟机" class="headerlink" title="第三步: VMware Workstation Pro 创建虚拟机"></a>第三步: VMware Workstation Pro 创建虚拟机</h3><ol>
+<li>创建一个文件夹(FedoraServer38), 把 disk-drive-scsi0.vmdk 放到这个文件夹里面， 如下：</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> E:\VMware\FedoraServer38&gt; <span class="built_in">dir</span></span><br><span class="line"></span><br><span class="line">    Directory: E:\VMware\FedoraServer38</span><br><span class="line"></span><br><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line"><span class="literal">----</span>                 <span class="literal">-------------</span>         <span class="literal">------</span> <span class="literal">----</span></span><br><span class="line"><span class="literal">-a---</span>           <span class="number">2024</span>/<span class="number">3</span>/<span class="number">22</span>    <span class="number">17</span>:<span class="number">59</span>              <span class="number">0</span> disk<span class="literal">-drive-scsi0</span>.vmdk</span><br><span class="line"></span><br><span class="line"><span class="built_in">PS</span> E:\VMware\FedoraServer38&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>打开 VMware Workstation Pro 新建虚拟机</p>
+<p> 跟正常创建虚拟机步骤一样，在新建虚拟机向导里面，需要注意的有两点：</p>
+<ul>
+<li>磁盘接口选类型选择IDE，一定要是IDE，不然创建的虚拟机无法正常启动。</li>
+<li>到选择磁盘这一步的时候， 要选择 使用现有虚拟磁盘，找到上面文件夹里面的 disk-drive-scsi0.vmdk， 完成虚拟机的创建。</li>
+</ul>
+<p> 创建成功即可正常启动。</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://156256.xyz">断空</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://156256.xyz/posts/ea0a45e6.html">https://156256.xyz/posts/ea0a45e6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://156256.xyz" target="_blank">桃花月落</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/collections/canvas01/pexels-anniroenkae-3418325.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/6c0c2176.html" title="VMware Workstation Pro 虚拟机回收磁盘空间"><img class="cover" src="/images/collections/canvas01/pexels-polina-kovaleva-6109101.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">VMware Workstation Pro 虚拟机回收磁盘空间</div></div><div class="info-2"><div class="info-item-1">Windows虚拟机对于 Windows 虚拟机，可以选中虚拟机右键，管理选项，选择清理磁盘。这种方式回收空间速度很快，使用起来非常方便。 真正让人头疼的是Linux虚拟机，VMware Workstation Pro 不支持trim，文件删除后，空间还是占用着，无法回收。 1234root@pve:~# # vmware workstation Pro 虚拟磁盘不支持trimroot@pve:~# fstrim -v /fstrim: /: the discard operation is not supportedroot@pve:~#    Linux虚拟机使用vmtools提供的shrink功能回收磁盘空间第一步、虚拟机安装vmtools 123apt-get install open-vm-toolsdnf install open-vm-tools  第二步、查看可压缩磁盘的挂载点 1234root@pve:~# vmware-toolbox-cmd disk list//storageroot@pve:~#  第三步、压缩磁盘 123root@pve:~# #...</div></div></div></a><a class="pagination-related" href="/posts/90971b5c.html" title="源码编译boost库"><img class="cover" src="/images/collections/canvas03/pexels-anniroenkae-2832432.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">源码编译boost库</div></div><div class="info-2"><div class="info-item-1">mt-gd 和 mt-s 库有什么区别？Windows 上的 Boost 入门指南  完整的概述并链接到相应的Visual Studio配置：  Boost 的 -mt-s   对应于 VS 的 运行时库 设置 &#x2F;MT Boost 的 -mt-sgd 对应于 VS 的 运行时库 设置 &#x2F;MTd Boost 的 -mt     对应于 VS 的 运行时库 设置 &#x2F;MD Boost 的 -mt-gd  对应于 VS 的 运行时库 设置 &#x2F;MDd  第一和第二个可以用 .&#x2F;b2 runtime-link&#x3D;static threading&#x3D;multi 第三和第四个可以用 .&#x2F;b2 runtime-link&#x3D;shared threading&#x3D;multi Boost库命名规则12345+ -mt 是线程标签，表示该库是在启用多线程支持的情况下构建的。      如果构建的库不支持多线程，则可以通过缺少 `-mt` 来识别。+ -s  静态链接到 C++ 标准库和编译器运行时支持库。+ -g ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">断空</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">147</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/pygyme"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/pygyme" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://twitter.com/pygyme" rel="external nofollow noreferrer" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter" style="color: #24292e;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:pygyme@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VMware%E5%AE%89%E8%A3%85PVE%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.</span> <span class="toc-text">VMware安装PVE虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E7%A3%81%E7%9B%98%E5%88%9B%E5%BB%BA%E7%AD%96%E7%95%A5"><span class="toc-number">1.1.</span> <span class="toc-text">虚拟磁盘创建策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">安装需要注意的点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">安装常用软件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PVE%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">PVE虚拟机管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%B8%B8%E7%94%A8%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text">虚拟机常用管理命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A3%81%E7%9B%98%E4%B8%8D%E9%87%8A%E6%94%BE"><span class="toc-number">2.2.</span> <span class="toc-text">虚拟机磁盘不释放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PVE8-%E5%AF%BC%E5%85%A5-VMware-Workstation-Pro-%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">3.</span> <span class="toc-text">PVE8 导入 VMware Workstation Pro 虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9AVMware-Workstation-Pro-%E5%AF%BC%E5%87%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">3.1.</span> <span class="toc-text">第一步：VMware Workstation Pro 导出虚拟机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9APVE8%E5%AF%BC%E5%85%A5%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">3.2.</span> <span class="toc-text">第二步：PVE8导入虚拟机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AF%BC%E5%85%A5PVE8%E4%B9%8B%E5%90%8E%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.</span> <span class="toc-text">第三步：虚拟机导入PVE8之后的操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PVE8%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%AF%BC%E5%87%BA%E5%88%B0-VMware-Workstation-Pro-%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">PVE8虚拟机 导出到 VMware Workstation Pro 虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-PVE8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2%E4%B8%8B%E5%A4%87%E4%BB%BD%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%8C%E7%94%9F%E6%88%90%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">第一步: PVE8管理界面下备份虚拟机，生成备份文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%8C%E5%B0%86%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6-vma-zst%E8%BD%AC%E6%8D%A2%E6%88%90vmdk%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">第二步: 格式转换，将虚拟机备份文件*.vma.zst转换成vmdk格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-VMware-Workstation-Pro-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">4.3.</span> <span class="toc-text">第三步: VMware Workstation Pro 创建虚拟机</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/0.html" title="无标题">无标题</a><time datetime="2025-11-15T15:08:39.008Z" title="发表于 2025-11-15 23:08:39">2025-11-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/0.html" title="无标题">无标题</a><time datetime="2025-11-15T15:08:25.060Z" title="发表于 2025-11-15 23:08:25">2025-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/47b0ec5d.html" title="（十一）自己动手编写Helm Charts在集群上部署应用"><img src="/images/collections/canvas01/pexels-steve-25974768.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（十一）自己动手编写Helm Charts在集群上部署应用"/></a><div class="content"><a class="title" href="/posts/47b0ec5d.html" title="（十一）自己动手编写Helm Charts在集群上部署应用">（十一）自己动手编写Helm Charts在集群上部署应用</a><time datetime="2025-11-04T12:13:11.000Z" title="发表于 2025-11-04 20:13:11">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/291ede0b.html" title="（十）安装Kubernetes集群客户端工具"><img src="/images/collections/canvas01/pexels-tamanna-rumee-52377920-8754602.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（十）安装Kubernetes集群客户端工具"/></a><div class="content"><a class="title" href="/posts/291ede0b.html" title="（十）安装Kubernetes集群客户端工具">（十）安装Kubernetes集群客户端工具</a><time datetime="2025-11-04T12:13:10.000Z" title="发表于 2025-11-04 20:13:10">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e1891b63.html" title="（九）管理配置Kubernetes集群"><img src="/images/collections/canvas01/pexels-turgay-koca-405356598-14918700.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（九）管理配置Kubernetes集群"/></a><div class="content"><a class="title" href="/posts/e1891b63.html" title="（九）管理配置Kubernetes集群">（九）管理配置Kubernetes集群</a><time datetime="2025-11-04T12:13:09.000Z" title="发表于 2025-11-04 20:13:09">2025-11-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2025 By 断空</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">若我只是恨你，那该有多好；可我们之间，早已没有了言语；至此一生，终究没能突破那枷锁，成了自己最讨厌的那类人；也好，但愿此去能化作尘泥，孑然一身，再无牵挂。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/instant.page/instantpage.js" type="module"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="/pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="/pluginsSrc/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

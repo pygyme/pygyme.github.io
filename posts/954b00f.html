@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>三方库Polly：简介 | 桃花月落</title><meta name="author" content="断空"><meta name="copyright" content="断空"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="要详细了解就去看仓库的英文wiki，上面介绍的很详细，搜到的英文翻译很烂，中文跟英文意思相差很大！    Policy 前提 Aka How does the policy mitigate?    Retry (policy family)(quickstart&nbsp;;&nbsp;deep) 许多故障是暂时的，在一段时间后会正常 “Maybe it’s just a blip” 允许配置自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三方库Polly：简介">
+<meta property="og:url" content="https://156256.xyz/posts/954b00f.html">
+<meta property="og:site_name" content="桃花月落">
+<meta property="og:description" content="要详细了解就去看仓库的英文wiki，上面介绍的很详细，搜到的英文翻译很烂，中文跟英文意思相差很大！    Policy 前提 Aka How does the policy mitigate?    Retry (policy family)(quickstart&nbsp;;&nbsp;deep) 许多故障是暂时的，在一段时间后会正常 “Maybe it’s just a blip” 允许配置自">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://156256.xyz/images/avatar.jpg">
+<meta property="article:published_time" content="2020-12-15T14:37:00.000Z">
+<meta property="article:modified_time" content="2025-10-30T12:49:32.477Z">
+<meta property="article:author" content="断空">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://156256.xyz/images/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "三方库Polly：简介",
+  "url": "https://156256.xyz/posts/954b00f.html",
+  "image": "https://156256.xyz/images/avatar.jpg",
+  "datePublished": "2020-12-15T14:37:00.000Z",
+  "dateModified": "2025-10-30T12:49:32.477Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "断空",
+      "url": "https://156256.xyz/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://156256.xyz/posts/954b00f.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '三方库Polly：简介',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="桃花月落" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">147</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 🏡 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 🐈 文章卡片</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><span> 🫎 分类</span></a></li><li><a class="site-page child" href="/tags/"><span> 🏷️ 标签</span></a></li><li><a class="site-page child" href="/archives/"><span> 🗃️ 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🐆 系列文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/posts/8ee9a54a.html"><span> 🦙 开发技术</span></a></li><li><a class="site-page child" href="/posts/56a16bf9.html"><span> 🐒 教育教学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦘 书籍阅读</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/ComputerScience/"><span> 📖 计算机科学</span></a></li><li><a class="site-page child" href="/Pedagogy/"><span> 📖 教育学</span></a></li><li><a class="site-page child" href="/Psychology/"><span> 📖 心理学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦒 生活片段</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><span> 🎉 说说</span></a></li><li><a class="site-page child" href="/travel/"><span> 🗺️ 旅行</span></a></li><li><a class="site-page child" href="/gallery/"><span> 🖼️ 图库</span></a></li><li><a class="site-page child" href="/music/"><span> 🎸 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 📽️ 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><span> 🐫 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 🐿️ 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/index_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/logo.png" alt="Logo"><span class="site-name">桃花月落</span></a><a class="nav-page-title" href="/"><span class="site-name">三方库Polly：简介</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i>🔍 </i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 🏡 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 🐈 文章卡片</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><span> 🫎 分类</span></a></li><li><a class="site-page child" href="/tags/"><span> 🏷️ 标签</span></a></li><li><a class="site-page child" href="/archives/"><span> 🗃️ 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🐆 系列文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/posts/8ee9a54a.html"><span> 🦙 开发技术</span></a></li><li><a class="site-page child" href="/posts/56a16bf9.html"><span> 🐒 教育教学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦘 书籍阅读</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/ComputerScience/"><span> 📖 计算机科学</span></a></li><li><a class="site-page child" href="/Pedagogy/"><span> 📖 教育学</span></a></li><li><a class="site-page child" href="/Psychology/"><span> 📖 心理学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦒 生活片段</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><span> 🎉 说说</span></a></li><li><a class="site-page child" href="/travel/"><span> 🗺️ 旅行</span></a></li><li><a class="site-page child" href="/gallery/"><span> 🖼️ 图库</span></a></li><li><a class="site-page child" href="/music/"><span> 🎸 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 📽️ 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><span> 🐫 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 🐿️ 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">三方库Polly：简介</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-12-15T14:37:00.000Z" title="发表于 2020-12-15 22:37:00">2020-12-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-30T12:49:32.477Z" title="更新于 2025-10-30 20:49:32">2025-10-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/NET%E5%BC%80%E5%8F%91/">.NET开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">885</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>要详细了解就去看仓库的英文wiki，上面介绍的很详细，搜到的英文翻译很烂，中文跟英文意思相差很大！</p>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th>前提</th>
+<th align="center">Aka</th>
+<th>How does the policy mitigate?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Retry</strong> <br/>(policy family)<br/><sub>(<a href="#retry">quickstart</a>&nbsp;;&nbsp;<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/App-vNext/Polly/wiki/Retry">deep</a>)</sub></td>
+<td>许多故障是暂时的，在一段时间后会正常</td>
+<td align="center">“Maybe it’s just a blip”</td>
+<td>允许配置自动重试</td>
+</tr>
+<tr>
+<td><strong>Circuit-breaker</strong><br/>(policy family)<br/><sub>(<a href="#circuit-breaker">quickstart</a>&nbsp;;&nbsp;<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/App-vNext/Polly/wiki/Circuit-Breaker">deep</a>)</sub></td>
+<td>当系统发生严重故障时，快速响应请求失败比让用户等待要好。</td>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td>避免故障系统过载有助于恢复系统。  <br/><br/>Protecting a faulting system from overload can help it recover.</td>
+<td>“Stop doing it if it hurts” <br/><br/>“Give that system a break”</td>
+<td align="center">当系统错误超过预配置的数量，系统将断路一段时间。</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Timeout</strong><br/><sub>(<a href="#timeout">quickstart</a>&nbsp;;&nbsp;<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/App-vNext/Polly/wiki/Timeout">deep</a>)</sub></td>
+<td>超出一定时间的等待，想要得到正确的结果是不太可能的。</td>
+<td align="center">“Don’t wait forever”</td>
+<td>保证调用者不需要等待超过设置的超时。</td>
+</tr>
+<tr>
+<td><strong>Bulkhead Isolation</strong><br/><sub>(<a href="#bulkhead">quickstart</a>&nbsp;;&nbsp;<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/App-vNext/Polly/wiki/Bulkhead">deep</a>)</sub></td>
+<td>When a process faults, multiple failing calls backing up can easily swamp resource (eg threads&#x2F;CPU) in a host.<br/><br/>A faulting downstream system can also cause ‘backed-up’ failing calls upstream.<br/><br/>Both risk a faulting process bringing down a wider system.</td>
+<td align="center">“One fault shouldn’t sink the whole ship”</td>
+<td>Constrains the governed actions to a fixed-size resource pool, isolating their potential  to affect others.</td>
+</tr>
+<tr>
+<td><strong>Cache</strong><br/><sub>(<a href="#cache">quickstart</a>&nbsp;;&nbsp;<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/App-vNext/Polly/wiki/Cache">deep</a>)</sub></td>
+<td>Some proportion of requests may be similar.</td>
+<td align="center">“You’ve asked that one before”</td>
+<td>Provides a response from cache if known. <br/><br/>Stores responses automatically in cache, when first retrieved.</td>
+</tr>
+<tr>
+<td><strong>Fallback</strong><br/><sub>(<a href="#fallback">quickstart</a>&nbsp;;&nbsp;<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/App-vNext/Polly/wiki/Fallback">deep</a>)</sub></td>
+<td>Things will still fail - plan what you will do when that happens.</td>
+<td align="center">“Degrade gracefully”</td>
+<td>Defines an alternative value to be returned (or action to be executed) on failure.</td>
+</tr>
+<tr>
+<td><strong>PolicyWrap</strong><br/><sub>(<a href="#policywrap">quickstart</a>&nbsp;;&nbsp;<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/App-vNext/Polly/wiki/PolicyWrap">deep</a>)</sub></td>
+<td>Different faults require different strategies; resilience means using a combination.</td>
+<td align="center">“Defence in depth”</td>
+<td>Allows any of the above policies to be combined flexibly.</td>
+</tr>
+</tbody></table>
+<h2 id="请求重试"><a href="#请求重试" class="headerlink" title="请求重试"></a>请求重试</h2><p>当发生请求异常或网络错误时, 就重新尝试N次。</p>
+
+
+
+<h2 id="请求超时"><a href="#请求超时" class="headerlink" title="请求超时"></a>请求超时</h2><p>当系统超过一定时间的等待，我们就几乎可以判断不可能会有成功的结果。<br>比如平时一个网络请求瞬间就完成了，如果有一次网络请求超过了 30 秒还没完成，我们就知道这次大概率是不会返回成功的结果了。<br>因此，我们需要设置系统的超时时间，避免系统长时间做无谓的等待。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 超时时间不能超过 30 秒，否则就认为是错误的结果，并执行回调。</span></span><br><span class="line">Policy.Timeout(<span class="number">30</span>, onTimeout: (context, timespan, task) =&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="请求断路-Circuit-breaker"><a href="#请求断路-Circuit-breaker" class="headerlink" title="请求断路(Circuit-breaker)"></a>请求断路(Circuit-breaker)</h2><p>断路： 等待一段时间后再继续。</p>
+<p>当系统遇到严重问题时，快速回馈失败比让用户&#x2F;调用者等待要好，限制系统出错的体量，有助于系统恢复。<br>比如，当我们去调一个第三方的 API，有很长一段时间 API 都没有响应，可能对方服务器瘫痪了。<br>如果我们的系统还不停地重试，不仅会加重系统的负担，还会可能导致系统其它任务受影响。<br>所以，当系统出错的次数超过了指定的阈值，就要中断当前线路，等待一段时间后再继续。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当系统出现两次异常时，就停下来，等待 1 分钟后再继续。</span></span><br><span class="line">Policy.Handle&lt;SomeException&gt;()</span><br><span class="line">      .CircuitBreaker(<span class="number">2</span>, TimeSpan.FromMinutes(<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="AspNetCore实践使用"><a href="#AspNetCore实践使用" class="headerlink" title="AspNetCore实践使用"></a>AspNetCore实践使用</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SendCloudMailProvider</span> : <span class="title">INoticeProvider</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">readonly</span> HttpClient _httpClient;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">readonly</span> ILogger _logger;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">SendCloudMailProvider</span>(<span class="params">HttpClient httpClient, ILogger&lt;SendCloudMailProvider&gt; logger</span>)</span></span><br><span class="line">  &#123;</span><br><span class="line">      _httpClient = httpClient;</span><br><span class="line">      _logger = logger;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Polly;</span><br><span class="line"><span class="keyword">using</span> Polly.Extensions.Http;</span><br><span class="line"></span><br><span class="line">services.AddHttpClient&lt;INoticeProvider, SendCloudMailProvider&gt;()</span><br><span class="line">        .AddPolicyHandler(GetRetryPolicy())</span><br><span class="line">        .AddPolicyHandler(GetCircuitBreakerPolicy());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重试策略</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; <span class="title">GetRetryPolicy</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> HttpPolicyExtensions</span><br><span class="line">      .HandleTransientHttpError()</span><br><span class="line">      .OrResult(msg =&gt; msg.StatusCode == System.Net.HttpStatusCode.NotFound)</span><br><span class="line">      .WaitAndRetryAsync(<span class="number">3</span>, retryAttempt =&gt; TimeSpan.FromMilliseconds(<span class="number">500</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 断路策略</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; <span class="title">GetCircuitBreakerPolicy</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> HttpPolicyExtensions</span><br><span class="line">        .HandleTransientHttpError()</span><br><span class="line">        .CircuitBreakerAsync(<span class="number">5</span>, TimeSpan.FromSeconds(<span class="number">30</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://156256.xyz">断空</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://156256.xyz/posts/954b00f.html">https://156256.xyz/posts/954b00f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://156256.xyz" target="_blank">桃花月落</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/b211bc83.html" title="指定AspNetCore运行地址的方法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">指定AspNetCore运行地址的方法</div></div><div class="info-2"><div class="info-item-1">How to specify the port an ASP.NET Core application is hosted on?In ASP.NET Core 3.1, there are 4 main ways to specify a custom port: Using command line arguments, by starting your .NET application with –urls&#x3D;[url]:1dotnet run --urls=http://localhost:5001/  Using appsettings.json, by adding a Urls node:123&#123;  &quot;Urls&quot;: &quot;http://localhost:5001&quot;&#125;  Using environment variables, with ASPNETCORE_URLS&#x3D;http://localhost:5001/.Using UseUrls(), if you prefer doing it...</div></div></div></a><a class="pagination-related" href="/posts/842cad21.html" title="Go协程的设计"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Go协程的设计</div></div><div class="info-2"><div class="info-item-1">参考文章https://www.zhihu.com/question/20862617https://chasecs.github.io/posts/go-scheduler-introduction/https://morsmachine.dk/go-scheduler </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">断空</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">147</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/pygyme"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/pygyme" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://twitter.com/pygyme" rel="external nofollow noreferrer" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter" style="color: #24292e;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:pygyme@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">请求重试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6"><span class="toc-number">2.</span> <span class="toc-text">请求超时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%AD%E8%B7%AF-Circuit-breaker"><span class="toc-number">3.</span> <span class="toc-text">请求断路(Circuit-breaker)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AspNetCore%E5%AE%9E%E8%B7%B5%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">AspNetCore实践使用</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/0.html" title="无标题">无标题</a><time datetime="2025-11-15T15:08:39.008Z" title="发表于 2025-11-15 23:08:39">2025-11-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/0.html" title="无标题">无标题</a><time datetime="2025-11-15T15:08:25.060Z" title="发表于 2025-11-15 23:08:25">2025-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/47b0ec5d.html" title="（十一）自己动手编写Helm Charts在集群上部署应用"><img src="/images/collections/canvas01/pexels-steve-25974768.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（十一）自己动手编写Helm Charts在集群上部署应用"/></a><div class="content"><a class="title" href="/posts/47b0ec5d.html" title="（十一）自己动手编写Helm Charts在集群上部署应用">（十一）自己动手编写Helm Charts在集群上部署应用</a><time datetime="2025-11-04T12:13:11.000Z" title="发表于 2025-11-04 20:13:11">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/291ede0b.html" title="（十）安装Kubernetes集群客户端工具"><img src="/images/collections/canvas01/pexels-tamanna-rumee-52377920-8754602.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（十）安装Kubernetes集群客户端工具"/></a><div class="content"><a class="title" href="/posts/291ede0b.html" title="（十）安装Kubernetes集群客户端工具">（十）安装Kubernetes集群客户端工具</a><time datetime="2025-11-04T12:13:10.000Z" title="发表于 2025-11-04 20:13:10">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e1891b63.html" title="（九）管理配置Kubernetes集群"><img src="/images/collections/canvas01/pexels-turgay-koca-405356598-14918700.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（九）管理配置Kubernetes集群"/></a><div class="content"><a class="title" href="/posts/e1891b63.html" title="（九）管理配置Kubernetes集群">（九）管理配置Kubernetes集群</a><time datetime="2025-11-04T12:13:09.000Z" title="发表于 2025-11-04 20:13:09">2025-11-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2025 By 断空</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">若我只是恨你，那该有多好；可我们之间，早已没有了言语；至此一生，终究没能突破那枷锁，成了自己最讨厌的那类人；也好，但愿此去能化作尘泥，孑然一身，再无牵挂。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/instant.page/instantpage.js" type="module"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="/pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="/pluginsSrc/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

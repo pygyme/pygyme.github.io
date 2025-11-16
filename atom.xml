@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>桃花月落</title>
+  
+  
+  <link href="https://156256.xyz/atom.xml" rel="self"/>
+  
+  <link href="https://156256.xyz/"/>
+  <updated>2025-11-15T16:38:54.895Z</updated>
+  <id>https://156256.xyz/</id>
+  
+  <author>
+    <name>断空</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://156256.xyz/posts/0.html"/>
+    <id>https://156256.xyz/posts/0.html</id>
+    <published>2025-11-15T15:08:39.008Z</published>
+    <updated>2025-11-15T16:38:54.895Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="图的考察知识点"><a href="#图的考察知识点" class="headerlink" title="图的考察知识点"></a>图的考察知识点</h2><p>概念： 无向图、有向图、有向无环图。 关注图的连通性、图的边是否有权。环又称为回路。</p><p>1、最小生成树<br>2、最短路径（单源最短路径SSSP -&gt; 一对顶点，多源最短路径MSSP -&gt; 所有顶点对）<br>3、强连通分量<br>4、图的表示实现（邻接表）<br>5、拓扑排序（针对有向无环图进行的排序）（如果图有回路，则拓扑排序是不可能的）<br>6、找环（无向图找环、有向图找环）</p><h3 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h3><p>无权最短路径 –&gt; 加权图（Dijkstra算法） –&gt; 具有负边值的图 （结合无权与加权算法进行解决）</p><p>无环图 –&gt;  关键路径分析</p><p>找出所有顶点对之间的最短路径？（多源最短路径MSSP）</p><h3 id="网络流问题"><a href="#网络流问题" class="headerlink" title="网络流问题"></a>网络流问题</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;图的考察知识点&quot;&gt;&lt;a href=&quot;#图的考察知识点&quot; class=&quot;headerlink&quot; title=&quot;图的考察知识点&quot;&gt;&lt;/a&gt;图的考察知识点&lt;/h2&gt;&lt;p&gt;概念： 无向图、有向图、有向无环图。 关注图的连通性、图的边是否有权。环又称为回路。&lt;/p&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://156256.xyz/posts/0.html"/>
+    <id>https://156256.xyz/posts/0.html</id>
+    <published>2025-11-15T15:08:25.060Z</published>
+    <updated>2025-11-15T16:09:44.240Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="树的考察知识点"><a href="#树的考察知识点" class="headerlink" title="树的考察知识点"></a>树的考察知识点</h2><p>主要分为：</p><ul><li>1、树相关</li><li>2、二叉树相关</li></ul><h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><p>1、树的实现（链式存储-链表，线性存储-数组）<br>2、树的遍历（前序遍历，中序变量，后序遍历）（DFS遍历、BFS遍历）<br>3、树的转换 （链式存储 &lt;–&gt; 线性存储 两者之间相互转换）<br>4、最近公共祖先简称 LCA（Lowest Common Ancestor）<br>5、<br>6、Trie树（字典树）</p><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p>1、二叉树的实现<br>2、二叉树的遍历<br>3、二叉搜索树（Binary Search Tree, BST） （常用操作：查找、插入、删除节点）<br>4、平衡的二叉搜索树（AVL树、红黑树、伸展树、替罪羊树）<br>5、特殊概念的二叉树（满二叉树、完全二叉树、）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;树的考察知识点&quot;&gt;&lt;a href=&quot;#树的考察知识点&quot; class=&quot;headerlink&quot; title=&quot;树的考察知识点&quot;&gt;&lt;/a&gt;树的考察知识点&lt;/h2&gt;&lt;p&gt;主要分为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1、树相关&lt;/li&gt;
+&lt;li&gt;2、二叉树相关&lt;/li&gt;
+&lt;/u</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（十一）自己动手编写Helm Charts在集群上部署应用</title>
+    <link href="https://156256.xyz/posts/47b0ec5d.html"/>
+    <id>https://156256.xyz/posts/47b0ec5d.html</id>
+    <published>2025-11-04T12:13:11.000Z</published>
+    <updated>2025-11-03T16:45:26.337Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（十一）自己动手编写Helm-Charts在集群上部署应用"><a href="#（十一）自己动手编写Helm-Charts在集群上部署应用" class="headerlink" title="（十一）自己动手编写Helm Charts在集群上部署应用"></a>（十一）自己动手编写Helm Charts在集群上部署应用</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（十一）自己动手编写Helm-Charts在集群上部署应用&quot;&gt;&lt;a href=&quot;#（十一）自己动手编写Helm-Charts在集群上部署应用&quot; class=&quot;headerlink&quot; title=&quot;（十一）自己动手编写Helm Charts在集群上部署应用&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（十）安装Kubernetes集群客户端工具</title>
+    <link href="https://156256.xyz/posts/291ede0b.html"/>
+    <id>https://156256.xyz/posts/291ede0b.html</id>
+    <published>2025-11-04T12:13:10.000Z</published>
+    <updated>2025-11-03T16:45:26.337Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（十）安装Kubernetes集群客户端工具"><a href="#（十）安装Kubernetes集群客户端工具" class="headerlink" title="（十）安装Kubernetes集群客户端工具"></a>（十）安装Kubernetes集群客户端工具</h1><h2 id="安装-kubectl"><a href="#安装-kubectl" class="headerlink" title="安装 kubectl"></a>安装 kubectl</h2><h2 id="安装-helm"><a href="#安装-helm" class="headerlink" title="安装 helm"></a>安装 helm</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（十）安装Kubernetes集群客户端工具&quot;&gt;&lt;a href=&quot;#（十）安装Kubernetes集群客户端工具&quot; class=&quot;headerlink&quot; title=&quot;（十）安装Kubernetes集群客户端工具&quot;&gt;&lt;/a&gt;（十）安装Kubernetes集群客户端</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（九）管理配置Kubernetes集群</title>
+    <link href="https://156256.xyz/posts/e1891b63.html"/>
+    <id>https://156256.xyz/posts/e1891b63.html</id>
+    <published>2025-11-04T12:13:09.000Z</published>
+    <updated>2025-11-03T16:45:26.336Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（九）管理配置Kubernetes集群"><a href="#（九）管理配置Kubernetes集群" class="headerlink" title="（九）管理配置Kubernetes集群"></a>（九）管理配置Kubernetes集群</h1><h2 id="集群节点打标签"><a href="#集群节点打标签" class="headerlink" title="集群节点打标签"></a>集群节点打标签</h2><h2 id="命名空间创建"><a href="#命名空间创建" class="headerlink" title="命名空间创建"></a>命名空间创建</h2><h2 id="集群用户授权管理"><a href="#集群用户授权管理" class="headerlink" title="集群用户授权管理"></a>集群用户授权管理</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（九）管理配置Kubernetes集群&quot;&gt;&lt;a href=&quot;#（九）管理配置Kubernetes集群&quot; class=&quot;headerlink&quot; title=&quot;（九）管理配置Kubernetes集群&quot;&gt;&lt;/a&gt;（九）管理配置Kubernetes集群&lt;/h1&gt;&lt;h2 i</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（八）安装ingress-nginx作为Ingress控制器</title>
+    <link href="https://156256.xyz/posts/2bfeb460.html"/>
+    <id>https://156256.xyz/posts/2bfeb460.html</id>
+    <published>2025-11-04T12:13:08.000Z</published>
+    <updated>2025-11-03T16:45:26.334Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（八）安装ingress-nginx作为Ingress控制器"><a href="#（八）安装ingress-nginx作为Ingress控制器" class="headerlink" title="（八）安装ingress-nginx作为Ingress控制器"></a>（八）安装ingress-nginx作为Ingress控制器</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx</span><br></pre></td></tr></table></figure><h2 id="使用helm进行安装即可"><a href="#使用helm进行安装即可" class="headerlink" title="使用helm进行安装即可"></a>使用helm进行安装即可</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># shellcheck disable=SC1000-SC9999</span><br><span class="line">set -euo pipefail</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 安装 ingress-nginx</span><br><span class="line">helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx</span><br><span class="line">helm repo update</span><br><span class="line"></span><br><span class="line">helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx --create-namespace --version 4.12.8</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 在k8s集群有负载均衡器的前提下，ingress-nginx会得到一个自由分配的IP地址作为入口， </span><br><span class="line"># 但是自由分配的IP地址，随着服务的重启，是会变化的，你应该在service yaml文件里面，手动指定一个固定IP地址</span><br><span class="line"># 在 namespace/ingress-nginx/service里面，找到  ingress-nginx-controller 服务</span><br><span class="line"># 给 ingress-nginx-controller 服务，设置一个固定的IP地址，作为 ingress-nginx 的入口访问IP地址</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（八）安装ingress-nginx作为Ingress控制器&quot;&gt;&lt;a href=&quot;#（八）安装ingress-nginx作为Ingress控制器&quot; class=&quot;headerlink&quot; title=&quot;（八）安装ingress-nginx作为Ingress控制器&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（七）安装NFS作为Kubernetes集群的存储</title>
+    <link href="https://156256.xyz/posts/b20ec78b.html"/>
+    <id>https://156256.xyz/posts/b20ec78b.html</id>
+    <published>2025-11-04T12:13:07.000Z</published>
+    <updated>2025-11-03T16:45:26.335Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（七）安装NFS作为Kubernetes集群的存储"><a href="#（七）安装NFS作为Kubernetes集群的存储" class="headerlink" title="（七）安装NFS作为Kubernetes集群的存储"></a>（七）安装NFS作为Kubernetes集群的存储</h1><ul><li>安装NFS，配置存储类之后，记得要指定默认存储类，不然某些应用无法正常部署运行。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（七）安装NFS作为Kubernetes集群的存储&quot;&gt;&lt;a href=&quot;#（七）安装NFS作为Kubernetes集群的存储&quot; class=&quot;headerlink&quot; title=&quot;（七）安装NFS作为Kubernetes集群的存储&quot;&gt;&lt;/a&gt;（七）安装NFS作为K</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（六）安装Kuboard作为Kubernetes集群管理面板</title>
+    <link href="https://156256.xyz/posts/6a12d84a.html"/>
+    <id>https://156256.xyz/posts/6a12d84a.html</id>
+    <published>2025-11-04T12:13:06.000Z</published>
+    <updated>2025-11-03T16:45:26.333Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（六）安装Kuboard作为Kubernetes集群管理面板"><a href="#（六）安装Kuboard作为Kubernetes集群管理面板" class="headerlink" title="（六）安装Kuboard作为Kubernetes集群管理面板"></a>（六）安装Kuboard作为Kubernetes集群管理面板</h1><p>因为此次部署的Kubernetes集群是 v1.34.1，因此我们使用 Kuboard V4 进行部署。</p><h2 id="部署-Kuboard-V4-版本"><a href="#部署-Kuboard-V4-版本" class="headerlink" title="部署 Kuboard V4 版本"></a>部署 Kuboard V4 版本</h2><p>1、官网快速开始文档</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://kuboard.cn/v4/install/quickstart.html</span><br><span class="line"></span><br><span class="line"># 好好看这一页文档</span><br></pre></td></tr></table></figure><p>2、注意的点</p><ul><li>直接用 <code>docker-compose.yaml</code> 一键部署就完事了。</li><li><code>docker-compose.yaml</code> 的内容直接使用 快速开始 部分提供的就好。</li><li>复制一下控制面节点的 kubeconfig 文件，Kuboard 使用这个文件导入Kubernetes集群。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（六）安装Kuboard作为Kubernetes集群管理面板&quot;&gt;&lt;a href=&quot;#（六）安装Kuboard作为Kubernetes集群管理面板&quot; class=&quot;headerlink&quot; title=&quot;（六）安装Kuboard作为Kubernetes集群管理面板&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（五）部署负载均衡器MetalLB</title>
+    <link href="https://156256.xyz/posts/3e760edd.html"/>
+    <id>https://156256.xyz/posts/3e760edd.html</id>
+    <published>2025-11-04T12:13:05.000Z</published>
+    <updated>2025-11-03T16:45:26.331Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（五）部署负载均衡器MetalLB"><a href="#（五）部署负载均衡器MetalLB" class="headerlink" title="（五）部署负载均衡器MetalLB"></a>（五）部署负载均衡器MetalLB</h1><h2 id="metallb-Github仓库"><a href="#metallb-Github仓库" class="headerlink" title="metallb Github仓库"></a>metallb Github仓库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/metallb/metallb</span><br><span class="line"></span><br><span class="line">https://github.com/metallb/metallb/releases/tag/v0.15.2</span><br></pre></td></tr></table></figure><ul><li>从Release里面下载源码包 <code>metallb-0.15.2.zip</code>，</li><li>解压得到 <code>metallb-0.15.2\config\manifests\metallb-native.yaml</code> 就是我们需要的文件</li></ul><h2 id="部署负载均衡器MetalLB"><a href="#部署负载均衡器MetalLB" class="headerlink" title="部署负载均衡器MetalLB"></a>部署负载均衡器MetalLB</h2><ul><li>不需要对 <code>metallb-native.yaml</code> 做任何修改，直接<code>kubectl apply</code>就可以了。</li><li>只要你的 kube-flannel 网络是正常运行的，那么 MetalLB 通常也会跟着正常运行。</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f conf/metallb-native-v0.15.2.yaml</span><br></pre></td></tr></table></figure><h2 id="配置负载均衡地址池"><a href="#配置负载均衡地址池" class="headerlink" title="配置负载均衡地址池"></a>配置负载均衡地址池</h2><ul><li>MetalLB 可以给集群部署的服务分配IP地址，因此需要配置好可供分配的地址池。</li></ul><p><code>metallb-layer2.yaml</code> 文件内容如下：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">metallb.io/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">IPAddressPool</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pool01</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">metallb-system</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">addresses:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">172.17</span><span class="number">.100</span><span class="number">.2</span><span class="number">-172.17</span><span class="number">.120</span><span class="number">.255</span></span><br><span class="line"><span class="comment"># 172.17.100.1 用作 ingress 入口地址</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">metallb.io/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">L2Advertisement</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pool01-advertisement</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">metallb-system</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ipAddressPools:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pool01</span></span><br></pre></td></tr></table></figure><p>直接 <code>kubectl apply -f conf/metallb-layer2.yaml</code> 创建地址池并绑定即可。，</p><h2 id="如何检测MetalLB是否正常分配IP地址？"><a href="#如何检测MetalLB是否正常分配IP地址？" class="headerlink" title="如何检测MetalLB是否正常分配IP地址？"></a>如何检测MetalLB是否正常分配IP地址？</h2><p>检测方法是：</p><ul><li>部署一个nginx服务到集群上，手动指定负载均衡IP地址，观察nginx服务是否可以通过负载均衡IP地址进行访问。</li></ul><p><code>metallb-layer2-nginx.yaml</code> 文件内容如下：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">metallb-testing-nginx-deployment</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nginx</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">nginx</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">metallb-testing-nginx-service</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nginx-port</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">LoadBalancer</span></span><br><span class="line">  <span class="attr">loadBalancerIP:</span> <span class="string">http://172.17.100.2</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>使用 <code>curl -vvvvv http://172.17.100.2:80</code>  或者浏览器直接访问该地址进行观察。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（五）部署负载均衡器MetalLB&quot;&gt;&lt;a href=&quot;#（五）部署负载均衡器MetalLB&quot; class=&quot;headerlink&quot; title=&quot;（五）部署负载均衡器MetalLB&quot;&gt;&lt;/a&gt;（五）部署负载均衡器MetalLB&lt;/h1&gt;&lt;h2 id=&quot;metal</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（四）安装Kubeadm组件并创建集群</title>
+    <link href="https://156256.xyz/posts/51844224.html"/>
+    <id>https://156256.xyz/posts/51844224.html</id>
+    <published>2025-11-04T12:13:04.000Z</published>
+    <updated>2025-11-03T16:45:26.332Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（四）安装Kubeadm组件并创建集群"><a href="#（四）安装Kubeadm组件并创建集群" class="headerlink" title="（四）安装Kubeadm组件并创建集群"></a>（四）安装Kubeadm组件并创建集群</h1><h2 id="第一步：-各节点安装kubeadm组件"><a href="#第一步：-各节点安装kubeadm组件" class="headerlink" title="第一步： 各节点安装kubeadm组件"></a>第一步： 各节点安装kubeadm组件</h2><ol><li>添加仓库repo</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">EOF | tee /etc/yum.repos.d/kubernetes.repo </span></span><br><span class="line"><span class="string">[kubernetes]</span></span><br><span class="line"><span class="string">name=Kubernetes</span></span><br><span class="line"><span class="string">baseurl=https://pkgs.k8s.io/core:/stable:/v1.34/rpm/</span></span><br><span class="line"><span class="string">enabled=1</span></span><br><span class="line"><span class="string">gpgcheck=1</span></span><br><span class="line"><span class="string">gpgkey=https://pkgs.k8s.io/core:/stable:/v1.34/rpm/repodata/repomd.xml.key</span></span><br><span class="line"><span class="string">exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure><ol start="2"><li>检查kubeadm版本</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-control-plane-01 ~]# yum list --showduplicates kubeadm --disableexcludes=kubernetes</span><br><span class="line">正在更新 Subscription Management 软件仓库。</span><br><span class="line">上次元数据过期检查：2:18:23 前，执行于 2024年12月20日 星期五 20时09分59秒。</span><br><span class="line">已安装的软件包</span><br><span class="line">kubeadm.x86_64                                              1.31.4-150500.1.1                                         @kubernetes</span><br><span class="line">可安装的软件包</span><br><span class="line">kubeadm.aarch64                                             1.31.0-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.ppc64le                                             1.31.0-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.s390x                                               1.31.0-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.src                                                 1.31.0-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.x86_64                                              1.31.0-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.aarch64                                             1.31.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.ppc64le                                             1.31.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.s390x                                               1.31.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.src                                                 1.31.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.x86_64                                              1.31.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.aarch64                                             1.31.2-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.ppc64le                                             1.31.2-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.s390x                                               1.31.2-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.src                                                 1.31.2-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.x86_64                                              1.31.2-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.aarch64                                             1.31.3-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.ppc64le                                             1.31.3-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.s390x                                               1.31.3-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.src                                                 1.31.3-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.x86_64                                              1.31.3-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.aarch64                                             1.31.4-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.ppc64le                                             1.31.4-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.s390x                                               1.31.4-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.src                                                 1.31.4-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.x86_64                                              1.31.4-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.aarch64                                             1.34.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.ppc64le                                             1.34.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.s390x                                               1.34.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.src                                                 1.34.1-150500.1.1                                         kubernetes </span><br><span class="line">kubeadm.x86_64                                              1.34.1-150500.1.1                                         kubernetes </span><br><span class="line">[root@k8s-control-plane-01 ~]#</span><br></pre></td></tr></table></figure><ol start="3"><li>控制面节点安装kubeadm组件</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y kubeadm-<span class="string">&#x27;1.34.1-*&#x27;</span> kubelet-1.34.1-* kubectl-1.34.1-* --disableexcludes=kubernetes</span><br></pre></td></tr></table></figure><ol start="4"><li>工作面节点安装kubeadm组件</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y kubeadm-<span class="string">&#x27;1.34.1-*&#x27;</span> kubelet-1.34.1-* --disableexcludes=kubernetes</span><br></pre></td></tr></table></figure><h2 id="第二步：创建kubernetes集群"><a href="#第二步：创建kubernetes集群" class="headerlink" title="第二步：创建kubernetes集群"></a>第二步：创建kubernetes集群</h2><h3 id="在-k8s-control-plane-01-节点上初始化"><a href="#在-k8s-control-plane-01-节点上初始化" class="headerlink" title="在 k8s-control-plane-01 节点上初始化"></a>在 k8s-control-plane-01 节点上初始化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-control-plane-01 ~]# kubeadm init --node-name k8s-control-plane-01 \</span><br><span class="line">    --service-cidr 10.96.0.0/12 \</span><br><span class="line">    --pod-network-cidr 10.80.0.0/12 \</span><br><span class="line">    --control-plane-endpoint 172.17.2.10:8443 \</span><br><span class="line">    --cri-socket unix:///var/run/cri-dockerd.sock \</span><br><span class="line">    --upload-certs</span><br><span class="line"></span><br><span class="line">Your Kubernetes control-plane has initialized successfully!</span><br><span class="line"></span><br><span class="line">To start using your cluster, you need to run the following as a regular user:</span><br><span class="line"></span><br><span class="line">  <span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.kube</span><br><span class="line">  <span class="built_in">sudo</span> <span class="built_in">cp</span> -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</span><br><span class="line">  <span class="built_in">sudo</span> <span class="built_in">chown</span> $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) <span class="variable">$HOME</span>/.kube/config</span><br><span class="line"></span><br><span class="line">Alternatively, <span class="keyword">if</span> you are the root user, you can run:</span><br><span class="line"></span><br><span class="line">  <span class="built_in">export</span> KUBECONFIG=/etc/kubernetes/admin.conf</span><br><span class="line"></span><br><span class="line">You should now deploy a pod network to the cluster.</span><br><span class="line">Run <span class="string">&quot;kubectl apply -f [podnetwork].yaml&quot;</span> with one of the options listed at:</span><br><span class="line">  https://kubernetes.io/docs/concepts/cluster-administration/addons/</span><br><span class="line"></span><br><span class="line">You can now <span class="built_in">join</span> any number of control-plane nodes running the following <span class="built_in">command</span> on each as root:</span><br><span class="line"></span><br><span class="line">  kubeadm <span class="built_in">join</span> 172.17.2.10:8443 --token eli0rn.963wwi7jzx4ethmb \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:4c13575009d67012f374fec49707d5d219f37fbfa02e92bb77b387362f9eee11 \</span><br><span class="line">    --control-plane --certificate-key 23bc21c88d26454f04ebf221f46723173d844327982d7e00cbc47cee4a9168ec \</span><br><span class="line">    --cri-socket unix:///var/run/cri-dockerd.sock</span><br><span class="line"></span><br><span class="line">Please note that the certificate-key gives access to cluster sensitive data, keep it secret!</span><br><span class="line">As a safeguard, uploaded-certs will be deleted <span class="keyword">in</span> two hours; If necessary, you can use</span><br><span class="line"><span class="string">&quot;kubeadm init phase upload-certs --upload-certs&quot;</span> to reload certs afterward.</span><br><span class="line"></span><br><span class="line">Then you can <span class="built_in">join</span> any number of worker nodes by running the following on each as root:</span><br><span class="line"></span><br><span class="line">kubeadm <span class="built_in">join</span> 172.17.2.10:8443 --token eli0rn.963wwi7jzx4ethmb \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:4c13575009d67012f374fec49707d5d219f37fbfa02e92bb77b387362f9eee11 \</span><br><span class="line">    --cri-socket unix:///var/run/cri-dockerd.sock</span><br><span class="line"></span><br><span class="line">[root@k8s-control-plane-01 ~]# </span><br><span class="line">[root@k8s-control-plane-01 ~]# <span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.kube &amp;&amp; <span class="built_in">cp</span> -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config &amp;&amp; <span class="built_in">chown</span> $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) <span class="variable">$HOME</span>/.kube/config</span><br></pre></td></tr></table></figure><h3 id="加入集群过程中遇见问题，如何重置节点，重新配置？"><a href="#加入集群过程中遇见问题，如何重置节点，重新配置？" class="headerlink" title="加入集群过程中遇见问题，如何重置节点，重新配置？"></a>加入集群过程中遇见问题，如何重置节点，重新配置？</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">kubeadm reset --cri-socket=unix:///var/run/cri-dockerd.sock</span><br><span class="line"><span class="built_in">rm</span> -rf /etc/cni/net.d</span><br><span class="line">ipvsadm --clear</span><br><span class="line"><span class="built_in">rm</span> -f <span class="string">&quot;<span class="variable">$HOME</span>&quot;</span>/.kube/config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart kubelet</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure><ul><li>执行上面这个脚本内容，即可清除内容，重新尝试加入集群。</li></ul><h3 id="k8s-control-plane-02-节点上加入集群"><a href="#k8s-control-plane-02-节点上加入集群" class="headerlink" title="k8s-control-plane-02 节点上加入集群"></a>k8s-control-plane-02 节点上加入集群</h3><ol><li>从 k8s-control-plane-01 节点上复制 &#x2F;etc&#x2F;kubernetes&#x2F;pki 文件夹的ca证书到 k8s-control-plane-02 节点</li></ol><p>  需要的是ca证书，用于生成客户端证书，不是ca证书的就不需要复制了。 具体参考 pki 文件夹内的文件。</p><ol start="2"><li>执行join命令加入集群</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 172.17.1.150:8443 --token a48275.0alswos0az0f4zla \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:189d94490029faeb388ca098f9b78a6debb021e4852f082e58a69497ba7c05d7 \</span><br><span class="line">    --control-plane \</span><br><span class="line">    --cri-socket unix:///var/run/cri-dockerd.sock</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.kube &amp;&amp; <span class="built_in">cp</span> -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config &amp;&amp; <span class="built_in">chown</span> $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) <span class="variable">$HOME</span>/.kube/config</span><br></pre></td></tr></table></figure><h3 id="k8s-control-plane-03-节点上加入集群"><a href="#k8s-control-plane-03-节点上加入集群" class="headerlink" title="k8s-control-plane-03 节点上加入集群"></a>k8s-control-plane-03 节点上加入集群</h3><ol><li>从 k8s-control-plane-01 节点上复制 &#x2F;etc&#x2F;kubernetes&#x2F;pki 文件夹的ca证书到 k8s-control-plane-03 节点</li></ol><p>  需要的是ca证书，用于生成客户端证书，不是ca证书的就不需要复制了。 具体参考 pki 文件夹内的文件。</p><ol start="2"><li>执行join命令加入集群</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 172.17.1.150:8443 --token a48275.0alswos0az0f4zla \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:189d94490029faeb388ca098f9b78a6debb021e4852f082e58a69497ba7c05d7 \</span><br><span class="line">    --control-plane \</span><br><span class="line">    --cri-socket unix:///var/run/cri-dockerd.sock</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.kube &amp;&amp; <span class="built_in">cp</span> -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config &amp;&amp; <span class="built_in">chown</span> $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) <span class="variable">$HOME</span>/.kube/config</span><br></pre></td></tr></table></figure><h3 id="在-k8s-worker-01-节点上加入集群"><a href="#在-k8s-worker-01-节点上加入集群" class="headerlink" title="在 k8s-worker-01 节点上加入集群"></a>在 k8s-worker-01 节点上加入集群</h3><ol><li>执行join命令加入集群</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 172.17.1.150:8443 --token a48275.0alswos0az0f4zla \</span><br><span class="line">--discovery-token-ca-cert-hash sha256:189d94490029faeb388ca098f9b78a6debb021e4852f082e58a69497ba7c05d7 \</span><br><span class="line">    --cri-socket=unix:///var/run/cri-dockerd.sock</span><br></pre></td></tr></table></figure><h3 id="在-k8s-worker-02-节点上加入集群"><a href="#在-k8s-worker-02-节点上加入集群" class="headerlink" title="在 k8s-worker-02 节点上加入集群"></a>在 k8s-worker-02 节点上加入集群</h3><ol><li>执行join命令加入集群</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 172.17.1.150:8443 --token a48275.0alswos0az0f4zla \</span><br><span class="line">--discovery-token-ca-cert-hash sha256:189d94490029faeb388ca098f9b78a6debb021e4852f082e58a69497ba7c05d7 \</span><br><span class="line">    --cri-socket=unix:///var/run/cri-dockerd.sock</span><br></pre></td></tr></table></figure><h3 id="在-k8s-worker-03-节点上加入集群"><a href="#在-k8s-worker-03-节点上加入集群" class="headerlink" title="在 k8s-worker-03 节点上加入集群"></a>在 k8s-worker-03 节点上加入集群</h3><ol><li>执行join命令加入集群</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 172.17.1.150:8443 --token a48275.0alswos0az0f4zla \</span><br><span class="line">--discovery-token-ca-cert-hash sha256:189d94490029faeb388ca098f9b78a6debb021e4852f082e58a69497ba7c05d7 \</span><br><span class="line">    --cri-socket=unix:///var/run/cri-dockerd.sock</span><br></pre></td></tr></table></figure><h3 id="在-k8s-worker-04-节点上加入集群"><a href="#在-k8s-worker-04-节点上加入集群" class="headerlink" title="在 k8s-worker-04 节点上加入集群"></a>在 k8s-worker-04 节点上加入集群</h3><ol><li>执行join命令加入集群</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 172.17.1.150:8443 --token a48275.0alswos0az0f4zla \</span><br><span class="line">--discovery-token-ca-cert-hash sha256:189d94490029faeb388ca098f9b78a6debb021e4852f082e58a69497ba7c05d7 \</span><br><span class="line">    --cri-socket=unix:///var/run/cri-dockerd.sock</span><br></pre></td></tr></table></figure><h3 id="在-k8s-worker-05-节点上加入集群"><a href="#在-k8s-worker-05-节点上加入集群" class="headerlink" title="在 k8s-worker-05 节点上加入集群"></a>在 k8s-worker-05 节点上加入集群</h3><ol><li>执行join命令加入集群</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 172.17.1.150:8443 --token a48275.0alswos0az0f4zla \</span><br><span class="line">--discovery-token-ca-cert-hash sha256:189d94490029faeb388ca098f9b78a6debb021e4852f082e58a69497ba7c05d7 \</span><br><span class="line">    --cri-socket=unix:///var/run/cri-dockerd.sock</span><br></pre></td></tr></table></figure><h2 id="第三步：-创建flannel网络"><a href="#第三步：-创建flannel网络" class="headerlink" title="第三步： 创建flannel网络"></a>第三步： 创建flannel网络</h2><ol><li>在控制面节点上执行yml文件，创建flannel网络</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f kube-flannel-v0.27.4.yml</span><br></pre></td></tr></table></figure><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/flannel-io/flannel</span><br><span class="line"></span><br><span class="line">https://github.com/flannel-io/flannel/releases/tag/v0.27.4</span><br><span class="line"></span><br><span class="line"># 在Release直接下载  kube-flannel.yml 就好， 下载之后需要配置集群Pod网络段。</span><br></pre></td></tr></table></figure><p>修改 kube-flannel.yml 文件，配置集群Pod网络段为 <code>10.80.0.0/12</code> ，然后就可以 <code>kubectl apply</code>。</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">net-conf.json<span class="punctuation">:</span> |</span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;Network&quot;</span><span class="punctuation">:</span> <span class="string">&quot;10.80.0.0/12&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;EnableNFTables&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Backend&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;Type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vxlan&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><ol start="2"><li>等待大概一分钟左右， 所有的集群节点会变成Ready状态。</li></ol><ul><li>只要 kube-flannel 部署的没什么问题，集群节点相同连通，集群节点会变成Ready状态。</li><li>想要 kube-flannel 部署正常，一定要开机加载前面文章提到的那些内核模块，否则即使集群处于Ready状态，后续部署服务还是会有问题。</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-control-plane-01 ~]# kubectl get nodes</span><br><span class="line">NAME                   STATUS   ROLES           AGE    VERSION</span><br><span class="line">k8s-control-plane-01   Ready    control-plane   113m   v1.31.4</span><br><span class="line">k8s-control-plane-02   Ready    control-plane   109m   v1.31.4</span><br><span class="line">k8s-control-plane-03   Ready    control-plane   104m   v1.31.4</span><br><span class="line">k8s-worker-01          Ready    &lt;none&gt;          101m   v1.31.4</span><br><span class="line">k8s-worker-02          Ready    &lt;none&gt;          98m    v1.31.4</span><br><span class="line">k8s-worker-03          Ready    &lt;none&gt;          98m    v1.31.4</span><br><span class="line">k8s-worker-04          Ready    &lt;none&gt;          98m    v1.31.4</span><br><span class="line">k8s-worker-05          Ready    &lt;none&gt;          98m    v1.31.4</span><br><span class="line">[root@k8s-control-plane-01 ~]#</span><br></pre></td></tr></table></figure><h2 id="第四步：注意kubeadm的坑点"><a href="#第四步：注意kubeadm的坑点" class="headerlink" title="第四步：注意kubeadm的坑点"></a>第四步：注意kubeadm的坑点</h2><h3 id="1-kubeadm-证书有效期为一年，证书失效后，所有的kubeadm服务会无法启动，需要手动生成kubelet客户端证书"><a href="#1-kubeadm-证书有效期为一年，证书失效后，所有的kubeadm服务会无法启动，需要手动生成kubelet客户端证书" class="headerlink" title="1. kubeadm 证书有效期为一年，证书失效后，所有的kubeadm服务会无法启动，需要手动生成kubelet客户端证书"></a>1. kubeadm 证书有效期为一年，证书失效后，所有的kubeadm服务会无法启动，需要手动生成kubelet客户端证书</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查证书有效期</span></span><br><span class="line">kubeadm certs check-expiration</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（四）安装Kubeadm组件并创建集群&quot;&gt;&lt;a href=&quot;#（四）安装Kubeadm组件并创建集群&quot; class=&quot;headerlink&quot; title=&quot;（四）安装Kubeadm组件并创建集群&quot;&gt;&lt;/a&gt;（四）安装Kubeadm组件并创建集群&lt;/h1&gt;&lt;h2 i</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（三）HAProxy与Keepalived实现APIServer高可用</title>
+    <link href="https://156256.xyz/posts/c12237c1.html"/>
+    <id>https://156256.xyz/posts/c12237c1.html</id>
+    <published>2025-11-04T12:13:03.000Z</published>
+    <updated>2025-11-03T16:45:26.330Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（三）HAProxy与Keepalived实现APIServer高可用"><a href="#（三）HAProxy与Keepalived实现APIServer高可用" class="headerlink" title="（三）HAProxy与Keepalived实现APIServer高可用"></a>（三）HAProxy与Keepalived实现APIServer高可用</h1><h2 id="Kubernetes-API-Server-节点信息说明与解决方案"><a href="#Kubernetes-API-Server-节点信息说明与解决方案" class="headerlink" title="Kubernetes API Server 节点信息说明与解决方案"></a>Kubernetes API Server 节点信息说明与解决方案</h2><p>集群有三个控制面节点，6443为 API Server默认端口，三个控制面节点对应的 API Server 地址如下：</p><ul><li>172.17.2.11:6443</li><li>172.17.2.12:6443</li><li>172.17.2.13:6443</li></ul><p>那么如何实现集群控制面节点 API Server 的高可用呢？</p><p>解决方案是：</p><ul><li>每个控制面节点上安装HAProxy，使用8443端口来实现四层反向代理6443端口。</li><li>每个控制面节点上安装Keepalived，配置一个浮动的虚拟IP地址<code>172.17.2.10</code>，在三个节点之间浮动。</li><li>结合起来就是： 使用 172.17.2.10:8443 作为集群 API Server 的访问地址。</li><li>每个数据面节点都使用 <code>172.17.2.10:8443</code> 进行访问。</li><li>这样只要控制面三个节点没有全都挂掉，集群就可以正常进行工作，也就实现了我们想要的集群高可用。</li></ul><h2 id="安装HAProxy与Keepalived"><a href="#安装HAProxy与Keepalived" class="headerlink" title="安装HAProxy与Keepalived"></a>安装HAProxy与Keepalived</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y keepalived haproxy psmisc</span><br><span class="line"></span><br><span class="line">apt-get install -y keepalived haproxy</span><br></pre></td></tr></table></figure><h2 id="HAProxy配置文件示例"><a href="#HAProxy配置文件示例" class="headerlink" title="HAProxy配置文件示例"></a>HAProxy配置文件示例</h2><ul><li>控制面三个节点都要安装并配置HAProxy。</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"># /etc/haproxy/haproxy.cfg</span><br><span class="line"></span><br><span class="line">global</span><br><span class="line">    log /dev/log  local0 warning</span><br><span class="line">    chroot      /var/lib/haproxy</span><br><span class="line">    pidfile     /var/run/haproxy.pid</span><br><span class="line">    maxconn     4000</span><br><span class="line">    user        haproxy</span><br><span class="line">    group       haproxy</span><br><span class="line">    daemon</span><br><span class="line">   stats socket /var/lib/haproxy/stats</span><br><span class="line"></span><br><span class="line">defaults</span><br><span class="line">    mode                    http</span><br><span class="line">    log                     global</span><br><span class="line">    option                  httplog</span><br><span class="line">    option                  dontlognull</span><br><span class="line">    option http-server-close</span><br><span class="line">    option forwardfor       except 127.0.0.0/8</span><br><span class="line">    option                  redispatch</span><br><span class="line">    retries                 1</span><br><span class="line">    timeout http-request    10s</span><br><span class="line">    timeout queue           20s</span><br><span class="line">    timeout connect         5s</span><br><span class="line">    timeout client          20s</span><br><span class="line">    timeout server          20s</span><br><span class="line">    timeout http-keep-alive 10s</span><br><span class="line">    timeout check           10s</span><br><span class="line"></span><br><span class="line">frontend apiserver-frontend</span><br><span class="line">  bind *:8443</span><br><span class="line">  mode tcp</span><br><span class="line">  option tcplog</span><br><span class="line">  default_backend apiserver-backend</span><br><span class="line"></span><br><span class="line">backend apiserver-backend</span><br><span class="line">    option httpchk GET /healthz</span><br><span class="line">    http-check expect status 200</span><br><span class="line">    mode tcp</span><br><span class="line">    option ssl-hello-chk</span><br><span class="line">    balance     roundrobin</span><br><span class="line">    server server01 172.17.2.11:6443 check</span><br><span class="line">    server server02 172.17.2.12:6443 check</span><br><span class="line">    server server03 172.17.2.13:6443 check</span><br></pre></td></tr></table></figure><h2 id="Keepalived配置文件示例"><a href="#Keepalived配置文件示例" class="headerlink" title="Keepalived配置文件示例"></a>Keepalived配置文件示例</h2><ul><li>控制面三个节点都要安装并配置Keepalived。</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># /etc/keepalived/keepalived.conf</span><br><span class="line"></span><br><span class="line">global_defs &#123;</span><br><span class="line">   router_id 172.17.2.11       # 节点ip地址，每个节点配置自己的IP地址</span><br><span class="line">&#125;</span><br><span class="line">vrrp_script chk_api_server &#123;</span><br><span class="line">  script &quot;/etc/keepalived/check_apiserver.sh&quot;</span><br><span class="line">  interval 3</span><br><span class="line">  weight -2</span><br><span class="line">  fall 10</span><br><span class="line">  rise 2</span><br><span class="line">&#125;</span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER</span><br><span class="line">    interface ens18            # 网络接口名，每个节点配置自己的网络接口名</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 100</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass Admin!@#123</span><br><span class="line">    &#125;</span><br><span class="line">    track_script &#123;</span><br><span class="line">         chk_api_server</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        172.17.2.10/16         # 虚拟VIP地址，每个节点统一一致</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（三）HAProxy与Keepalived实现APIServer高可用&quot;&gt;&lt;a href=&quot;#（三）HAProxy与Keepalived实现APIServer高可用&quot; class=&quot;headerlink&quot; title=&quot;（三）HAProxy与Keepalived实</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（二）安装Docker容器运行时</title>
+    <link href="https://156256.xyz/posts/11da3e0.html"/>
+    <id>https://156256.xyz/posts/11da3e0.html</id>
+    <published>2025-11-04T12:13:02.000Z</published>
+    <updated>2025-11-03T16:45:26.325Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（二）安装Docker容器运行时"><a href="#（二）安装Docker容器运行时" class="headerlink" title="（二）安装Docker容器运行时"></a>（二）安装Docker容器运行时</h1><ul><li>需要特别注意的是： Kubernetes集群部署过程中，Docker拉取镜像，由于存在网络问题，因此Docker必须代理，才能正常拉取镜像。</li><li>如果你没有一个速度快的网络代理，那还是别往下看了，网络问题会导致后面的部署各种不顺畅，不建议进行后续部署。</li></ul><h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">rhel</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">一台机器上快速部署 docker-ce</span></span><br><span class="line">set -euo pipefail</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置应用变量</span></span></span><br><span class="line">proxy_addr=&quot;http://172.17.0.1:5071&quot;</span><br><span class="line">pod_cidr=&quot;10.80.0.0/12&quot;</span><br><span class="line">service_cidr=&quot;10.96.0.0/12&quot;</span><br><span class="line">lan_cidr=&quot;172.17.0.0/16&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dnf config-manager --setopt proxy=$proxy_addr --save</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">podman 和 docker-ce 的包存在冲突, 要先卸载 podman</span></span><br><span class="line">dnf remove -y podman</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 安装 docker-ce</span></span></span><br><span class="line">dnf config-manager --add-repo=https://download.docker.com/linux/rhel/docker-ce.repo</span><br><span class="line">dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 安装 dodocker-compose</span></span></span><br><span class="line">install -o root -g root -m 0755 soft/docker-compose-linux-x86_64 /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置 docker http代理</span></span></span><br><span class="line">mkdir -p /etc/systemd/system/docker.service.d</span><br><span class="line">cat &lt;&lt;EOF | tee /etc/systemd/system/docker.service.d/http-proxy.conf</span><br><span class="line">[Service]</span><br><span class="line">Environment=&quot;HTTP_PROXY=$proxy_addr&quot;</span><br><span class="line">Environment=&quot;HTTPS_PROXY=$proxy_addr&quot;</span><br><span class="line">Environment=&quot;NO_PROXY=harbor.local,harbor.k8s.local,.local,.k8s.local,$service_cidr,$pod_cidr,$lan_cidr&quot;</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 重启 docker 服务</span></span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable --now docker.service</span><br><span class="line">systemctl restart docker.service</span><br><span class="line"></span><br><span class="line">systemctl status --no-pager docker.service</span><br></pre></td></tr></table></figure><ul><li>使用上面的脚本在RHEL10上面快速部署Docker，并配置代理，从而确保镜像拉取无网络问题。</li><li><code>10.80.0.0/12</code> 是Kubernetes集群的Pod网段。</li><li><code>10.96.0.0/12</code> 是Kubernetes集群的服务网段。</li><li><code>172.17.0.0/16</code> 是本地局域网网段。</li><li><code>http://172.17.0.1:5071</code> 是HTTP代理地址。</li></ul><h2 id="安装-cri-dockerd"><a href="#安装-cri-dockerd" class="headerlink" title="安装 cri-dockerd"></a>安装 cri-dockerd</h2><p>由于Kubernetes统一了容器运行时接口，不再仅仅依赖Docker，因此在安装完Docker，还需要安装 cri-dockerd，才能将 Docker 作为Kubernetes集群的容器运行时。</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/Mirantis/cri-dockerd</span><br><span class="line"></span><br><span class="line">https://github.com/Mirantis/cri-dockerd/releases/tag/v0.3.21</span><br></pre></td></tr></table></figure><p>下载 <code>cri-dockerd-0.3.21.amd64.tgz</code> 进行安装， 确保 <code>docker.service</code>、<code>cri-docker.service</code>、<code>cri-docker.socket</code> 这几个服务都能正常运行，并设置开机自动启动。</p><h2 id="要注意的点"><a href="#要注意的点" class="headerlink" title="要注意的点"></a>要注意的点</h2><ul><li>Kubernetes集群的每一个节点都需要安装 Docker 和 cri-dockerd 。</li></ul><h2 id="安装-portainer"><a href="#安装-portainer" class="headerlink" title="安装 portainer"></a>安装 portainer</h2><ul><li>portainer 是一个Web管理面板，用于管理Docker，可以让我们避免重复敲Docker命令。</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># shellcheck disable=SC1000-SC9999</span><br><span class="line">set -euo pipefail</span><br><span class="line"></span><br><span class="line">#------------------------------------------------------------------------------#----------------------------------------</span><br><span class="line"># 部署 portainer 服务</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload &amp;&amp; systemctl restart docker.service</span><br><span class="line"></span><br><span class="line">docker volume create portainer_data</span><br><span class="line"></span><br><span class="line"># -p 本地端口：容器端口</span><br><span class="line">docker run -d -p 8000:8000 -p 9443:9443 --name portainer \</span><br><span class="line">    --restart=always \</span><br><span class="line">    -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">    -v portainer_data:/data \</span><br><span class="line">    portainer/portainer-ce:2.33.3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 初始化访问地址：https://localhost:9443</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（二）安装Docker容器运行时&quot;&gt;&lt;a href=&quot;#（二）安装Docker容器运行时&quot; class=&quot;headerlink&quot; title=&quot;（二）安装Docker容器运行时&quot;&gt;&lt;/a&gt;（二）安装Docker容器运行时&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;需要特别注意的是</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>（一）Linux系统优化</title>
+    <link href="https://156256.xyz/posts/b21d2575.html"/>
+    <id>https://156256.xyz/posts/b21d2575.html</id>
+    <published>2025-11-04T12:13:01.000Z</published>
+    <updated>2025-11-03T16:45:26.322Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="（一）Linux系统优化"><a href="#（一）Linux系统优化" class="headerlink" title="（一）Linux系统优化"></a>（一）Linux系统优化</h1><h2 id="节点配置Hosts"><a href="#节点配置Hosts" class="headerlink" title="节点配置Hosts"></a>节点配置Hosts</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># /etc/hosts</span><br><span class="line"># Kubernetes Hosts</span><br><span class="line">172.17.2.11  k8s-control-plane-01</span><br><span class="line">172.17.2.12  k8s-control-plane-02</span><br><span class="line">172.17.2.13  k8s-control-plane-03</span><br><span class="line">172.17.2.21  k8s-worker-01</span><br><span class="line">172.17.2.22  k8s-worker-02</span><br><span class="line">172.17.2.23  k8s-worker-03</span><br><span class="line">172.17.2.24  k8s-worker-04</span><br><span class="line">172.17.2.25  k8s-worker-05</span><br></pre></td></tr></table></figure><ul><li>每个节点上面改成对应的hostname</li></ul><h2 id="优化系统服务"><a href="#优化系统服务" class="headerlink" title="优化系统服务"></a>优化系统服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 安装需要的软件包</span></span><br><span class="line">yum install -y iproute-tc ipvsadm ipset expect sshpass</span><br><span class="line"></span><br><span class="line"><span class="comment">## 关闭防火墙</span></span><br><span class="line">systemctl stop firewalld &amp;&amp; systemctl <span class="built_in">disable</span> firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭 iptables</span></span><br><span class="line"><span class="comment">#iptables -F &amp;&amp; iptables -X &amp;&amp; iptables -F -t nat &amp;&amp; iptables -X -t nat</span></span><br><span class="line"><span class="comment">#iptables -P FORWARD ACCEPT</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 关闭交换空间</span></span><br><span class="line">swapoff -a</span><br><span class="line">sed -i <span class="string">&#x27;/ swap / s/^\(.*\)$/#\1/g&#x27;</span> /etc/fstab</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 关闭SELinux安全机制</span></span><br><span class="line">setenforce 0</span><br><span class="line">sed -i <span class="string">&#x27;s/^SELINUX=.*/SELINUX=permissive/&#x27;</span> /etc/selinux/config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 所有节点设置系统时区</span></span><br><span class="line">timedatectl set-timezone Asia/Shanghai</span><br><span class="line"></span><br><span class="line"><span class="comment">#将当前的 UTC 时间写入硬件时钟</span></span><br><span class="line">timedatectl set-local-rtc 0</span><br><span class="line"></span><br><span class="line"><span class="comment">#重启依赖于系统时间的服务</span></span><br><span class="line">systemctl restart rsyslog </span><br><span class="line">systemctl restart crond</span><br></pre></td></tr></table></figure><h2 id="优化内核参数"><a href="#优化内核参数" class="headerlink" title="优化内核参数"></a>优化内核参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">EOF | tee /etc/sysctl.d/kubernetes.conf</span></span><br><span class="line"><span class="string">net.bridge.bridge-nf-call-iptables=1</span></span><br><span class="line"><span class="string">net.bridge.bridge-nf-call-ip6tables=1</span></span><br><span class="line"><span class="string">net.ipv4.ip_forward=1</span></span><br><span class="line"><span class="string">vm.swappiness=0 # 禁止使用 swap 空间，只有当系统 OOM 时才允许使用它</span></span><br><span class="line"><span class="string">vm.overcommit_memory=1 # 不检查物理内存是否够用</span></span><br><span class="line"><span class="string">vm.panic_on_oom=0 # 开启 OOM</span></span><br><span class="line"><span class="string">fs.inotify.max_user_instances=8192</span></span><br><span class="line"><span class="string">fs.inotify.max_user_watches=1048576</span></span><br><span class="line"><span class="string">fs.file-max=52706963</span></span><br><span class="line"><span class="string">fs.nr_open=52706963</span></span><br><span class="line"><span class="string">net.ipv6.conf.all.disable_ipv6=1</span></span><br><span class="line"><span class="string">net.netfilter.nf_conntrack_max=2310720</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">sysctl -p /etc/sysctl.d/kubernetes.conf</span><br></pre></td></tr></table></figure><h2 id="开机加载内核模块"><a href="#开机加载内核模块" class="headerlink" title="开机加载内核模块"></a>开机加载内核模块</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> br_netfilter &gt; /etc/modules-load.d/br_netfilter.conf</span><br><span class="line"><span class="built_in">echo</span> nf_conntrack &gt; /etc/modules-load.d/nf_conntrack.conf</span><br><span class="line"><span class="built_in">echo</span> ip_vs &gt; /etc/modules-load.d/ip_vs.conf</span><br><span class="line"><span class="built_in">echo</span> ip_vs_rr &gt; /etc/modules-load.d/ip_vs_rr.conf</span><br><span class="line"><span class="built_in">echo</span> ip_vs_wrr &gt; /etc/modules-load.d/ip_vs_wrr.conf</span><br><span class="line"><span class="built_in">echo</span> ip_vs_sh &gt; /etc/modules-load.d/ip_vs_sh.conf</span><br></pre></td></tr></table></figure><ul><li>上面写的是 RHEL10 开机自动加载内核模块的方法，其他Linux系统自己找一下对应的方法，总之就是要开机自动加载这些内核模块。</li><li>如果这些内核模块没有加载，会导致kube-flannel无法正常运行，进一步导致MetalLB无法正常运行，最终结果就是，虽然集群节点已经Ready，但是集群上面部署的服务无法正常启动，一直报错。</li><li>Kubernetes集群的每一个节点都要配置开机自动加载这些内核模块，因为每个节点都需要运行 kube-flannel，否则节点之间无法相互通信。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;（一）Linux系统优化&quot;&gt;&lt;a href=&quot;#（一）Linux系统优化&quot; class=&quot;headerlink&quot; title=&quot;（一）Linux系统优化&quot;&gt;&lt;/a&gt;（一）Linux系统优化&lt;/h1&gt;&lt;h2 id=&quot;节点配置Hosts&quot;&gt;&lt;a href=&quot;#节点配置</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubeadm高可用Kubernetes集群</title>
+    <link href="https://156256.xyz/posts/6f07dab1.html"/>
+    <id>https://156256.xyz/posts/6f07dab1.html</id>
+    <published>2025-11-04T12:13:00.000Z</published>
+    <updated>2025-11-03T16:45:26.324Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kubeadm高可用Kubernetes集群"><a href="#Kubeadm高可用Kubernetes集群" class="headerlink" title="Kubeadm高可用Kubernetes集群"></a>Kubeadm高可用Kubernetes集群</h1><h2 id="Kubernetes集群信息概览"><a href="#Kubernetes集群信息概览" class="headerlink" title="Kubernetes集群信息概览"></a>Kubernetes集群信息概览</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\lukas&gt; kubectl get nodes <span class="literal">-o</span> wide</span><br><span class="line">NAME                   STATUS   ROLES                  AGE   VERSION   INTERNAL<span class="literal">-IP</span>   EXTERNAL<span class="literal">-IP</span>   OS<span class="literal">-IMAGE</span>                                   KERNEL<span class="literal">-VERSION</span>                 CONTAINER<span class="literal">-RUNTIME</span></span><br><span class="line">k8s<span class="literal">-control-plane-01</span>   Ready    control<span class="literal">-plane</span>,master   <span class="number">22</span><span class="built_in">h</span>   v1.<span class="number">34.1</span>   <span class="number">172.17</span>.<span class="number">2.11</span>   &lt;none&gt;        Red Hat Enterprise Linux <span class="number">10.0</span> (Coughlan)   <span class="number">6.12</span>.<span class="number">0</span><span class="literal">-55</span>.<span class="number">41.1</span>.el10_0.x86_64   docker://<span class="number">28.5</span>.<span class="number">1</span></span><br><span class="line">k8s<span class="literal">-control-plane-02</span>   Ready    control<span class="literal">-plane</span>,master   <span class="number">22</span><span class="built_in">h</span>   v1.<span class="number">34.1</span>   <span class="number">172.17</span>.<span class="number">2.12</span>   &lt;none&gt;        Red Hat Enterprise Linux <span class="number">10.0</span> (Coughlan)   <span class="number">6.12</span>.<span class="number">0</span><span class="literal">-55</span>.<span class="number">41.1</span>.el10_0.x86_64   docker://<span class="number">28.5</span>.<span class="number">1</span></span><br><span class="line">k8s<span class="literal">-control-plane-03</span>   Ready    control<span class="literal">-plane</span>,master   <span class="number">22</span><span class="built_in">h</span>   v1.<span class="number">34.1</span>   <span class="number">172.17</span>.<span class="number">2.13</span>   &lt;none&gt;        Red Hat Enterprise Linux <span class="number">10.0</span> (Coughlan)   <span class="number">6.12</span>.<span class="number">0</span><span class="literal">-55</span>.<span class="number">41.1</span>.el10_0.x86_64   docker://<span class="number">28.5</span>.<span class="number">1</span></span><br><span class="line">k8s<span class="literal">-worker-01</span>          Ready    worker                 <span class="number">22</span><span class="built_in">h</span>   v1.<span class="number">34.1</span>   <span class="number">172.17</span>.<span class="number">2.21</span>   &lt;none&gt;        Red Hat Enterprise Linux <span class="number">10.0</span> (Coughlan)   <span class="number">6.12</span>.<span class="number">0</span><span class="literal">-55</span>.<span class="number">41.1</span>.el10_0.x86_64   docker://<span class="number">28.5</span>.<span class="number">1</span></span><br><span class="line">k8s<span class="literal">-worker-02</span>          Ready    worker                 <span class="number">22</span><span class="built_in">h</span>   v1.<span class="number">34.1</span>   <span class="number">172.17</span>.<span class="number">2.22</span>   &lt;none&gt;        Red Hat Enterprise Linux <span class="number">10.0</span> (Coughlan)   <span class="number">6.12</span>.<span class="number">0</span><span class="literal">-55</span>.<span class="number">41.1</span>.el10_0.x86_64   docker://<span class="number">28.5</span>.<span class="number">1</span></span><br><span class="line">k8s<span class="literal">-worker-03</span>          Ready    worker                 <span class="number">22</span><span class="built_in">h</span>   v1.<span class="number">34.1</span>   <span class="number">172.17</span>.<span class="number">2.23</span>   &lt;none&gt;        Red Hat Enterprise Linux <span class="number">10.0</span> (Coughlan)   <span class="number">6.12</span>.<span class="number">0</span><span class="literal">-55</span>.<span class="number">41.1</span>.el10_0.x86_64   docker://<span class="number">28.5</span>.<span class="number">1</span></span><br><span class="line">k8s<span class="literal">-worker-04</span>          Ready    worker                 <span class="number">22</span><span class="built_in">h</span>   v1.<span class="number">34.1</span>   <span class="number">172.17</span>.<span class="number">2.24</span>   &lt;none&gt;        Red Hat Enterprise Linux <span class="number">10.0</span> (Coughlan)   <span class="number">6.12</span>.<span class="number">0</span><span class="literal">-55</span>.<span class="number">41.1</span>.el10_0.x86_64   docker://<span class="number">28.5</span>.<span class="number">1</span></span><br><span class="line">k8s<span class="literal">-worker-05</span>          Ready    worker                 <span class="number">22</span><span class="built_in">h</span>   v1.<span class="number">34.1</span>   <span class="number">172.17</span>.<span class="number">2.25</span>   &lt;none&gt;        Red Hat Enterprise Linux <span class="number">10.0</span> (Coughlan)   <span class="number">6.12</span>.<span class="number">0</span><span class="literal">-55</span>.<span class="number">41.1</span>.el10_0.x86_64   docker://<span class="number">28.5</span>.<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">PS</span> C:\Users\lukas&gt;</span><br></pre></td></tr></table></figure><ul><li>这是一个高可用Kubernetes集群，由3个控制面节点，5个数据面节点构成，使用Kubeadm进行部署。</li><li>每个节点部署在 Red Hat Enterprise Linux 10.0 上面。</li><li>使用 Docker 作为容器运行时，并使用 Portainer 作为Docker管理面板，方便管理Docker容器。</li><li>使用 HAProxy四层反向代理 + Keepalived虚拟VIP 来实现 Kubernetes API Server的高可用。</li><li>使用 Flannel 作为网络插件，打通Kubernetes集群的所有节点，使节点上的Pod可以相互通信。</li><li>使用 MetalLB 作为负载均衡器，让Kubernetes服务可以分配集群外部私有IP地址。</li><li>使用 kuboard 作为Kubernetes集群管理面板，全中文、Kubernetes集群外部署、易安装卸载。</li><li>使用 ingress-nginx 作为Kubernetes集群的Ingress控制器，统一服务访问入口。</li><li>使用 NFS 作为Kubernetes集群的存储卷，方便存储卷分配。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Kubeadm高可用Kubernetes集群&quot;&gt;&lt;a href=&quot;#Kubeadm高可用Kubernetes集群&quot; class=&quot;headerlink&quot; title=&quot;Kubeadm高可用Kubernetes集群&quot;&gt;&lt;/a&gt;Kubeadm高可用Kubernetes</summary>
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://156256.xyz/categories/Kubernetes/"/>
+    
+    <category term="Kubeadm部署集群" scheme="https://156256.xyz/categories/Kubernetes/Kubeadm%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>STL容器库</title>
+    <link href="https://156256.xyz/posts/6c4ebde5.html"/>
+    <id>https://156256.xyz/posts/6c4ebde5.html</id>
+    <published>2025-10-29T02:17:00.000Z</published>
+    <updated>2025-10-30T14:40:10.118Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="STL容器库"><a href="#STL容器库" class="headerlink" title="STL容器库"></a>STL容器库</h1><p>1、顺序容器</p><ul><li><p><code>std::array</code>  ：静态数组，初始化时确定数组长度，后续不允许改变。</p></li><li><p><code>std::vector</code> ：动态数组 </p></li><li><p><code>std::list</code>   ：双向链表 </p></li><li><p><code>std::deque</code>  ：双端队列 </p></li><li><p><code>std::forward_list</code> ：单向链表</p></li><li><p><code>std::inplace_vector</code> ：</p></li></ul><p>2、关联容器（集合、键值对、有序）</p><ul><li><p><code>std::set</code>  ：存储唯一的、已排序的元素集合。 </p></li><li><p><code>std::map</code>  ：存储键值对，键是唯一的，并且会按键进行排序。</p></li><li><p><code>std::multiset</code>  ：</p></li><li><p><code>std::multimap</code>  ：</p></li></ul><p>3、无序关联容器（集合、键值对、无序）</p><ul><li><p><code>std::unordered_set</code> ：存储唯一的元素集合，使用哈希表实现，不保证顺序。</p></li><li><p><code>std::unordered_map</code> ：存储键值对，使用哈希表实现，不保证顺序。</p></li><li><p><code>std::unordered_multiset</code> ：</p></li><li><p><code>std::unordered_multimap</code> ：</p></li></ul><p>4、容器适配器</p><ul><li><code>std::stack</code> ：栈</li><li><code>std::queue</code> ：队列</li><li><code>std::priority_queue</code> ：优先级队列</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;STL容器库&quot;&gt;&lt;a href=&quot;#STL容器库&quot; class=&quot;headerlink&quot; title=&quot;STL容器库&quot;&gt;&lt;/a&gt;STL容器库&lt;/h1&gt;&lt;p&gt;1、顺序容器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;std::array&lt;/code&gt;  ：静态数组，</summary>
+      
+    
+    
+    
+    <category term="C++开发" scheme="https://156256.xyz/categories/C-%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="C++编程语言" scheme="https://156256.xyz/categories/C-%E5%BC%80%E5%8F%91/C-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>14-穷举</title>
+    <link href="https://156256.xyz/posts/2853a75d.html"/>
+    <id>https://156256.xyz/posts/2853a75d.html</id>
+    <published>2025-10-12T10:17:14.000Z</published>
+    <updated>2025-10-30T14:33:01.625Z</updated>
+    
+    
+    
+    
+    <category term="算法学习总结" scheme="https://156256.xyz/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>13-枚举</title>
+    <link href="https://156256.xyz/posts/a8936e94.html"/>
+    <id>https://156256.xyz/posts/a8936e94.html</id>
+    <published>2025-10-12T10:17:13.000Z</published>
+    <updated>2025-10-30T14:32:47.731Z</updated>
+    
+    
+    
+    
+    <category term="算法学习总结" scheme="https://156256.xyz/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>12-差分</title>
+    <link href="https://156256.xyz/posts/a7b3da7d.html"/>
+    <id>https://156256.xyz/posts/a7b3da7d.html</id>
+    <published>2025-10-12T10:17:12.000Z</published>
+    <updated>2025-10-30T14:32:34.247Z</updated>
+    
+    
+    
+    
+    <category term="算法学习总结" scheme="https://156256.xyz/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>11-双指针</title>
+    <link href="https://156256.xyz/posts/d0b050c7.html"/>
+    <id>https://156256.xyz/posts/d0b050c7.html</id>
+    <published>2025-10-12T10:17:11.000Z</published>
+    <updated>2025-10-30T14:32:23.027Z</updated>
+    
+    
+    
+    
+    <category term="算法学习总结" scheme="https://156256.xyz/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>10-前缀和</title>
+    <link href="https://156256.xyz/posts/88fbe3d3.html"/>
+    <id>https://156256.xyz/posts/88fbe3d3.html</id>
+    <published>2025-10-12T10:17:10.000Z</published>
+    <updated>2025-10-30T14:43:13.083Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h1><h2 id="对前缀和的理解"><a href="#对前缀和的理解" class="headerlink" title="对前缀和的理解"></a>对前缀和的理解</h2><ul><li>前缀和：用于快速求区间和。</li><li>差分： 用于高效进行区间修改。</li></ul><p>前缀和是数列的前<code>n</code>项的和， 它是用来预处理的一种方式。</p><h1 id="涉及到的数学知识"><a href="#涉及到的数学知识" class="headerlink" title="涉及到的数学知识"></a>涉及到的数学知识</h1><h2 id="1、同余定理-（此概念来自数论）"><a href="#1、同余定理-（此概念来自数论）" class="headerlink" title="1、同余定理  （此概念来自数论）"></a>1、同余定理  （此概念来自数论）</h2><h3 id="同余定义"><a href="#同余定义" class="headerlink" title="同余定义"></a>同余定义</h3><p>对于两个整数a，b，若它们除以正整数 m 所得的余数相等，则称 a，b 对于模 m 同余。严格来说，存在一个整数 k 使得  <code>a - b = k * m</code>，则称 a , b 对于除数 m 是同余的。一般记做  <code>a ≡ b (mod m)</code> 。</p><p>比如 <code>26 -14 = 12 = 1 * 12</code>， 可以记作 <code>26 ≡ 14 (mod 12)</code></p><h3 id="同余性质"><a href="#同余性质" class="headerlink" title="同余性质"></a>同余性质</h3><ul><li>反身性：a≡a (mod m)</li><li>对称性： 若a≡b(mod m)，则b≡a(mod m)</li><li>传递性： 若a≡b(mod m)，b≡c(mod m)，则a≡c(mod m)</li><li>同余式相加：若a≡b(mod m)，b≡c(mod m)，则a ± c≡b ± d(mod m)</li><li>同余式相乘：若a≡b(mod m)，b≡c(mod m)，则ac≡bd(mod m)</li><li>线性运算：如果a≡b(mod m)，c≡d(mod m)，那么a ± c≡b ± d(mod m)，且a * c≡b * d(mod m)</li><li>除法：若ac ≡ bc (mod m) c≠0 则 a≡ b (mod m&#x2F;gcd(c,m)) 其中gcd(c,m)表示c,m的最大公约数。特殊地 ,gcd(c,m)&#x3D;1 则a ≡ b (mod m)</li><li>幂运算：如果a ≡ b (mod m)，那么a^n ≡ b^n (mod m)</li><li>若a ≡ b (mod m)，n|m,则 a ≡ b (mod n)</li><li>若a ≡ b (mod mi) (i&#x3D;1,2…n) 则 a ≡ b (mod [m1,m2,…mn]) 其中[m1,m2,…mn]表示m1,m2,…mn的最小公倍数.</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前缀和&quot;&gt;&lt;a href=&quot;#前缀和&quot; class=&quot;headerlink&quot; title=&quot;前缀和&quot;&gt;&lt;/a&gt;前缀和&lt;/h1&gt;&lt;h2 id=&quot;对前缀和的理解&quot;&gt;&lt;a href=&quot;#对前缀和的理解&quot; class=&quot;headerlink&quot; title=&quot;对前缀和的理解</summary>
+      
+    
+    
+    
+    <category term="算法学习总结" scheme="https://156256.xyz/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
+    
+    
+  </entry>
+  
+</feed>

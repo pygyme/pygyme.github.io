@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>桃花月落</title><meta name="author" content="断空"><meta name="copyright" content="断空"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="桃花月落">
+<meta property="og:url" content="https://156256.xyz/page/12/index.html">
+<meta property="og:site_name" content="桃花月落">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://156256.xyz/images/avatar.jpg">
+<meta property="article:author" content="断空">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://156256.xyz/images/avatar.jpg"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://156256.xyz/page/12/index.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '桃花月落',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="桃花月落" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">147</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 🏡 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 🐈 文章卡片</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><span> 🫎 分类</span></a></li><li><a class="site-page child" href="/tags/"><span> 🏷️ 标签</span></a></li><li><a class="site-page child" href="/archives/"><span> 🗃️ 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🐆 系列文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/posts/8ee9a54a.html"><span> 🦙 开发技术</span></a></li><li><a class="site-page child" href="/posts/56a16bf9.html"><span> 🐒 教育教学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦘 书籍阅读</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/ComputerScience/"><span> 📖 计算机科学</span></a></li><li><a class="site-page child" href="/Pedagogy/"><span> 📖 教育学</span></a></li><li><a class="site-page child" href="/Psychology/"><span> 📖 心理学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦒 生活片段</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><span> 🎉 说说</span></a></li><li><a class="site-page child" href="/travel/"><span> 🗺️ 旅行</span></a></li><li><a class="site-page child" href="/gallery/"><span> 🖼️ 图库</span></a></li><li><a class="site-page child" href="/music/"><span> 🎸 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 📽️ 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><span> 🐫 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 🐿️ 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/index_img.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/logo.png" alt="Logo"><span class="site-name">桃花月落</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i>🔍 </i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 🏡 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 🐈 文章卡片</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><span> 🫎 分类</span></a></li><li><a class="site-page child" href="/tags/"><span> 🏷️ 标签</span></a></li><li><a class="site-page child" href="/archives/"><span> 🗃️ 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🐆 系列文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/posts/8ee9a54a.html"><span> 🦙 开发技术</span></a></li><li><a class="site-page child" href="/posts/56a16bf9.html"><span> 🐒 教育教学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦘 书籍阅读</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/ComputerScience/"><span> 📖 计算机科学</span></a></li><li><a class="site-page child" href="/Pedagogy/"><span> 📖 教育学</span></a></li><li><a class="site-page child" href="/Psychology/"><span> 📖 心理学</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 🦒 生活片段</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><span> 🎉 说说</span></a></li><li><a class="site-page child" href="/travel/"><span> 🗺️ 旅行</span></a></li><li><a class="site-page child" href="/gallery/"><span> 🖼️ 图库</span></a></li><li><a class="site-page child" href="/music/"><span> 🎸 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 📽️ 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><span> 🐫 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><span> 🐿️ 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">桃花月落</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/pygyme" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://twitter.com/pygyme" rel="external nofollow noreferrer" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter" style="color: #24292e;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:pygyme@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc masonry" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover"><a href="/posts/3.html" title="iotop 命令"><img class="post-bg" src="/images/collections/canvas04/pexels-anniroenkae-5278665.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="iotop 命令"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/3.html" title="iotop 命令">iotop 命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-05T05:22:00.000Z" title="发表于 2023-02-05 13:22:00">2023-02-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">存储管理</a></span></div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/4.html" title="fio 命令"><img class="post-bg" src="/images/collections/canvas04/pexels-anniroenkae-5069889.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="fio 命令"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/4.html" title="fio 命令">fio 命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-05T05:21:00.000Z" title="发表于 2023-02-05 13:21:00">2023-02-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">存储管理</a></span></div><div class="content">fio命令12345[root@localhost kafka]# dnf install fio[root@localhost kafka]# fio --versionfio-3.21[root@localhost kafka]#    </div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/7f5cb13b.html" title="XFS文件系统异常断电修复"><img class="post-bg" src="/images/collections/canvas01/pexels-michael-hamments-736237287-30206897.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="XFS文件系统异常断电修复"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7f5cb13b.html" title="XFS文件系统异常断电修复">XFS文件系统异常断电修复</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-03T07:01:00.000Z" title="发表于 2023-02-03 15:01:00">2023-02-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">存储管理</a></span></div><div class="content">异常断电导致xfs文件系统出错问题描述，因为异常断电，xfs文件系统异常，无法正常开机启动系统。 因为文件系统是基于lvm创建的， 开机启动时，提示  &#x2F;dev&#x2F;pve&#x2F;root 无法挂载到 &#x2F; ， 需要修复。   如何修复？因为磁盘是使用lvm创建的，所有需要先激活卷组和逻辑卷。  扫描卷组  使用 vgscan 扫描，可以发现一个叫 pve 的卷组  激活卷组  1vgchange -ay  pve   注意： 激活卷组，只是激活而已，并没有挂载到系统  现在可以使用 lvscan 查看逻辑卷  修复之前，先尝试看能不能正常挂载  12mkdir /asdfmount /dev/pve/root /asdf  执行 mount 命令发现，无法挂载  使用 xfs_repair 进行修复  先使用 xfs_repair 进行修复。  1xfs_repair /dev/pve/root   如果不行，再使用 -L 选项强制修复， 此选项会清除文件系统的log日志。  1xfs_repair -L...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/47956.html" title="free 命令"><img class="post-bg" src="/images/collections/canvas01/pexels-merlin-11139223.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="free 命令"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/47956.html" title="free 命令">free 命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-03T04:02:00.000Z" title="发表于 2023-02-03 12:02:00">2023-02-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">内存管理</a></span></div><div class="content">free命令free命令可以显示Linux系统中空闲的、已用的物理内存及swap内存,及被内核使用的buffer。 命令语法说明12345678910111213# 命令格式free [参数]# 可选参数-b 　以Byte为单位显示内存使用情况。 -k 　以KB为单位显示内存使用情况。 -m 　以MB为单位显示内存使用情况。-g   以GB为单位显示内存使用情况。-h   根据内存大小自动选择合适的单位显示-o 　不显示缓冲区调节列。 -s&lt;间隔秒数&gt; 　持续观察内存使用状况。-c&lt;显示次数&gt;   和-s配合使用-t 　显示内存总和列。 -V 　显示版本信息。   输出参数说明1234567#显示所有的内存信息，每隔两秒显示一次，一共显示两次[root@slave03 ~]# free -h -s 2 -c 2             total       used       free     shared    buffers     cached  availableMem:          6.6G       5.5G       1.0G...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/7b067625.html" title="Linux系统内存占用分析"><img class="post-bg" src="/images/collections/canvas01/pexels-didsss-3561008.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux系统内存占用分析"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7b067625.html" title="Linux系统内存占用分析">Linux系统内存占用分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-03T04:01:00.000Z" title="发表于 2023-02-03 12:01:00">2023-02-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">内存管理</a></span></div><div class="content">使用 free 命令进行分析1234567[root@k8s-control-plane-02 ~]# free -lwh              total        used        free      shared     buffers       cache   availableMem:          7.5Gi       4.7Gi       1.4Gi        72Mi          0B       1.4Gi       2.4GiLow:          7.5Gi       6.1Gi       1.4GiHigh:            0B          0B          0BSwap:            0B          0B          0B[root@k8s-control-plane-02 ~]#   Total(7.5Gi) &#x3D;  Low used(6.1Gi)   + free(1.4Gi) Low used(6.1Gi) &#x3D; Mem used(4.7Gi)...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/25166.html" title="Linux定时任务 corn表达式"><img class="post-bg" src="/images/collections/canvas01/pexels-merlin-11139214.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux定时任务 corn表达式"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/25166.html" title="Linux定时任务 corn表达式">Linux定时任务 corn表达式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-02T07:03:00.000Z" title="发表于 2023-02-02 15:03:00">2023-02-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">定时任务</a></span></div><div class="content">cron表达式产生的背景cron表达式最初是由Unix操作系统中的cron守护进程所使用的一种语法规则，用于设置定时任务。cron守护进程是Unix系统中的一个后台进程，用于周期性地执行指定的命令或脚本。它可以根据用户的需求，按照指定的时间间隔或时间点来执行任务，通常用于定时备份、清理日志、发送邮件等操作。 为了方便用户设置定时任务，cron守护进程引入了一种简单的语法规则，即cron表达式。cron表达式由6个字段组成，分别表示秒、分、小时、日期、月份和星期几。通过这种语法规则，用户可以非常灵活地设置定时任务，满足不同的需求。 随着Unix操作系统的普及和互联网的发展，cron表达式逐渐成为了一种通用的定时任务设置语法，被广泛应用于各种计算机系统和应用程序中。目前，cron表达式已经成为了计算机科学中的一个基本概念，被包括Java、Python、Ruby等编程语言在内的许多软件框架和库所支持和应用。 cron表达式的语法格式CRON 表达式是一个字符串，以 5 或 6 个空格隔开，分为 6 或 7 个域，每一个域代表一个含义。...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/16726.html" title="使用systemd timer实现定时任务"><img class="post-bg" src="/images/collections/canvas01/pexels-merlin-11139220.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用systemd timer实现定时任务"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/16726.html" title="使用systemd timer实现定时任务">使用systemd timer实现定时任务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-02T07:01:00.000Z" title="发表于 2023-02-02 15:01:00">2023-02-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">定时任务</a></span></div><div class="content">使用systemd timer实现定时任务</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/5.html" title="blkid 命令"><img class="post-bg" src="/images/collections/canvas01/pexels-steve-2014745.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="blkid 命令"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/5.html" title="blkid 命令">blkid 命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-01T07:56:00.000Z" title="发表于 2023-02-01 15:56:00">2023-02-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">存储管理</a></span></div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/26101.html" title="parted 命令"><img class="post-bg" src="/images/collections/canvas01/pexels-steve-2014745.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="parted 命令"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/26101.html" title="parted 命令">parted 命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-01T07:56:00.000Z" title="发表于 2023-02-01 15:56:00">2023-02-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E5%91%BD%E4%BB%A4/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">存储管理</a></span></div><div class="content">磁盘管理工具 parted磁盘分区步骤 1、mklabel     设置分区表 2、unit        设置分区时使用的磁盘容量单位 3、mkpart      设置分区 4、align-check 检查分区是否对齐 4、toggle      设置分区标志  第一步、mklabel 设置分区表12345678910111213141516root@ubuntu2204:~# parted /dev/sdaGNU Parted 3.4Using /dev/sdaWelcome to GNU Parted! Type &#x27;help&#x27; to view a list of commands.(parted) p                                                                Model: QEMU QEMU HARDDISK (scsi)Disk /dev/sda: 275GBSector size (logical/physical): 512B/512BPartition Table:...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/posts/9c421140.html" title="HAProxy四层代理HTTPS"><img class="post-bg" src="/images/collections/canvas02/pexels-pavel-danilyuk-8381870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HAProxy四层代理HTTPS"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/9c421140.html" title="HAProxy四层代理HTTPS">HAProxy四层代理HTTPS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-02T14:37:00.000Z" title="发表于 2022-11-02 22:37:00">2022-11-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">反向代理与负载均衡</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/HAProxy/">HAProxy</a></span></div><div class="content">HAProxy四层代理HTTPSHAProxy配置1234567891011121314151617181920212223242526272829303132global    log /dev/log  local0 warning    chroot      /var/lib/haproxy    pidfile     /var/run/haproxy.pid    maxconn     4000    user        haproxy    group       haproxy    daemon   stats socket /var/lib/haproxy/stats   tune.bufsize 32768defaults  log global  option  httplog  option  dontlognull        timeout connect 5000        timeout client 50000        timeout server 50000frontend apiserver-frontend  bind...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/11/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#content-inner">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/#content-inner">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/13/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">断空</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">147</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">37</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/pygyme"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/pygyme" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://twitter.com/pygyme" rel="external nofollow noreferrer" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter" style="color: #24292e;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-rss" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:pygyme@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/0.html" title="无标题">无标题</a><time datetime="2025-11-15T15:08:39.008Z" title="发表于 2025-11-15 23:08:39">2025-11-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/0.html" title="无标题">无标题</a><time datetime="2025-11-15T15:08:25.060Z" title="发表于 2025-11-15 23:08:25">2025-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/47b0ec5d.html" title="（十一）自己动手编写Helm Charts在集群上部署应用"><img src="/images/collections/canvas01/pexels-steve-25974768.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（十一）自己动手编写Helm Charts在集群上部署应用"/></a><div class="content"><a class="title" href="/posts/47b0ec5d.html" title="（十一）自己动手编写Helm Charts在集群上部署应用">（十一）自己动手编写Helm Charts在集群上部署应用</a><time datetime="2025-11-04T12:13:11.000Z" title="发表于 2025-11-04 20:13:11">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/291ede0b.html" title="（十）安装Kubernetes集群客户端工具"><img src="/images/collections/canvas01/pexels-tamanna-rumee-52377920-8754602.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（十）安装Kubernetes集群客户端工具"/></a><div class="content"><a class="title" href="/posts/291ede0b.html" title="（十）安装Kubernetes集群客户端工具">（十）安装Kubernetes集群客户端工具</a><time datetime="2025-11-04T12:13:10.000Z" title="发表于 2025-11-04 20:13:10">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e1891b63.html" title="（九）管理配置Kubernetes集群"><img src="/images/collections/canvas01/pexels-turgay-koca-405356598-14918700.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（九）管理配置Kubernetes集群"/></a><div class="content"><a class="title" href="/posts/e1891b63.html" title="（九）管理配置Kubernetes集群">（九）管理配置Kubernetes集群</a><time datetime="2025-11-04T12:13:09.000Z" title="发表于 2025-11-04 20:13:09">2025-11-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/NET%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">.NET开发</span><span class="card-category-list-count">39</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/NET%E5%BC%80%E5%8F%91/NET-Runtime/"><span class="card-category-list-name">.NET Runtime</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/NET%E5%BC%80%E5%8F%91/ASP-NET-Core/"><span class="card-category-list-name">ASP.NET Core</span><span class="card-category-list-count">4</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">C++开发</span><span class="card-category-list-count">19</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%BC%80%E5%8F%91/C-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="card-category-list-name">C++编程语言</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%BC%80%E5%8F%91/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"><span class="card-category-list-name">第三方库</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%BC%80%E5%8F%91/%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F/"><span class="card-category-list-name">编译系统</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">调试工具</span><span class="card-category-list-count">3</span></a></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 1.17em; color: #999c9f">内存管理</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/Golang/" style="font-size: 1.1em; color: #999">Golang</a> <a href="/tags/Go-Runtime/" style="font-size: 1.1em; color: #999">Go-Runtime</a> <a href="/tags/NET-Runtime/" style="font-size: 1.1em; color: #999">.NET Runtime</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 1.17em; color: #999c9f">定时任务</a> <a href="/tags/Redis/" style="font-size: 1.37em; color: #99a4b2">Redis</a> <a href="/tags/vcpkg/" style="font-size: 1.1em; color: #999">vcpkg</a> <a href="/tags/Tern/" style="font-size: 1.1em; color: #999">Tern</a> <a href="/tags/%E7%A3%81%E7%9B%98%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" style="font-size: 1.3em; color: #99a1ac">磁盘性能分析</a> <a href="/tags/Git/" style="font-size: 1.43em; color: #99a6b9">Git</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">文件管理</a> <a href="/tags/Node-js/" style="font-size: 1.1em; color: #999">Node.js</a> <a href="/tags/EFCore/" style="font-size: 1.1em; color: #999">EFCore</a> <a href="/tags/Gin%E7%B4%A2%E5%BC%95/" style="font-size: 1.1em; color: #999">Gin索引</a> <a href="/tags/%E5%8D%8F%E4%BD%9C%E5%BC%8F%E5%8F%96%E6%B6%88/" style="font-size: 1.3em; color: #99a1ac">协作式取消</a> <a href="/tags/Goroutine/" style="font-size: 1.1em; color: #999">Goroutine</a> <a href="/tags/async-await/" style="font-size: 1.5em; color: #99a9bf">async await</a> <a href="/tags/GORM/" style="font-size: 1.1em; color: #999">GORM</a> <a href="/tags/Gin/" style="font-size: 1.1em; color: #999">Gin</a> <a href="/tags/%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/" style="font-size: 1.23em; color: #999ea6">存储管理</a> <a href="/tags/GDB/" style="font-size: 1.1em; color: #999">GDB</a> <a href="/tags/PGX/" style="font-size: 1.1em; color: #999">PGX</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">14</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">15</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/06/">
+            <span class="card-archive-list-date">
+              六月 2024
+            </span>
+            <span class="card-archive-list-count">28</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/05/">
+            <span class="card-archive-list-date">
+              五月 2024
+            </span>
+            <span class="card-archive-list-count">15</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/03/">
+            <span class="card-archive-list-date">
+              三月 2024
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/02/">
+            <span class="card-archive-list-date">
+              二月 2024
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2025 By 断空</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">若我只是恨你，那该有多好；可我们之间，早已没有了言语；至此一生，终究没能突破那枷锁，成了自己最讨厌的那类人；也好，但愿此去能化作尘泥，孑然一身，再无牵挂。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/instant.page/instantpage.js" type="module"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('/pluginsSrc/typed.js/dist/typed.umd.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["明月几时有，把酒问青天。","对酒当歌，人生几何！","五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。"])
+  } else {
+    document.getElementById("subtitle").textContent = "明月几时有，把酒问青天。"
+  }
+}
+typedJSFn.run(subtitleType)</script></div><canvas class="fireworks" mobile="false"></canvas><script src="/pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="/pluginsSrc/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

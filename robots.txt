@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pygyme.com/sitemap.xml
+Sitemap: https://pygyme.com/baidusitemap.xml
